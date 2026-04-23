@@ -1,0 +1,41 @@
+==========================================================================================
+INFORME ESTRATÉGICO DE VIABILIDAD - MODELO DE PREDICCIÓN
+==========================================================================================
+Análisis generado el: 2026-02-26 16:08
+Datos: 172 posts | Ventana: D | Fuente: datos_con_pilares.csv
+------------------------------------------------------------------------------------------
+
+[1. DIAGNÓSTICO DE ÉXITO]
+-> Aceptación Social Actual (Heurística): 70.6%
+-> Probabilidad Real de Éxito (Modelo GMM): 54.6%
+
+⚠️ ALERTA: 'FRAGILIDAD OCULTA'. La aceptación parece alta en la superficie,
+   pero el modelo detecta patrones de riesgo que bajan la viabilidad real.
+
+[2. FIABILIDAD DEL PRONÓSTICO]
+🟢 CONFIANZA ALTA (92.4%): El volumen de datos es robusto y los patrones
+   son claros. Este informe es una base sólida para tomar decisiones.
+
+[3. RADIOGRAFÍA DE RIESGOS (Escala 0 a 1)]
+Dimensión de Riesgo            | Valor  | Estado       | Definición
+------------------------------------------------------------------------------------------
+Polarization                   | 0.00   | ✅ BAJO       | Grado de división: mide si la opinión está partida en dos bandos enfrentados.
+Negativity Momentum            | 0.56   | ⚠️ MEDIO     | Tendencia: mide si las críticas están creciendo a gran velocidad.
+Negative Amplification         | 1.00   | 🚨 CRÍTICO    | Viralidad: mide si los mensajes negativos se comparten más que los positivos.
+Negative Influence             | 1.00   | 🚨 CRÍTICO    | Poder de difusión: mide si las cuentas con muchos seguidores están atacando.
+Narrative Concentration        | 0.04   | ✅ BAJO       | Enfoque de críticas: mide si los ataques se centran en un solo punto débil.
+Negative User Concentration    | 0.00   | ✅ BAJO       | Efecto eco: mide si las críticas vienen de unos pocos usuarios o de muchos.
+Negativity Persistence         | 1.00   | 🚨 CRÍTICO    | Resistencia: mide cuánto tiempo lleva el conflicto activo sin calmarse.
+
+[4. DINÁMICA ESTRUCTURAL]
+-> Factor más SENSIBLE: 'Narrative Concentration'
+   (Es la variable que más 'mueve la aguja' del éxito debido a su importancia histórica).
+-> Amenaza más URGENTE: 'Negative Amplification'
+   (Es el riesgo con valor más alto hoy; es prioritario mitigar esta dimensión).
+
+[5. PATRÓN DE COMPORTAMIENTO IDENTIFICADO]
+El sistema se encuentra en un estado de: MEDIUM RISK
+
+==========================================================================================
+INFORME GENERADO AUTOMÁTICAMENTE - BASADO EN JUSTIFICACIÓN METODOLÓGICA GMM + ENTROPÍA
+==========================================================================================

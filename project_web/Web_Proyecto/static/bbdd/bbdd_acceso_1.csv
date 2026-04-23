@@ -1,0 +1,6 @@
+username,password,role,first_name,last_name,email,phone,id
+admin,admin,admin,Administrador,Del sitio Web,admin@admin.com,666123123,ffffffff-ffff-ffff-ffff-ffffffffff01
+analista,analista,analista,Analista,Del Big Data,analista@analista.com,666123122,ffffffff-ffff-ffff-ffff-ffffffffff11
+user,user,user,Usuario,Por Defecto,user@user.com,666123120,ffffffff-ffff-ffff-ffff-ffffffffff12
+juan,abcd,user_basic,Juan,De la Sierra,juan01@gmail.com,666123124,ffffffff-ffff-ffff-ffff-ffffffffff02
+maria,pass123,user_plus,Maria,De los Santos,maria02@gmail.com,666123125,ffffffff-ffff-ffff-ffff-ffffffffff03

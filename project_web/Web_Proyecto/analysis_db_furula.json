@@ -1,0 +1,3142 @@
+[
+    {
+        "id": "7de16e34-b9de-419c-8c59-773e2f708135",
+        "project_name": "graficas_prueba",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\graficas_prueba",
+        "status": "deleted",
+        "created_at": "2026-02-09T09:52:25.410206"
+    },
+    {
+        "id": "0dfa342f-45bb-4366-8252-873ba797bb67",
+        "project_name": "grafica_prueba1",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\grafica_prueba1",
+        "status": "deleted",
+        "created_at": "2026-02-09T10:25:58.480191"
+    },
+    {
+        "id": "0fe6ea0a-e342-4d77-be40-3cedac159037",
+        "project_name": "grafica_prueeba",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores en valencia",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\grafica_prueeba",
+        "sources": [
+            "bluesky",
+            "reddit"
+        ],
+        "keywords": "adultos mayores",
+        "languages": [
+            "Castellano"
+        ],
+        "geo_scope": "Provincia de Valencia",
+        "status": "deleted",
+        "created_at": "2026-02-09T11:33:07.451136"
+    },
+    {
+        "id": "b06ede6e-da74-4e37-938a-7610e622ea88",
+        "project_name": "nuvols",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores en valencia",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\nuvols",
+        "sources": [
+            "reddit"
+        ],
+        "keywords": "adultos mayores",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Portugues",
+            "Frances",
+            "Italiano"
+        ],
+        "geo_scope": "Provincia de Valencia",
+        "status": "deleted",
+        "created_at": "2026-02-09T12:15:34.604879"
+    },
+    {
+        "id": "4af8c35e-ec65-40fb-ba44-292d8bfef25a",
+        "project_name": "prueba idioma",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores en valencia",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_idioma",
+        "sources": [
+            "bluesky",
+            "reddit"
+        ],
+        "keywords": "adultos mayores",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Portugues",
+            "Frances",
+            "Italiano"
+        ],
+        "geo_scope": "Provincia de Valencia",
+        "status": "deleted",
+        "created_at": "2026-02-09T14:18:32.714949"
+    },
+    {
+        "id": "104fed4f-1fc5-4ec8-9daf-a93784f51685",
+        "project_name": "prueba_lunes9_2",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores en valencia",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_lunes9_2",
+        "sources": [
+            "bluesky",
+            "reddit"
+        ],
+        "keywords": "adultos mayores",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Portugues",
+            "Frances",
+            "Italiano"
+        ],
+        "geo_scope": "Provincia de Valencia",
+        "status": "deleted",
+        "created_at": "2026-02-09T14:40:05.312844"
+    },
+    {
+        "id": "5cac1245-83b2-4455-8491-a970ef094525",
+        "project_name": "prueba idioma",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores en valencia",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_idioma (1)",
+        "sources": [
+            "bluesky"
+        ],
+        "keywords": "[object Object]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Portugues",
+            "Frances",
+            "Italiano"
+        ],
+        "geo_scope": "Provincia de Valencia",
+        "status": "deleted",
+        "created_at": "2026-02-10T07:42:53.935917"
+    },
+    {
+        "id": "71c3b723-2a79-4fdc-a66b-f3b3567dc85d",
+        "project_name": "prueba idioma",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores en valencia",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_idioma (2)",
+        "sources": [
+            "bluesky",
+            "reddit"
+        ],
+        "keywords": "[{\"keyword\":\"adultos mayores\",\"languages\":\"Catalan\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Portugues",
+            "Frances",
+            "Italiano"
+        ],
+        "geo_scope": "Provincia de Valencia",
+        "status": "deleted",
+        "created_at": "2026-02-10T08:12:11.446818"
+    },
+    {
+        "id": "0ccd3599-4309-4dd7-ad05-81a20ad183b5",
+        "project_name": "for nuvols",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores en valencia",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\for_nuvols",
+        "sources": [
+            "bluesky",
+            "reddit"
+        ],
+        "keywords": "[{\"keyword\":\"adultos mayores\",\"languages\":\"Catalan\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Portugues",
+            "Frances",
+            "Italiano"
+        ],
+        "geo_scope": "Provincia de Valencia",
+        "status": "deleted",
+        "created_at": "2026-02-10T08:54:05.441132"
+    },
+    {
+        "id": "f5423915-c72e-4b06-9f33-3113c927ae31",
+        "project_name": "prueba_nuvols",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores en valencia",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_nuvols",
+        "sources": [
+            "bluesky",
+            "reddit"
+        ],
+        "keywords": "[{\"keyword\":\"adultos mayores\",\"languages\":\"Catalan\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Portugues",
+            "Frances",
+            "Italiano"
+        ],
+        "geo_scope": "Provincia de Valencia",
+        "status": "deleted",
+        "created_at": "2026-02-10T09:47:44.649694"
+    },
+    {
+        "id": "95378b72-20e0-4b45-a798-becebf46062d",
+        "project_name": "prueba_nuvols",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores en valencia",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_nuvols (1)",
+        "sources": [
+            "reddit"
+        ],
+        "keywords": "[{\"keyword\":\"adultos mayores\",\"languages\":\"Catalan\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Portugues",
+            "Frances",
+            "Italiano"
+        ],
+        "geo_scope": "Provincia de Valencia",
+        "status": "deleted",
+        "created_at": "2026-02-10T10:14:27.847148"
+    },
+    {
+        "id": "7769add4-46f4-4049-bf00-d002d0db9a9d",
+        "project_name": "nuvols2",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores en valencia",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\nuvols2",
+        "sources": [
+            "reddit"
+        ],
+        "keywords": "[{\"keyword\":\"adultos mayores\",\"languages\":\"Catalan\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Portugues",
+            "Frances",
+            "Italiano"
+        ],
+        "geo_scope": "Provincia de Valencia",
+        "status": "deleted",
+        "created_at": "2026-02-10T10:30:36.931524"
+    },
+    {
+        "id": "08bdae34-a3ac-4c79-8f56-c977f6904fae",
+        "project_name": "nuvols3",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores en valencia",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\nuvols3",
+        "sources": [
+            "bluesky",
+            "reddit"
+        ],
+        "keywords": "[{\"keyword\":\"adultos mayores\",\"languages\":\"Catalan\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Portugues",
+            "Frances",
+            "Italiano"
+        ],
+        "geo_scope": "Provincia de Valencia",
+        "status": "deleted",
+        "created_at": "2026-02-10T10:40:09.896646"
+    },
+    {
+        "id": "7abbecde-8fa4-41ee-8179-63b99fe1ae06",
+        "project_name": "nubes",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\nubes",
+        "status": "deleted",
+        "created_at": "2026-02-10T11:00:27.535577"
+    },
+    {
+        "id": "ddd45fbd-8100-45aa-aa7b-0fd0233481a8",
+        "project_name": "nube",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\nube",
+        "status": "deleted",
+        "created_at": "2026-02-10T11:17:50.404458"
+    },
+    {
+        "id": "1e4f565c-6953-4f42-a326-38a0b76320af",
+        "project_name": "nube (1)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\nube (1)",
+        "status": "deleted",
+        "created_at": "2026-02-10T11:29:37.019004"
+    },
+    {
+        "id": "5d8acd89-fd4b-4c3e-b726-e4b1c679ec87",
+        "project_name": "prueba",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores en valencia",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba",
+        "sources": [
+            "bluesky",
+            "reddit"
+        ],
+        "keywords": "[{\"keyword\":\"adultos mayores\",\"languages\":\"aqui va el idioma1 del t\u00e9rmino clave 2, idioma2 del t\u00e9rmino clave 2\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Portugues",
+            "Frances",
+            "Italiano"
+        ],
+        "geo_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-10T11:39:35.583717"
+    },
+    {
+        "id": "52e13496-3606-4bdf-aaa7-029e7c21b745",
+        "project_name": "prueba nube",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_nube",
+        "sources": [
+            "bluesky",
+            "reddit"
+        ],
+        "keywords": "[{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "geo_scope": "Provincia de Valencia",
+        "status": "deleted",
+        "created_at": "2026-02-10T12:08:55.355757"
+    },
+    {
+        "id": "e5b581db-7e5b-4910-922a-dc985e30d9a1",
+        "project_name": "pruebAA",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\pruebAA",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "geo_scope": "Provincia de Valencia",
+        "status": "deleted",
+        "created_at": "2026-02-10T12:32:47.505819"
+    },
+    {
+        "id": "7310f7b3-5370-4de7-abf6-a36e2f34a799",
+        "project_name": "pruebAA",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\pruebAA (1)",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "geo_scope": "Provincia de Valencia",
+        "status": "deleted",
+        "created_at": "2026-02-10T12:38:10.592111"
+    },
+    {
+        "id": "800a4116-960f-45b1-bfab-f3959f08419f",
+        "project_name": "prueba_nube (1)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_nube (1)",
+        "status": "deleted",
+        "created_at": "2026-02-10T14:24:41.666892"
+    },
+    {
+        "id": "1706f4d0-86a7-429e-b119-18c46e4ed6a9",
+        "project_name": "prueba_nube (2)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_nube (2)",
+        "status": "deleted",
+        "created_at": "2026-02-10T14:30:51.947822"
+    },
+    {
+        "id": "da571b8b-c2d9-43cf-b331-4110799829c4",
+        "project_name": "prueba_nube (3)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_nube (3)",
+        "status": "deleted",
+        "created_at": "2026-02-10T14:39:18.069063"
+    },
+    {
+        "id": "3cc16e45-7047-4688-80f3-63e8e13b0bc7",
+        "project_name": "prueba_nube (4)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_nube (4)",
+        "status": "deleted",
+        "created_at": "2026-02-10T14:39:24.155762"
+    },
+    {
+        "id": "9aa43c5b-725d-48d1-b4cb-b4d208cc49e1",
+        "project_name": "prueba",
+        "tema": null,
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores viaje\",\"languages\":\"Castellano\"},{\"keyword\":\"moverse adultos mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad personas mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores transporte\",\"languages\":\"Castellano\"},{\"keyword\":\"moverse adultos mayores ciudad\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad personas mayores ciudad\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores viajar\",\"languages\":\"Castellano\"},{\"keyword\":\"moverse adultos mayores ciudad\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad personas mayores ciudad\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "geo_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-10T14:47:58.175064"
+    },
+    {
+        "id": "9aa43c5b-725d-48d1-b4cb-b4d208cc49e1",
+        "project_name": "prueba",
+        "tema": null,
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores viaje\",\"languages\":\"Castellano\"},{\"keyword\":\"moverse adultos mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad personas mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores transporte\",\"languages\":\"Castellano\"},{\"keyword\":\"moverse adultos mayores ciudad\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad personas mayores ciudad\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores viajar\",\"languages\":\"Castellano\"},{\"keyword\":\"moverse adultos mayores ciudad\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad personas mayores ciudad\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "geo_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-10T14:47:58.175064"
+    },
+    {
+        "id": "2229a8ee-df2d-4dcd-adab-730108f2b84b",
+        "project_name": "11_feb",
+        "tema": null,
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\11_feb",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad adultos mayores\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "geo_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-11T09:13:27.268336"
+    },
+    {
+        "id": "0705ba43-ae52-4b9d-a7a8-329173e3da95",
+        "project_name": "prueba_git",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_git",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.415629"
+    },
+    {
+        "id": "58729b0d-b8f0-4da0-bf09-dcfa566c6a6b",
+        "project_name": "prueba_git (1)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_git (1)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.365219"
+    },
+    {
+        "id": "48a40945-bc6c-4f40-bec2-a91a675076f5",
+        "project_name": "prueba_visualizaci\u00f3n",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.690991"
+    },
+    {
+        "id": "a687354e-6937-4163-b99d-38e668dccc20",
+        "project_name": "prueba_visualizaci\u00f3n (1)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (1)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.567978"
+    },
+    {
+        "id": "54ba04fa-943d-4a44-9a3b-fdeec0a30921",
+        "project_name": "prueba_visualizaci\u00f3n (10)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (10)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.571390"
+    },
+    {
+        "id": "bf1bea4e-4ba9-4d08-b116-86d4f76b53bb",
+        "project_name": "prueba_visualizaci\u00f3n (11)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (11)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.578699"
+    },
+    {
+        "id": "e7879780-6d18-421b-a8f5-45bfe6c09ed1",
+        "project_name": "prueba_visualizaci\u00f3n (12)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (12)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.584679"
+    },
+    {
+        "id": "84957e89-73d2-4565-a198-73eb983273da",
+        "project_name": "prueba_visualizaci\u00f3n (13)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (13)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.588774"
+    },
+    {
+        "id": "6d1d237a-f283-45e0-9b4b-ad5aca7805b3",
+        "project_name": "prueba_visualizaci\u00f3n (2)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (2)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.599891"
+    },
+    {
+        "id": "44a8bd69-2790-40ea-9456-27d417b7b061",
+        "project_name": "prueba_visualizaci\u00f3n (3)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (3)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.606041"
+    },
+    {
+        "id": "ed989790-4239-4474-aab0-70dcb0f30183",
+        "project_name": "prueba_visualizaci\u00f3n (4)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (4)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.610535"
+    },
+    {
+        "id": "cb292202-94ee-4c64-ac90-1e9a26d1793e",
+        "project_name": "prueba_visualizaci\u00f3n (5)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (5)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.614442"
+    },
+    {
+        "id": "55847639-51a6-4670-8c8f-cc9124c43d11",
+        "project_name": "prueba_visualizaci\u00f3n (6)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (6)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.634449"
+    },
+    {
+        "id": "33dee00e-5384-4a34-a491-8b438247d9ab",
+        "project_name": "prueba_visualizaci\u00f3n (7)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (7)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.642024"
+    },
+    {
+        "id": "2c170f37-310b-4251-895d-5e0584060e67",
+        "project_name": "prueba_visualizaci\u00f3n (8)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (8)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.658211"
+    },
+    {
+        "id": "65537dd3-5355-4fdb-af76-c95711bccdc3",
+        "project_name": "prueba_visualizaci\u00f3n (9)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (9)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.664161"
+    },
+    {
+        "id": "a6a23537-d4cf-4c77-8bba-4126f4511c37",
+        "project_name": "V16",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\V16",
+        "status": "deleted",
+        "created_at": "2026-02-10T16:46:33.233166"
+    },
+    {
+        "id": "72f324d0-7757-4a2a-ab0c-beddb0649c12",
+        "project_name": "provar els nuvols",
+        "tema": null,
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\provar_els_nuvols",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"adults mobility public opinion\",\"languages\":\"Castellano, Catal\u00e0\"},{\"keyword\":\"opini\u00f3 p\u00fablica moviment adultes ancians\",\"languages\":\"Catal\u00e0\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan"
+        ],
+        "geo_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-11T10:45:36.329568"
+    },
+    {
+        "id": "72f324d0-7757-4a2a-ab0c-beddb0649c12",
+        "project_name": "provar els nuvols",
+        "tema": null,
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\provar_els_nuvols",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"adults mobility public opinion\",\"languages\":\"Castellano, Catal\u00e0\"},{\"keyword\":\"opini\u00f3 p\u00fablica moviment adultes ancians\",\"languages\":\"Catal\u00e0\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan"
+        ],
+        "geo_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-11T10:45:36.329568"
+    },
+    {
+        "id": "7af61e1e-e989-44b5-9a02-fcd32b7cc086",
+        "project_name": "prova_nuvols",
+        "tema": null,
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prova_nuvols",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad adultos mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"mobilitat persones grans\",\"languages\":\"Catalan\"},{\"keyword\":\"transporte personas mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"transport gent gran\",\"languages\":\"Catalan\"},{\"keyword\":\"ajudes mobilitat ancians\",\"languages\":\"Catalan\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan"
+        ],
+        "geo_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-11T11:24:41.417937"
+    },
+    {
+        "id": "7af61e1e-e989-44b5-9a02-fcd32b7cc086",
+        "project_name": "prova_nuvols",
+        "tema": null,
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prova_nuvols",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad adultos mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"mobilitat persones grans\",\"languages\":\"Catalan\"},{\"keyword\":\"transporte personas mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"transport gent gran\",\"languages\":\"Catalan\"},{\"keyword\":\"ajudes mobilitat ancians\",\"languages\":\"Catalan\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan"
+        ],
+        "geo_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-11T11:24:41.417937"
+    },
+    {
+        "id": "89cde9db-713c-43d0-b017-b02aa0f275aa",
+        "project_name": "prueba all",
+        "tema": null,
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_all",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad adultos mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"transporte personas mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adaptaci\u00f3n calles mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"transporte p\u00fablico mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"facilitar movilidad adultos\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad urbana mayores\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "geo_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-11T13:17:00.552469"
+    },
+    {
+        "id": "89cde9db-713c-43d0-b017-b02aa0f275aa",
+        "project_name": "prueba all",
+        "tema": null,
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Romina.albornoz Dropbox\\Romina Albornoz\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_all",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad adultos mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"transporte personas mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adaptaci\u00f3n calles mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"transporte p\u00fablico mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"facilitar movilidad adultos\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad urbana mayores\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "geo_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-11T13:17:00.552469"
+    },
+    {
+        "id": "b9ef4744-41a3-47be-a22b-4f3f6787566d",
+        "project_name": "11_feb",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\11_feb",
+        "status": "deleted",
+        "created_at": "2026-02-11T09:13:27.261755"
+    },
+    {
+        "id": "7d7e68ef-da9e-4e47-b65a-94cd2988493b",
+        "project_name": "graficas_prueba",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\graficas_prueba",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.325550"
+    },
+    {
+        "id": "f8b658f2-6102-44c7-87a4-b4fe1b44ca32",
+        "project_name": "grafica_prueba1",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\grafica_prueba1",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.282830"
+    },
+    {
+        "id": "ef6ea6aa-6544-4964-baef-e35e314f6dc6",
+        "project_name": "grafica_prueeba",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\grafica_prueeba",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.305951"
+    },
+    {
+        "id": "eee43c31-7529-4deb-8ccc-a3d6ba07cd7a",
+        "project_name": "nuvols",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\nuvols",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.343088"
+    },
+    {
+        "id": "ea0f6d36-97b7-4c87-a270-117ccd08dc36",
+        "project_name": "nuvols2",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\nuvols2",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:26:25.644289"
+    },
+    {
+        "id": "5a32fe7f-85d0-44b2-81c3-53476706b708",
+        "project_name": "nuvols3",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\nuvols3",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:26:25.661684"
+    },
+    {
+        "id": "19011c64-1e5a-434a-9c92-f952d55bb36f",
+        "project_name": "provar_els_nuvols",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\provar_els_nuvols",
+        "status": "deleted",
+        "created_at": "2026-02-11T10:45:36.323924"
+    },
+    {
+        "id": "9e876201-0831-4014-afdf-d567f01facae",
+        "project_name": "prova_nuvols",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prova_nuvols",
+        "status": "deleted",
+        "created_at": "2026-02-11T11:24:41.414499"
+    },
+    {
+        "id": "695b09bd-aab2-4a0b-83c0-6458bb4a34e7",
+        "project_name": "pruebAA",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\pruebAA",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:26:25.707522"
+    },
+    {
+        "id": "0b2298f5-fab7-4a5e-93ec-31f4f262dd9c",
+        "project_name": "pruebAA (1)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\pruebAA (1)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:26:25.688577"
+    },
+    {
+        "id": "8e6abeda-977e-4c86-9089-7dd0b5b54e51",
+        "project_name": "prueba_all",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_all",
+        "status": "deleted",
+        "created_at": "2026-02-11T13:17:00.541249"
+    },
+    {
+        "id": "540adfab-e0d4-4593-acf4-1f66d777cf62",
+        "project_name": "prueba_git",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_git",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.415629"
+    },
+    {
+        "id": "99b48789-07b7-4134-8bd2-9e1206658a09",
+        "project_name": "prueba_git (1)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_git (1)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.365219"
+    },
+    {
+        "id": "32add91f-ac62-40d5-b973-79da0acc807b",
+        "project_name": "prueba_idioma",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_idioma",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.519910"
+    },
+    {
+        "id": "4219173c-d014-4ef0-8092-5c5de739f1d7",
+        "project_name": "prueba_lunes9_2",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_lunes9_2",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.559685"
+    },
+    {
+        "id": "db617dec-f965-4d41-86c6-3fb9b11c985f",
+        "project_name": "prueba_nube",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_nube",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:26:25.728750"
+    },
+    {
+        "id": "1c195e69-a7c4-41bd-84df-2e916dbf0c88",
+        "project_name": "prueba_visualizaci\u00f3n",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.690991"
+    },
+    {
+        "id": "71c5a2b5-2b6d-4836-a180-5c432a59fc12",
+        "project_name": "prueba_visualizaci\u00f3n (1)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (1)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.567978"
+    },
+    {
+        "id": "a08ad94c-54dd-4fb3-9f1e-bf5c09d5b3e1",
+        "project_name": "prueba_visualizaci\u00f3n (10)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (10)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.571390"
+    },
+    {
+        "id": "1771a466-2095-476f-94f5-1b26694833ee",
+        "project_name": "prueba_visualizaci\u00f3n (11)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (11)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.578699"
+    },
+    {
+        "id": "119abcc6-eba1-4e3d-8476-bbced1b8ea51",
+        "project_name": "prueba_visualizaci\u00f3n (12)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (12)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.584679"
+    },
+    {
+        "id": "38292e2b-7af2-4c58-888a-2863d0856bb1",
+        "project_name": "prueba_visualizaci\u00f3n (13)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (13)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.588774"
+    },
+    {
+        "id": "6011834c-c384-4d9b-885c-2f136b2c6bc6",
+        "project_name": "prueba_visualizaci\u00f3n (2)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (2)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.599891"
+    },
+    {
+        "id": "1d32f413-7c83-4edf-916a-6dcd597e72c5",
+        "project_name": "prueba_visualizaci\u00f3n (3)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (3)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.606041"
+    },
+    {
+        "id": "330506e4-7100-4b37-b353-4617cac6d047",
+        "project_name": "prueba_visualizaci\u00f3n (4)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (4)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.610535"
+    },
+    {
+        "id": "4dc99d33-40e0-4959-b5e4-5395b68b992e",
+        "project_name": "prueba_visualizaci\u00f3n (5)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (5)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.614442"
+    },
+    {
+        "id": "4b339ade-86b3-4190-89b2-7af21856edba",
+        "project_name": "prueba_visualizaci\u00f3n (6)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (6)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.634449"
+    },
+    {
+        "id": "7b3a4045-bf69-45e1-b20e-1f15773e2259",
+        "project_name": "prueba_visualizaci\u00f3n (7)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (7)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.642024"
+    },
+    {
+        "id": "9468ff2b-c8d7-424d-8fc5-e44232a561c8",
+        "project_name": "prueba_visualizaci\u00f3n (8)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (8)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.658211"
+    },
+    {
+        "id": "a732bb3f-0d3f-4e09-b57e-1c2d1f538ce9",
+        "project_name": "prueba_visualizaci\u00f3n (9)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prueba_visualizaci\u00f3n (9)",
+        "status": "deleted",
+        "created_at": "2026-02-11T08:25:24.664161"
+    },
+    {
+        "id": "946fe4d5-d2d7-4d4a-867f-9ade60430519",
+        "project_name": "V16",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\V16",
+        "status": "deleted",
+        "created_at": "2026-02-10T16:46:33.233166"
+    },
+    {
+        "id": "544d2950-2369-480e-8c0b-22add800e2f9",
+        "project_name": "dnsakd",
+        "tema": null,
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\dnsakd",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"crisis habitacional\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-13T14:39:12.101364"
+    },
+    {
+        "id": "544d2950-2369-480e-8c0b-22add800e2f9",
+        "project_name": "dnsakd",
+        "tema": null,
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\dnsakd",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"crisis habitacional\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-13T14:39:12.101364"
+    },
+    {
+        "id": "db0622d0-8a7b-419f-ad20-f69d5e450a02",
+        "project_name": "proyecto_ingles",
+        "tema": null,
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\proyecto_ingles",
+        "sources": [
+            "twitter"
+        ],
+        "keywords": "[{\"keyword\":\"adults mobility in Valencia\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-13T15:35:24.904236"
+    },
+    {
+        "id": "db0622d0-8a7b-419f-ad20-f69d5e450a02",
+        "project_name": "proyecto_ingles",
+        "tema": null,
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\proyecto_ingles",
+        "sources": [
+            "twitter"
+        ],
+        "keywords": "[{\"keyword\":\"adults mobility in Valencia\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-13T15:35:24.904236"
+    },
+    {
+        "id": "5697e0b8-0c08-4175-b9bb-1d9ac635d28d",
+        "project_name": "campa\u00f1a_V16",
+        "tema": null,
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\campa\u00f1a_V16",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"implementaci\u00f3n balizas v16\",\"languages\":\"Castellano\"},{\"keyword\":\"balizas v16 implementaci\u00f3n\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T09:13:24.858310"
+    },
+    {
+        "id": "5697e0b8-0c08-4175-b9bb-1d9ac635d28d",
+        "project_name": "campa\u00f1a_V16",
+        "tema": null,
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\campa\u00f1a_V16",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"implementaci\u00f3n balizas v16\",\"languages\":\"Castellano\"},{\"keyword\":\"balizas v16 implementaci\u00f3n\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T09:13:24.858310"
+    },
+    {
+        "id": "939f4b62-bada-4fbe-b535-0740a481ed8b",
+        "project_name": "campa\u00f1a v16",
+        "tema": null,
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\campa\u00f1a_v16 (1)",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"balizas v16\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T09:16:23.222358"
+    },
+    {
+        "id": "939f4b62-bada-4fbe-b535-0740a481ed8b",
+        "project_name": "campa\u00f1a v16",
+        "tema": null,
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\campa\u00f1a_v16 (1)",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"balizas v16\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T09:16:23.222358"
+    },
+    {
+        "id": "f8edb863-e1c0-4378-b17f-dbfe6a9d77aa",
+        "project_name": "balizas v16",
+        "tema": null,
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\balizas_v16",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad adulto mayor\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"poblaci\u00f3n senior mobility\",\"languages\":\"Ingl\u00e9s, Castellano\"},{\"keyword\":\"movimiento adultos mayores\",\"languages\":\"Ingl\u00e9s, Castellano\"},{\"keyword\":\"adultos mayores transporte\",\"languages\":\"Ingl\u00e9s, Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T10:44:59.614854"
+    },
+    {
+        "id": "f8edb863-e1c0-4378-b17f-dbfe6a9d77aa",
+        "project_name": "balizas v16",
+        "tema": null,
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\balizas_v16",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad adulto mayor\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"poblaci\u00f3n senior mobility\",\"languages\":\"Ingl\u00e9s, Castellano\"},{\"keyword\":\"movimiento adultos mayores\",\"languages\":\"Ingl\u00e9s, Castellano\"},{\"keyword\":\"adultos mayores transporte\",\"languages\":\"Ingl\u00e9s, Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T10:44:59.614854"
+    },
+    {
+        "id": "ed54c8b4-bd67-48fa-9ad7-0b40ffe32a97",
+        "project_name": "balizas",
+        "tema": null,
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\balizas",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores viaje\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T10:52:24.746844"
+    },
+    {
+        "id": "ed54c8b4-bd67-48fa-9ad7-0b40ffe32a97",
+        "project_name": "balizas",
+        "tema": null,
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\balizas",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores viaje\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T10:52:24.746844"
+    },
+    {
+        "id": "13344c68-5ce6-4ada-9dec-e4a29d4551f3",
+        "project_name": "adultos",
+        "tema": null,
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\adultos",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores viaje\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T11:07:26.855397"
+    },
+    {
+        "id": "13344c68-5ce6-4ada-9dec-e4a29d4551f3",
+        "project_name": "adultos",
+        "tema": null,
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\adultos",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores viaje\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T11:07:26.855397"
+    },
+    {
+        "id": "1aef23a2-078b-4e47-9efa-c4b0c8abda81",
+        "project_name": "mayores",
+        "tema": null,
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\mayores",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad adultos mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores viaje\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores viaja\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad adultos mayores ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T11:28:36.187964"
+    },
+    {
+        "id": "1aef23a2-078b-4e47-9efa-c4b0c8abda81",
+        "project_name": "mayores",
+        "tema": null,
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\mayores",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad adultos mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores viaje\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores viaja\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad adultos mayores ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T11:28:36.187964"
+    },
+    {
+        "id": "7d9f15bb-9f9c-4a7b-99fc-15b91b24af1e",
+        "project_name": "adultos",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\adultos (1)",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores viaje\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T11:36:37.260037"
+    },
+    {
+        "id": "7d9f15bb-9f9c-4a7b-99fc-15b91b24af1e",
+        "project_name": "adultos",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\adultos (1)",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores viaje\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T11:36:37.260037"
+    },
+    {
+        "id": "940f9d0b-8ed5-475b-bd0b-e63f166004ee",
+        "project_name": "adultos",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\adultos (2)",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T11:40:39.742341"
+    },
+    {
+        "id": "940f9d0b-8ed5-475b-bd0b-e63f166004ee",
+        "project_name": "adultos",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\adultos (2)",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T11:40:39.742341"
+    },
+    {
+        "id": "911624a6-d130-4413-a055-6f844266d9b1",
+        "project_name": "adultos_mayores",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\adultos_mayores",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos mayores\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T11:47:05.638169"
+    },
+    {
+        "id": "911624a6-d130-4413-a055-6f844266d9b1",
+        "project_name": "adultos_mayores",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\adultos_mayores",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos mayores\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T11:47:05.638169"
+    },
+    {
+        "id": "ecd005b9-f5fe-43e5-b627-f722b1d1467b",
+        "project_name": "campa\u00f1a v16",
+        "tema": "balizas v16",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\campa\u00f1a_v16",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"balizas v16\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T11:50:28.982370"
+    },
+    {
+        "id": "ecd005b9-f5fe-43e5-b627-f722b1d1467b",
+        "project_name": "campa\u00f1a v16",
+        "tema": "balizas v16",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\campa\u00f1a_v16",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"balizas v16\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T11:50:28.982370"
+    },
+    {
+        "id": "31b1b1a2-eaa2-42e3-8a98-23b1e2625352",
+        "project_name": "balizas",
+        "tema": "implementacion de las balizas v16",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\balizas",
+        "sources": [
+            "twitter"
+        ],
+        "keywords": "[{\"keyword\":\"implementacion de las balizas v16\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T11:52:00.925761"
+    },
+    {
+        "id": "d09e800d-027a-4d36-b4b0-85dc781298f4",
+        "project_name": "adultos_mayores",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\adultos_mayores (1)",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:06:09.909617"
+    },
+    {
+        "id": "d09e800d-027a-4d36-b4b0-85dc781298f4",
+        "project_name": "adultos_mayores",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\adultos_mayores (1)",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:06:09.909617"
+    },
+    {
+        "id": "b3820043-0d73-4a55-ad65-39254d8453cf",
+        "project_name": "adultos mayores",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\adultos_mayores (2)",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores ciudadanos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:15:38.959605"
+    },
+    {
+        "id": "b3820043-0d73-4a55-ad65-39254d8453cf",
+        "project_name": "adultos mayores",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\adultos_mayores (2)",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores ciudadanos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:15:38.959605"
+    },
+    {
+        "id": "13d2f366-8039-46f3-b0e1-0676aec1c754",
+        "project_name": "prueba llm",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\prueba_llm",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:27:10.508348"
+    },
+    {
+        "id": "13d2f366-8039-46f3-b0e1-0676aec1c754",
+        "project_name": "prueba llm",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\prueba_llm",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:27:10.508348"
+    },
+    {
+        "id": "42800d51-a64e-4bb0-be53-9530cc8bdb11",
+        "project_name": "ADULTOS",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\ADULTOS",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:34:03.622817"
+    },
+    {
+        "id": "42800d51-a64e-4bb0-be53-9530cc8bdb11",
+        "project_name": "ADULTOS",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\ADULTOS",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:34:03.622817"
+    },
+    {
+        "id": "feaabe22-6efa-4e3d-9ae2-eaa0d86adac4",
+        "project_name": "MAYORES_ADULTOS",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\MAYORES_ADULTOS",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:37:41.781169"
+    },
+    {
+        "id": "feaabe22-6efa-4e3d-9ae2-eaa0d86adac4",
+        "project_name": "MAYORES_ADULTOS",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\MAYORES_ADULTOS",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:37:41.781169"
+    },
+    {
+        "id": "b83d969d-b0c5-40b8-85c9-58e1e461cd0c",
+        "project_name": "maayores",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\maayores",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:44:09.834696"
+    },
+    {
+        "id": "b83d969d-b0c5-40b8-85c9-58e1e461cd0c",
+        "project_name": "maayores",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\maayores",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:44:09.834696"
+    },
+    {
+        "id": "050c3fa6-be4b-4fd8-b198-a2fa842ff294",
+        "project_name": "balizas",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\balizas (1)",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:46:26.975012"
+    },
+    {
+        "id": "050c3fa6-be4b-4fd8-b198-a2fa842ff294",
+        "project_name": "balizas",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\balizas (1)",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:46:26.975012"
+    },
+    {
+        "id": "6fe1c56b-6eab-48b5-bff3-6a39c0724412",
+        "project_name": "prueba",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\prueba",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:50:05.097619"
+    },
+    {
+        "id": "6fe1c56b-6eab-48b5-bff3-6a39c0724412",
+        "project_name": "prueba",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\prueba",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:50:05.097619"
+    },
+    {
+        "id": "a33e546c-3907-4920-9f7f-75f0c2d02164",
+        "project_name": "vavasv",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\vavasv",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:53:17.667651"
+    },
+    {
+        "id": "a33e546c-3907-4920-9f7f-75f0c2d02164",
+        "project_name": "vavasv",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\vavasv",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:53:17.667651"
+    },
+    {
+        "id": "30c87780-bf0d-4012-a73d-0f205acd52be",
+        "project_name": "prueba",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\prueba (1)",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:59:48.681622"
+    },
+    {
+        "id": "30c87780-bf0d-4012-a73d-0f205acd52be",
+        "project_name": "prueba",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\prueba (1)",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T12:59:48.681622"
+    },
+    {
+        "id": "4d1b21ba-23ad-49a5-b169-932adc4043fa",
+        "project_name": "basdasda",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\basdasda",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad adultos mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T13:09:40.377556"
+    },
+    {
+        "id": "4d1b21ba-23ad-49a5-b169-932adc4043fa",
+        "project_name": "basdasda",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\basdasda",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad adultos mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T13:09:40.377556"
+    },
+    {
+        "id": "8b21c658-2a88-4a61-99d0-dd569ecb2852",
+        "project_name": "blaizas",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\blaizas",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T13:28:02.156585"
+    },
+    {
+        "id": "8b21c658-2a88-4a61-99d0-dd569ecb2852",
+        "project_name": "blaizas",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\blaizas",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T13:28:02.156585"
+    },
+    {
+        "id": "9400f94e-f035-4fdb-9455-c2fe347b63e7",
+        "project_name": "balizas",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\balizas (2)",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T13:29:04.035613"
+    },
+    {
+        "id": "ab0905c0-6c97-4bc5-b8f1-35b4e0bc9ffc",
+        "project_name": "balizas",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\balizas (3)",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T13:29:35.129779"
+    },
+    {
+        "id": "ab0905c0-6c97-4bc5-b8f1-35b4e0bc9ffc",
+        "project_name": "balizas",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\balizas (3)",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T13:29:35.129779"
+    },
+    {
+        "id": "9400f94e-f035-4fdb-9455-c2fe347b63e7",
+        "project_name": "balizas",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\balizas (2)",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T13:29:04.035613"
+    },
+    {
+        "id": "88e9ecce-49be-4663-8d8a-8c429846483f",
+        "project_name": "prueba",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\prueba",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T13:36:05.388498"
+    },
+    {
+        "id": "8cc5975f-ab9b-4ec2-ac3a-b459193e8593",
+        "project_name": "balizas",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\balizas",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"poblaci\u00f3n mayor transporte\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad personas mayores\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T13:43:36.938883"
+    },
+    {
+        "id": "8cc5975f-ab9b-4ec2-ac3a-b459193e8593",
+        "project_name": "balizas",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\balizas",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"poblaci\u00f3n mayor transporte\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad personas mayores\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T13:43:36.938883"
+    },
+    {
+        "id": "ca0783d9-e031-46c2-9612-a69ac5b130af",
+        "project_name": "MAYORES_ADULTOS",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\MAYORES_ADULTOS",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad adulto mayor\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T14:20:06.876490"
+    },
+    {
+        "id": "ca0783d9-e031-46c2-9612-a69ac5b130af",
+        "project_name": "MAYORES_ADULTOS",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\MAYORES_ADULTOS",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad adulto mayor\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T14:20:06.876490"
+    },
+    {
+        "id": "75a7b7aa-6fc4-4e61-bf8b-8e11383fc35e",
+        "project_name": "MAYORES_ADULTOS",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\MAYORES_ADULTOS (1)",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T15:02:46.807788"
+    },
+    {
+        "id": "75a7b7aa-6fc4-4e61-bf8b-8e11383fc35e",
+        "project_name": "MAYORES_ADULTOS",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\MAYORES_ADULTOS (1)",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T15:02:46.807788"
+    },
+    {
+        "id": "357dffe4-c082-4c12-859c-c48af6e4d5f2",
+        "project_name": "aadlutos_mayores",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\aadlutos_mayores",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores transporte p\u00fablico\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T15:13:18.713571"
+    },
+    {
+        "id": "357dffe4-c082-4c12-859c-c48af6e4d5f2",
+        "project_name": "aadlutos_mayores",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\aadlutos_mayores",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores transporte p\u00fablico\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T15:13:18.713571"
+    },
+    {
+        "id": "207ef455-653a-4c72-a905-b271d4530916",
+        "project_name": "aalunes16",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\aalunes16",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad de adultos mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores y movilidad\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T15:27:30.358152"
+    },
+    {
+        "id": "207ef455-653a-4c72-a905-b271d4530916",
+        "project_name": "aalunes16",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\aalunes16",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad de adultos mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores y movilidad\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-16T15:27:30.358152"
+    },
+    {
+        "id": "13eca623-5122-4c88-bba1-e5213ff51632",
+        "project_name": "martes17",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\martes17",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores transporte p\u00fablico\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-17T08:48:53.197342"
+    },
+    {
+        "id": "e69a29ed-a16f-4f1a-87e5-a0eb4adce705",
+        "project_name": "martes17",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\martes17",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad adulto mayor\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"},{\"keyword\":\"poblaci\u00f3n mayor movilidad\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-17T09:00:21.330814"
+    },
+    {
+        "id": "5bb70b06-4296-419a-8a78-7ceb09b9d0fc",
+        "project_name": "martes17b",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\martes17b",
+        "sources": [
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"\u00faltimas noticias adultos mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad de ancianos\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores transporte p\u00fablico\",\"languages\":\"Castellano\"},{\"keyword\":\"ayuda adultos mayores viajar\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-17T09:11:43.844363"
+    },
+    {
+        "id": "a064f553-0359-4623-9ecb-25afa6c97755",
+        "project_name": "martes17c",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "analista",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\analista\\martes17c",
+        "sources": [
+            "reddit"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"poblaci\u00f3n mayor transporte\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad ciudadana mayores\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-17T09:47:18.104918"
+    },
+    {
+        "id": "28ec6722-86dc-47eb-a270-de24451d0767",
+        "project_name": "martes17d",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\martes17d",
+        "sources": [
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"mayores movilidad ciudadana\",\"languages\":\"Castellano\"},{\"keyword\":\"movilidad de adultos mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores y movilidad\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-17T10:35:11.601522"
+    },
+    {
+        "id": "58c11b91-b519-4f89-98bc-2693faec7c7a",
+        "project_name": "martes17d",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "datos/admin/martes17d (1)",
+        "sources": [
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores\",\"languages\":\"Castellano\"},{\"keyword\":\"adultos mayores movilidad\",\"languages\":\"Castellano\"},{\"keyword\":\"poblaci\u00f3n mayor transporte\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-17T10:43:39.789319"
+    },
+    {
+        "id": "4a1775a8-1c94-47e3-9ae3-1cd3c51aa417",
+        "project_name": "balizas v16",
+        "tema": "balizas v16",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\balizas_v16",
+        "sources": [
+            "twitter",
+            "youtube",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"balizas v16\",\"languages\":\"Castellano, Catal\u00e0\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-17T13:04:58.122812"
+    },
+    {
+        "id": "f710f7b1-84f5-48bc-a7e4-dfc36c78a327",
+        "project_name": "balizas v16",
+        "tema": "balizas v16",
+        "username": "admin",
+        "output_folder": "datos/admin/balizas_v16",
+        "sources": [
+            "twitter",
+            "youtube",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"balizas v16\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-17T13:36:21.110598"
+    },
+    {
+        "id": "62fcb6f4-ffb1-409c-a5b7-31e7edd836bf",
+        "project_name": "martese",
+        "tema": "balizas v16",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\martese",
+        "sources": [
+            "youtube"
+        ],
+        "keywords": "[{\"keyword\":\"balizas v16\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-17T15:31:06.702648"
+    },
+    {
+        "id": "762c58f2-8419-42cd-9f5e-86995aecf0d9",
+        "project_name": "MartesF",
+        "tema": "Opini\u00f3n p\u00fablica sobre la movilidad de los adultos mayores",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\MartesF",
+        "sources": [
+            "youtube"
+        ],
+        "keywords": "[{\"keyword\":\"movilidad mayores adultos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-17T15:42:00.007660"
+    },
+    {
+        "id": "8e427503-a965-47d4-95da-630f44b6638a",
+        "project_name": "martese (1)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\martese (1)",
+        "status": "deleted",
+        "created_at": "2026-02-17T15:37:49.290184"
+    },
+    {
+        "id": "6927cb2f-4d78-4f2c-bd18-8eac6b83ae11",
+        "project_name": "martese (2)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\martese (2)",
+        "status": "deleted",
+        "created_at": "2026-02-17T15:37:51.607125"
+    },
+    {
+        "id": "c9a0b0ae-282b-44f0-8da1-1d47dc91ed6a",
+        "project_name": "martes17",
+        "tema": "balizas v16",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\martes17",
+        "sources": [
+            "youtube"
+        ],
+        "keywords": "[{\"keyword\":\"balizas v16\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-17T15:43:29.988696"
+    },
+    {
+        "id": "4fa8b7bc-7a3d-466a-b693-cecf0de55858",
+        "project_name": "burka",
+        "tema": "prohibir el burka en espacios p\u00fablicos",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\burka",
+        "sources": [
+            "twitter",
+            "youtube",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"prohibici\u00f3n burka espacios p\u00fablicos\",\"languages\":\"Castellano, Catal\u00e0, Euskara\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-18T09:31:12.969352"
+    },
+    {
+        "id": "98443bc0-1b53-4f82-b257-678581dac916",
+        "project_name": "burka",
+        "tema": "prohibir el burka en espacios p\u00fablicos",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\burka",
+        "sources": [
+            "twitter",
+            "youtube",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"prohibici\u00f3n burka espacios p\u00fablicos\",\"languages\":\"Castellano, Catal\u00e0, Euskara\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-18T09:51:49.220857"
+    },
+    {
+        "id": "e1b60dc8-3ba5-4d06-bbc7-fc8ff6947970",
+        "project_name": "burka",
+        "tema": "opini\u00f3n sobre la prohibici\u00f3n del burka en espacios p\u00fablicos",
+        "username": "admin",
+        "output_folder": "datos/admin/burka",
+        "sources": [
+            "twitter",
+            "youtube",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"prohibici\u00f3n burka espacios p\u00fablicos\",\"languages\":\"Castellano\"},{\"keyword\":\"prohibici\u00f3 del burca espais p\u00fablics\",\"languages\":\"Catal\u00e1n\"},{\"keyword\":\"burka debatuko da Espainiako legean\",\"languages\":\"Euskera\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-18T10:16:10.736511"
+    },
+    {
+        "id": "ebd8f6f4-33d4-40d2-83fc-79411a259d78",
+        "project_name": "burka (1)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\burka (1)",
+        "status": "deleted",
+        "created_at": "2026-02-18T12:42:48.453846"
+    },
+    {
+        "id": "f89d8609-a654-4263-b886-88213909064b",
+        "project_name": "burka (2)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\burka (2)",
+        "status": "deleted",
+        "created_at": "2026-02-18T12:45:43.922987"
+    },
+    {
+        "id": "a945b689-8307-4a87-a4a5-ccb492fd530f",
+        "project_name": "burka (3)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\burka (3)",
+        "status": "deleted",
+        "created_at": "2026-02-18T12:47:54.552310"
+    },
+    {
+        "id": "3cd6dcf4-2a59-4dc8-9607-31360fac3e9e",
+        "project_name": "burka (4)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\burka (4)",
+        "status": "deleted",
+        "created_at": "2026-02-18T12:54:57.547063"
+    },
+    {
+        "id": "c61365bd-ac61-447b-9b83-3acd74aafd94",
+        "project_name": "burka_multilanguaje",
+        "tema": "prohibici\u00f3n del burka en espacios p\u00fablicos",
+        "username": "admin",
+        "output_folder": "datos/admin/burka_multilanguaje",
+        "sources": [
+            "twitter",
+            "youtube",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"prohibici\u00f3n burka espacios p\u00fablicos\",\"languages\":\"Castellano\"},{\"keyword\":\"ban burka espais p\u00fablics\",\"languages\":\"Catal\u00e1n\"},{\"keyword\":\"burka debatendu publikoetan\",\"languages\":\"Euskera\"},{\"keyword\":\"veil ban public spaces\",\"languages\":\"Ingl\u00e9s\"},{\"keyword\":\"proibi\u00e7\u00e3o do v\u00e9u espa\u00e7os p\u00fablicos\",\"languages\":\"Portugu\u00e9s\"},{\"keyword\":\"interdiction voile espaces publics\",\"languages\":\"Franc\u00e9s\"},{\"keyword\":\"divieto velo spazi pubblici\",\"languages\":\"Italiano\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Portugues",
+            "Frances",
+            "Italiano"
+        ],
+        "population_scope": "",
+        "status": "deleted",
+        "created_at": "2026-02-19T10:57:09.748641"
+    },
+    {
+        "id": "6b4649ba-6c85-4f19-bc06-d800c10f6a9f",
+        "project_name": "burka19",
+        "tema": "prohibici\u00f3n del burka en espacios p\u00fablicos",
+        "username": "admin",
+        "output_folder": "datos/admin/burka19",
+        "sources": [
+            "twitter",
+            "youtube",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"prohibici\u00f3n burka espacios p\u00fablicos\",\"languages\":\"es\"},{\"keyword\":\"burka libertad religiosa\",\"languages\":\"es\"},{\"keyword\":\"burka islam discriminaci\u00f3n\",\"languages\":\"es\"},{\"keyword\":\"burka derechos mujeres\",\"languages\":\"es\"},{\"keyword\":\"prohibici\u00f3n burka Francia\",\"languages\":\"es\"},{\"keyword\":\"burka debate p\u00fablico\",\"languages\":\"es\"},{\"keyword\":\"burka islamismo radical\",\"languages\":\"es\"},{\"keyword\":\"burka feminismo\",\"languages\":\"es\"},{\"keyword\":\"burka restricci\u00f3n derechos\",\"languages\":\"es\"},{\"keyword\":\"burka islam mujeres j\u00f3venes\",\"languages\":\"es\"},{\"keyword\":\"burka impacto sociedad\",\"languages\":\"es\"},{\"keyword\":\"burka debate europeo\",\"languages\":\"es\"},{\"keyword\":\"burka islam y derechos\",\"languages\":\"es\"},{\"keyword\":\"burka islam discriminaci\u00f3n\",\"languages\":\"en\"},{\"keyword\":\"burka freedom of religion\",\"languages\":\"en\"},{\"keyword\":\"burka islam women rights\",\"languages\":\"en\"},{\"keyword\":\"burka public spaces\",\"languages\":\"en\"},{\"keyword\":\"burka islam France\",\"languages\":\"en\"},{\"keyword\":\"burka islam debate\",\"languages\":\"en\"},{\"keyword\":\"burka islam discrimination\",\"languages\":\"fr\"},{\"keyword\":\"burka libert\u00e9 religieuse\",\"languages\":\"fr\"},{\"keyword\":\"burka islam droits femmes\",\"languages\":\"fr\"},{\"keyword\":\"burka espaces publics\",\"languages\":\"fr\"},{\"keyword\":\"burka islam jeunes\",\"languages\":\"fr\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "",
+        "status": "completed",
+        "created_at": "2026-02-19T11:20:47.546612"
+    },
+    {
+        "id": "b9e36e6c-0ef3-492b-b03b-1b3feb77914f",
+        "project_name": "martes17d (1)",
+        "username": "user",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\user\\martes17d (1)",
+        "status": "deleted",
+        "created_at": "2026-02-19T14:38:41.747891"
+    },
+    {
+        "id": "9f06f2de-5a95-440c-b235-a818a5bfb413",
+        "project_name": "burka",
+        "username": "analista",
+        "output_folder": "datos/analista/burka",
+        "status": "completed",
+        "created_at": "2026-02-19T14:40:41.524890"
+    },
+    {
+        "id": "0a31c5c4-177c-4264-9120-b3948848204c",
+        "project_name": "prohibici\u00f3n_burka",
+        "tema": "prohibici\u00f3n burka en espacios p\u00fablicos",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prohibici\u00f3n_burka",
+        "sources": [
+            "twitter",
+            "youtube",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"prohibici\u00f3n burka espacios p\u00fablicos\",\"languages\":\"Espa\u00f1ol\"},{\"keyword\":\"ban burka espais p\u00fablics\",\"languages\":\"Catal\u00e1n\"},{\"keyword\":\"prohibizio burka leku publikoetan\",\"languages\":\"Euskera\"},{\"keyword\":\"veil ban public spaces\",\"languages\":\"Ingl\u00e9s\"},{\"keyword\":\"divieto burqa spazi pubblici\",\"languages\":\"Italiano\"},{\"keyword\":\"proibi\u00e7\u00e3o burca locais p\u00fablicos\",\"languages\":\"Portugu\u00e9s\"},{\"keyword\":\"interdiction burka espaces publics\",\"languages\":\"Franc\u00e9s\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Italiano",
+            "Portugues",
+            "Frances"
+        ],
+        "population_scope": "P\u00fablico General",
+        "start_date": "2026-02-16",
+        "end_date": "2026-02-18",
+        "status": "deleted",
+        "created_at": "2026-02-23T08:30:34.133767"
+    },
+    {
+        "id": "e25c9783-a722-456c-847f-0f452eafb944",
+        "project_name": "prohibici\u00f3n_burka",
+        "tema": "prohibici\u00f3n burka en espacios p\u00fablicos",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prohibici\u00f3n_burka",
+        "sources": [
+            "twitter",
+            "youtube",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"prohibici\u00f3n burka espacios p\u00fablicos\",\"languages\":\"Espa\u00f1ol\"},{\"keyword\":\"burka restricci\u00f3 p\u00fablica\",\"languages\":\"Catal\u00e1n\"},{\"keyword\":\"burka debat publikoa\",\"languages\":\"Euskera\"},{\"keyword\":\"veil public ban\",\"languages\":\"Ingl\u00e9s\"},{\"keyword\":\"velo spazi pubblici\",\"languages\":\"Italiano\"},{\"keyword\":\"burca espa\u00e7os p\u00fablicos\",\"languages\":\"Portugu\u00e9s\"},{\"keyword\":\"interdiction voile espaces publics\",\"languages\":\"Franc\u00e9s\"},{\"keyword\":\"proibi\u00e7\u00e3o do v\u00e9u p\u00fablico\",\"languages\":\"Portugu\u00e9s\"},{\"keyword\":\"burka libert\u00e9 d'expression\",\"languages\":\"Franc\u00e9s\"},{\"keyword\":\"debate burka derechos\",\"languages\":\"Espa\u00f1ol\"},{\"keyword\":\"v\u00e9u islam libert\u00e9\",\"languages\":\"Franc\u00e9s\"},{\"keyword\":\"proibi\u00e7\u00e3o burca religi\u00e3o\",\"languages\":\"Portugu\u00e9s\"},{\"keyword\":\"impacto proibi\u00e7\u00e3o burka\",\"languages\":\"Italiano\"},{\"keyword\":\"burka discriminaci\u00f3n religiosa\",\"languages\":\"Espa\u00f1ol\"},{\"keyword\":\"v\u00e9u islamic libert\u00e9 individuelle\",\"languages\":\"Franc\u00e9s\"},{\"keyword\":\"proibi\u00e7\u00e3o burka direitos humanos\",\"languages\":\"Portugu\u00e9s\"},{\"keyword\":\"burka islamicismo debate\",\"languages\":\"Euskera\"},{\"keyword\":\"v\u00e9lo public restriction reasons\",\"languages\":\"Ingl\u00e9s\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Italiano",
+            "Portugues",
+            "Frances"
+        ],
+        "population_scope": "P\u00fablico General",
+        "start_date": "2026-02-17",
+        "end_date": "2026-02-18",
+        "status": "deleted",
+        "created_at": "2026-02-23T08:43:15.583173"
+    },
+    {
+        "id": "7c97941e-29da-49ee-b9b2-7fe6b1eb871e",
+        "project_name": "prohibici\u00f3n_burka",
+        "tema": "prohibici\u00f3n burka en espacios p\u00fablicos",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prohibici\u00f3n_burka",
+        "sources": [
+            "twitter",
+            "youtube",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"prohibici\u00f3n burka espacios p\u00fablicos\",\"languages\":\"Espa\u00f1ol\"},{\"keyword\":\"burka restricci\u00f3 p\u00fablica\",\"languages\":\"Catal\u00e1n\"},{\"keyword\":\"burka debat publikoa\",\"languages\":\"Euskera\"},{\"keyword\":\"veil public ban\",\"languages\":\"Ingl\u00e9s\"},{\"keyword\":\"velo spazi pubblici\",\"languages\":\"Italiano\"},{\"keyword\":\"burca espa\u00e7os p\u00fablicos\",\"languages\":\"Portugu\u00e9s\"},{\"keyword\":\"interdiction voile espaces publics\",\"languages\":\"Franc\u00e9s\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Italiano",
+            "Portugues",
+            "Frances"
+        ],
+        "population_scope": "P\u00fablico General",
+        "start_date": "2026-02-17",
+        "end_date": "2026-02-19",
+        "status": "deleted",
+        "created_at": "2026-02-23T10:02:18.044071"
+    },
+    {
+        "id": "88254777-3c09-4ac1-a319-82c6afa1e74b",
+        "project_name": "prohibici\u00f3n_burka (1)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prohibici\u00f3n_burka (1)",
+        "status": "deleted",
+        "created_at": "2026-02-23T10:40:43.331706"
+    },
+    {
+        "id": "d77c70bb-b438-4c64-a4a5-02bad5c2b4e4",
+        "project_name": "prohibici\u00f3n_burka (2)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prohibici\u00f3n_burka (2)",
+        "status": "deleted",
+        "created_at": "2026-02-23T10:40:47.951365"
+    },
+    {
+        "id": "ab74b357-815d-410d-b83d-cc2d4b968d9f",
+        "project_name": "prohibici\u00f3n_burka",
+        "tema": "prohibici\u00f3n burka en espacios p\u00fablicos",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prohibici\u00f3n_burka (5)",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"prohibici\u00f3n burka espacios p\u00fablicos\",\"languages\":\"Espa\u00f1ol\"},{\"keyword\":\"burka restricci\u00f3 p\u00fablica\",\"languages\":\"Catal\u00e1n\"},{\"keyword\":\"burka debat publikoa\",\"languages\":\"Euskera\"},{\"keyword\":\"veil public ban\",\"languages\":\"Ingl\u00e9s\"},{\"keyword\":\"velo spazi pubblici\",\"languages\":\"Italiano\"},{\"keyword\":\"burca espa\u00e7os p\u00fablicos\",\"languages\":\"Portugu\u00e9s\"},{\"keyword\":\"interdiction voile espaces publics\",\"languages\":\"Franc\u00e9s\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Italiano",
+            "Portugues",
+            "Frances"
+        ],
+        "population_scope": "P\u00fablico General",
+        "start_date": "2026-02-17",
+        "end_date": "2026-02-19",
+        "status": "deleted",
+        "created_at": "2026-02-23T10:52:37.583879"
+    },
+    {
+        "id": "4d78f9fd-131f-44d6-b3a0-c03212abba79",
+        "project_name": "prohibici\u00f3n_burka (3)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prohibici\u00f3n_burka (3)",
+        "status": "deleted",
+        "created_at": "2026-02-23T10:51:25.301207"
+    },
+    {
+        "id": "001a17dd-5f03-4369-864f-c54a66c53a4b",
+        "project_name": "prohibici\u00f3n_burka (4)",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prohibici\u00f3n_burka (4)",
+        "status": "deleted",
+        "created_at": "2026-02-23T10:51:30.969207"
+    },
+    {
+        "id": "d085a6ca-8dab-4310-9c93-125702b1e652",
+        "project_name": "prohibici\u00f3n_burka",
+        "tema": "prohibici\u00f3n burka en espacios p\u00fablicos",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prohibici\u00f3n_burka (6)",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"prohibici\u00f3n burka espacios p\u00fablicos\",\"languages\":\"Espa\u00f1ol\"},{\"keyword\":\"burka restricci\u00f3 p\u00fablica\",\"languages\":\"Catal\u00e1n\"},{\"keyword\":\"burka debat publikoa\",\"languages\":\"Euskera\"},{\"keyword\":\"veil public ban\",\"languages\":\"Ingl\u00e9s\"},{\"keyword\":\"velo spazi pubblici\",\"languages\":\"Italiano\"},{\"keyword\":\"burca espa\u00e7os p\u00fablicos\",\"languages\":\"Portugu\u00e9s\"},{\"keyword\":\"interdiction voile espaces publics\",\"languages\":\"Franc\u00e9s\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Italiano",
+            "Portugues",
+            "Frances"
+        ],
+        "population_scope": "P\u00fablico General",
+        "start_date": "2026-02-17",
+        "end_date": "2026-02-19",
+        "status": "deleted",
+        "created_at": "2026-02-23T11:04:07.308808"
+    },
+    {
+        "id": "5cbb4d59-d247-46f7-9a67-ed9d17785854",
+        "project_name": "prohibici\u00f3n_burka",
+        "tema": "prohibici\u00f3n burka en espacios p\u00fablicos",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prohibici\u00f3n_burka",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"prohibici\u00f3n burka espacios p\u00fablicos\",\"languages\":\"Espa\u00f1ol\"},{\"keyword\":\"burka restricci\u00f3 p\u00fablica\",\"languages\":\"Catal\u00e1n\"},{\"keyword\":\"burka debat publikoa\",\"languages\":\"Euskera\"},{\"keyword\":\"veil public ban\",\"languages\":\"Ingl\u00e9s\"},{\"keyword\":\"velo spazi pubblici\",\"languages\":\"Italiano\"},{\"keyword\":\"burca espa\u00e7os p\u00fablicos\",\"languages\":\"Portugu\u00e9s\"},{\"keyword\":\"interdiction voile espaces publics\",\"languages\":\"Franc\u00e9s\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Italiano",
+            "Portugues",
+            "Frances"
+        ],
+        "population_scope": "P\u00fablico General",
+        "start_date": "2026-02-17",
+        "end_date": "2026-02-19",
+        "status": "deleted",
+        "created_at": "2026-02-23T12:04:12.503517"
+    },
+    {
+        "id": "33658d28-73e6-4434-9621-13477e33df9d",
+        "project_name": "prohibici\u00f3n_burka",
+        "tema": "prohibici\u00f3n burka en espacios p\u00fablicos",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prohibici\u00f3n_burka (1)",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"prohibici\u00f3n burka espacios p\u00fablicos\",\"languages\":\"Espa\u00f1ol\"},{\"keyword\":\"burka restricci\u00f3 p\u00fablica\",\"languages\":\"Catal\u00e1n\"},{\"keyword\":\"burka debat publikoa\",\"languages\":\"Euskera\"},{\"keyword\":\"veil public ban\",\"languages\":\"Ingl\u00e9s\"},{\"keyword\":\"velo spazi pubblici\",\"languages\":\"Italiano\"},{\"keyword\":\"burca espa\u00e7os p\u00fablicos\",\"languages\":\"Portugu\u00e9s\"},{\"keyword\":\"interdiction voile espaces publics\",\"languages\":\"Franc\u00e9s\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Italiano",
+            "Portugues",
+            "Frances"
+        ],
+        "population_scope": "P\u00fablico General",
+        "start_date": "2026-02-17",
+        "end_date": "2026-02-19",
+        "status": "deleted",
+        "created_at": "2026-02-23T12:21:39.710648"
+    },
+    {
+        "id": "96fda4fe-5227-4eb1-8079-3b27c720ddc8",
+        "project_name": "prohibici\u00f3n_burka",
+        "tema": "prohibici\u00f3n burka en espacios p\u00fablicos",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prohibici\u00f3n_burka (2)",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"prohibici\u00f3n burka espacios p\u00fablicos\",\"languages\":\"es\"},{\"keyword\":\"burka libertad de expresi\u00f3n\",\"languages\":\"es\"},{\"keyword\":\"burka derechos humanos\",\"languages\":\"es\"},{\"keyword\":\"prohibici\u00f3n burka islam\",\"languages\":\"es\"},{\"keyword\":\"burka radicalizaci\u00f3n\",\"languages\":\"es\"},{\"keyword\":\"burka seguridad p\u00fablica\",\"languages\":\"es\"},{\"keyword\":\"burka discriminaci\u00f3n g\u00e9nero\",\"languages\":\"es\"},{\"keyword\":\"burka Francia prohibici\u00f3n\",\"languages\":\"es\"},{\"keyword\":\"burka debate p\u00fablico\",\"languages\":\"es\"},{\"keyword\":\"burka cobertura isl\u00e1mica\",\"languages\":\"es\"},{\"keyword\":\"burka restricci\u00f3n derechos\",\"languages\":\"es\"},{\"keyword\":\"burka islamismo\",\"languages\":\"es\"},{\"keyword\":\"burka libertad religiosa\",\"languages\":\"es\"},{\"keyword\":\"burka impacto social\",\"languages\":\"es\"},{\"keyword\":\"prohibici\u00f3n burka consecuencias\",\"languages\":\"es\"},{\"keyword\":\"burka apariencia p\u00fablica\",\"languages\":\"es\"},{\"keyword\":\"burka identidad religiosa\",\"languages\":\"es\"},{\"keyword\":\"burka derechos femeninos\",\"languages\":\"es\"},{\"keyword\":\"burka islam y Europa\",\"languages\":\"es\"},{\"keyword\":\"burka debate social\",\"languages\":\"es\"},{\"keyword\":\"prohibici\u00f3n burka razones\",\"languages\":\"es\"},{\"keyword\":\"burka s\u00edmbolos religiosos\",\"languages\":\"es\"},{\"keyword\":\"burka impacto terrorismo\",\"languages\":\"es\"},{\"keyword\":\"burka derechos civiles\",\"languages\":\"es\"},{\"keyword\":\"burka islam y sociedad\",\"languages\":\"es\"},{\"keyword\":\"burka cobertura isl\u00e1mica Francia\",\"languages\":\"es\"},{\"keyword\":\"prohibici\u00f3n burka argumentos\",\"languages\":\"es\"},{\"keyword\":\"burka derechos individuales\",\"languages\":\"es\"},{\"keyword\":\"burka islam y cultura\",\"languages\":\"es\"},{\"keyword\":\"burka libertad de culto\",\"languages\":\"es\"},{\"keyword\":\"burka impacto terrorismo Europa\",\"languages\":\"es\"},{\"keyword\":\"burka debate pol\u00edtico\",\"languages\":\"es\"},{\"keyword\":\"prohibici\u00f3n burka cr\u00edtica\",\"languages\":\"es\"},{\"keyword\":\"burka derechos y libertades\",\"languages\":\"es\"},{\"keyword\":\"burka islam y legalidad\",\"languages\":\"es\"},{\"keyword\":\"burka impacto en la sociedad\",\"languages\":\"es\"},{\"keyword\":\"prohibici\u00f3n burka opiniones\",\"languages\":\"es\"},{\"keyword\":\"burka derechos fundamentales\",\"languages\":\"es\"},{\"keyword\":\"burka islam y modernidad\",\"languages\":\"es\"},{\"keyword\":\"prohibici\u00f3n burka controversia\",\"languages\":\"es\"},{\"keyword\":\"burka derechos y valores\",\"languages\":\"es\"},{\"keyword\":\"burka islam y derechos humanos\",\"languages\":\"es\"},{\"keyword\":\"burka debate p\u00fablico Francia\",\"languages\":\"es\"},{\"keyword\":\"prohibici\u00f3n burka argumentos legales\",\"languages\":\"es\"},{\"keyword\":\"burka derechos y sociedad\",\"languages\":\"es\"},{\"keyword\":\"burka islam y derechos civiles\",\"languages\":\"es\"},{\"keyword\":\"prohibici\u00f3n burka impacto econ\u00f3mico\",\"languages\":\"es\"},{\"keyword\":\"burka derechos y libertades individuales\",\"languages\":\"es\"},{\"keyword\":\"burka islam y diversidad\",\"languages\":\"es\"},{\"keyword\":\"prohibici\u00f3n burka consecuencias sociales\",\"languages\":\"es\"},{\"keyword\":\"burka derechos y la ley\",\"languages\":\"es\"},{\"keyword\":\"burka islam y derechos de la mujer\",\"languages\":\"es\"},{\"keyword\":\"prohibici\u00f3n burka impacto cultural\",\"languages\":\"es\"},{\"keyword\":\"burka derechos y la constituci\u00f3n\",\"languages\":\"es\"},{\"keyword\":\"burka islam y la democracia\",\"languages\":\"es\"},{\"keyword\":\"prohibici\u00f3n burka debate abierto\",\"languages\":\"es\"},{\"keyword\":\"burka islam y la libertad\",\"languages\":\"es\"},{\"keyword\":\"prohibici\u00f3n burka impacto en la seguridad\",\"languages\":\"es\"},{\"keyword\":\"prohibici\u00f3n burka impacto en la salud\",\"languages\":\"es\"},{\"keyword\":\"burka derechos y la dignidad humana\",\"languages\":\"es\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "P\u00fablico General",
+        "start_date": "2026-02-17",
+        "end_date": "2026-02-19",
+        "status": "deleted",
+        "created_at": "2026-02-23T12:52:39.750230"
+    },
+    {
+        "id": "82a704ba-aeb7-4ca8-90df-1f5a0786711d",
+        "project_name": "prohibici\u00f3n_burka",
+        "tema": "prohibici\u00f3n burka en espacios p\u00fablicos",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prohibici\u00f3n_burka",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"prohibici\u00f3n burka espacios p\u00fablicos\",\"languages\":\"Espa\u00f1ol\"},{\"keyword\":\"burka restricci\u00f3 p\u00fablica\",\"languages\":\"Catal\u00e1n\"},{\"keyword\":\"burka debat publikoa\",\"languages\":\"Euskera\"},{\"keyword\":\"veil public ban\",\"languages\":\"Ingl\u00e9s\"},{\"keyword\":\"velo spazi pubblici\",\"languages\":\"Italiano\"},{\"keyword\":\"burca espa\u00e7os p\u00fablicos\",\"languages\":\"Portugu\u00e9s\"},{\"keyword\":\"interdiction voile espaces publics\",\"languages\":\"Franc\u00e9s\"},{\"keyword\":\"proibi\u00e7\u00e3o do v\u00e9u p\u00fablico\",\"languages\":\"Portugu\u00e9s\"},{\"keyword\":\"burka libert\u00e9 d'expression\",\"languages\":\"Franc\u00e9s\"},{\"keyword\":\"debate burka derechos\",\"languages\":\"Espa\u00f1ol\"},{\"keyword\":\"v\u00e9u islam libert\u00e9\",\"languages\":\"Franc\u00e9s\"},{\"keyword\":\"restricci\u00f3n burka libertad\",\"languages\":\"Catal\u00e1n\"},{\"keyword\":\"burka discriminaci\u00f3n religiosa\",\"languages\":\"Espa\u00f1ol\"},{\"keyword\":\"v\u00e9lo p\u00fablico islam\",\"languages\":\"Italiano\"},{\"keyword\":\"proibi\u00e7\u00e3o burca direitos\",\"languages\":\"Portugu\u00e9s\"},{\"keyword\":\"burka islamic libert\u00e9\",\"languages\":\"Franc\u00e9s\"},{\"keyword\":\"debates sobre burka\",\"languages\":\"Euskera\"},{\"keyword\":\"v\u00e9lo islamic libert\u00e9 publique\",\"languages\":\"Ingl\u00e9s\"},{\"keyword\":\"burka impacto social\",\"languages\":\"Espa\u00f1ol\"},{\"keyword\":\"prohibici\u00f3 del vel\",\"languages\":\"Catal\u00e1n\"},{\"keyword\":\"burka y derechos humanos\",\"languages\":\"Espa\u00f1ol\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Italiano",
+            "Portugues",
+            "Frances"
+        ],
+        "population_scope": "P\u00fablico General",
+        "start_date": "2026-02-17",
+        "end_date": "2026-02-19",
+        "status": "deleted",
+        "created_at": "2026-02-23T13:28:57.840186"
+    },
+    {
+        "id": "7982418e-d183-4542-985e-2375783d315d",
+        "project_name": "prohibici\u00f3n_burka",
+        "tema": "prohibici\u00f3n burka en espacios p\u00fablicos",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prohibici\u00f3n_burka (1)",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"prohibici\u00f3n burka espacios p\u00fablicos\",\"languages\":\"es\"},{\"keyword\":\"burka libertad de expresi\u00f3n\",\"languages\":\"es\"},{\"keyword\":\"burka derechos humanos\",\"languages\":\"es\"},{\"keyword\":\"prohibici\u00f3n burka islam\",\"languages\":\"es\"},{\"keyword\":\"burka radicalizaci\u00f3n islam\",\"languages\":\"es\"},{\"keyword\":\"burka seguridad p\u00fablica\",\"languages\":\"es\"},{\"keyword\":\"burka discriminaci\u00f3n g\u00e9nero\",\"languages\":\"es\"},{\"keyword\":\"burka Francia prohibici\u00f3n\",\"languages\":\"es\"},{\"keyword\":\"burka debate p\u00fablico\",\"languages\":\"es\"},{\"keyword\":\"burka derechos mujeres\",\"languages\":\"es\"},{\"keyword\":\"burka islamismo\",\"languages\":\"es\"},{\"keyword\":\"burka cobertura isl\u00e1mica\",\"languages\":\"es\"},{\"keyword\":\"burka libertad religiosa\",\"languages\":\"es\"},{\"keyword\":\"prohibici\u00f3n burka impacto\",\"languages\":\"es\"},{\"keyword\":\"burka islam y sociedad\",\"languages\":\"es\"},{\"keyword\":\"burka restricciones civiles\",\"languages\":\"es\"},{\"keyword\":\"burka derechos fundamentales\",\"languages\":\"es\"},{\"keyword\":\"burka islam y terrorismo\",\"languages\":\"es\"},{\"keyword\":\"burka apariencia religiosa\",\"languages\":\"es\"},{\"keyword\":\"burka identidad religiosa\",\"languages\":\"es\"},{\"keyword\":\"burka prohibici\u00f3n legal\",\"languages\":\"es\"},{\"keyword\":\"burka islam y cultura\",\"languages\":\"es\"},{\"keyword\":\"burka derechos ciudadanos\",\"languages\":\"es\"},{\"keyword\":\"burka islam y pol\u00edtica\",\"languages\":\"es\"},{\"keyword\":\"burka libertad de culto\",\"languages\":\"es\"},{\"keyword\":\"burka islam y modernidad\",\"languages\":\"es\"},{\"keyword\":\"burka debate social\",\"languages\":\"es\"},{\"keyword\":\"burka islam y derechos\",\"languages\":\"es\"},{\"keyword\":\"burka islam y valores\",\"languages\":\"es\"},{\"keyword\":\"burka islam y sociedad civil\",\"languages\":\"es\"},{\"keyword\":\"prohibici\u00f3n burka consecuencias\",\"languages\":\"es\"},{\"keyword\":\"burka islam y derechos humanos\",\"languages\":\"es\"},{\"keyword\":\"burka islam y diversidad\",\"languages\":\"es\"},{\"keyword\":\"burka islam y tolerancia\",\"languages\":\"es\"},{\"keyword\":\"burka islam y respeto\",\"languages\":\"es\"},{\"keyword\":\"burka islam y respeto a la ley\",\"languages\":\"es\"},{\"keyword\":\"burka islam y libertad\",\"languages\":\"es\"},{\"keyword\":\"burka islam y derechos de las minor\u00edas\",\"languages\":\"es\"},{\"keyword\":\"burka islam y laicismo\",\"languages\":\"es\"},{\"keyword\":\"burka islam y democracia\",\"languages\":\"es\"},{\"keyword\":\"burka islam y estado de derecho\",\"languages\":\"es\"},{\"keyword\":\"burka islam y pluralismo\",\"languages\":\"es\"},{\"keyword\":\"burka islam y multiculturalismo\",\"languages\":\"es\"},{\"keyword\":\"burka islam y globalizaci\u00f3n\",\"languages\":\"es\"},{\"keyword\":\"burka islam y globalizaci\u00f3n\",\"languages\":\"fr\"},{\"keyword\":\"burka libert\u00e9 d'expression\",\"languages\":\"fr\"},{\"keyword\":\"burka droits humains\",\"languages\":\"fr\"},{\"keyword\":\"burka islam radicalisation\",\"languages\":\"fr\"},{\"keyword\":\"burka s\u00e9curit\u00e9 publique\",\"languages\":\"fr\"},{\"keyword\":\"burka islamisme\",\"languages\":\"fr\"},{\"keyword\":\"burka d\u00e9bat public\",\"languages\":\"fr\"},{\"keyword\":\"burka droits femmes\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et soci\u00e9t\u00e9\",\"languages\":\"fr\"},{\"keyword\":\"burka impact juridique\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et culture\",\"languages\":\"fr\"},{\"keyword\":\"burka restrictions civiles\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et politique\",\"languages\":\"fr\"},{\"keyword\":\"burka libert\u00e9 religieuse\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et modernit\u00e9\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et valeurs\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et soci\u00e9t\u00e9 civile\",\"languages\":\"fr\"},{\"keyword\":\"burka cons\u00e9quences l\u00e9gales\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et droits humains\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et diversit\u00e9\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et tol\u00e9rance\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et respect\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et loi\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et libert\u00e9\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et droits minorit\u00e9s\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et la\u00efcisme\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et d\u00e9mocratie\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et \u00e9tat de droit\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et pluralisme\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et multiculturalisme\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et mondialisation\",\"languages\":\"fr\"},{\"keyword\":\"burka islam et mondialisation\",\"languages\":\"en\"},{\"keyword\":\"burka freedom of expression\",\"languages\":\"en\"},{\"keyword\":\"burka human rights\",\"languages\":\"en\"},{\"keyword\":\"burka islam radicalization\",\"languages\":\"en\"},{\"keyword\":\"burka public safety\",\"languages\":\"en\"},{\"keyword\":\"burka islamism\",\"languages\":\"en\"},{\"keyword\":\"burka public debate\",\"languages\":\"en\"},{\"keyword\":\"burka women's rights\",\"languages\":\"en\"},{\"keyword\":\"burka islamic values\",\"languages\":\"en\"},{\"keyword\":\"burka civil society\",\"languages\":\"en\"},{\"keyword\":\"burka legal consequences\",\"languages\":\"en\"},{\"keyword\":\"burka islam and culture\",\"languages\":\"en\"},{\"keyword\":\"burka civil restrictions\",\"languages\":\"en\"},{\"keyword\":\"burka islamic politics\",\"languages\":\"en\"},{\"keyword\":\"burka religious freedom\",\"languages\":\"en\"},{\"keyword\":\"burka islam and modernity\",\"languages\":\"en\"},{\"keyword\":\"burka social discussion\",\"languages\":\"en\"},{\"keyword\":\"burka islam and rights\",\"languages\":\"en\"},{\"keyword\":\"burka islam and tolerance\",\"languages\":\"en\"},{\"keyword\":\"burka islam and respect\",\"languages\":\"en\"},{\"keyword\":\"burka islam and law\",\"languages\":\"en\"},{\"keyword\":\"burka islam and liberty\",\"languages\":\"en\"},{\"keyword\":\"burka islam and minority rights\",\"languages\":\"en\"},{\"keyword\":\"burka islam and secularism\",\"languages\":\"en\"},{\"keyword\":\"burka islam and democracy\",\"languages\":\"en\"},{\"keyword\":\"burka islam and rule of law\",\"languages\":\"en\"},{\"keyword\":\"burka islam and pluralism\",\"languages\":\"en\"},{\"keyword\":\"burka islam and multiculturalism\",\"languages\":\"en\"},{\"keyword\":\"burka islam and globalization\",\"languages\":\"en\"},{\"keyword\":\"burka reddit discussion\",\"languages\":\"en\"},{\"keyword\":\"burka youtube opinions\",\"languages\":\"en\"},{\"keyword\":\"burka linkedin debate\",\"languages\":\"en\"},{\"keyword\":\"burka bluesky discussion\",\"languages\":\"en\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "P\u00fablico General",
+        "start_date": "2026-02-18",
+        "end_date": "2026-02-19",
+        "status": "deleted",
+        "created_at": "2026-02-23T13:47:35.681216"
+    },
+    {
+        "id": "44b1dc0f-26da-43f7-92b3-a14c65cc0f6a",
+        "project_name": "prohibici\u00f3n_burka",
+        "tema": "prohibici\u00f3n burka en espacios p\u00fablicos",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\prohibici\u00f3n_burka",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"prohibici\u00f3n burka en espacios p\u00fablicos\",\"languages\":\"spanish, english\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "P\u00fablico General",
+        "start_date": "2026-02-16",
+        "end_date": "2026-02-19",
+        "status": "deleted",
+        "created_at": "2026-02-23T14:52:23.529727"
+    },
+    {
+        "id": "59495977-31f7-4c19-9808-d6d09ce82aa9",
+        "project_name": "martes24",
+        "tema": "prohibici\u00f3n burka en espacios p\u00fablicos",
+        "username": "admin",
+        "output_folder": "datos/admin/martes24",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"prohibici\u00f3n burka espacios p\u00fablicos\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano"
+        ],
+        "population_scope": "P\u00fablico General",
+        "start_date": "2026-02-16",
+        "end_date": "2026-02-20",
+        "status": "deleted",
+        "created_at": "2026-02-24T10:01:33.144975"
+    },
+    {
+        "id": "80e6ed71-d0a9-4312-a8f5-08d2a6fc404c",
+        "project_name": "PRUEBA MARTES",
+        "tema": "prohibici\u00f3n uso de burka en espacios p\u00fablicos",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\PRUEBA_MARTES",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"prohibici\u00f3n burka espacios p\u00fablicos\",\"languages\":\"Castellano\"},{\"keyword\":\"ban burka espais p\u00fablics\",\"languages\":\"Catalan\"},{\"keyword\":\"prohibici\u00f3n burka tok publikoak\",\"languages\":\"Euskera\"},{\"keyword\":\"burka ban pubblici luoghi pubblici\",\"languages\":\"Italiano\"},{\"keyword\":\"proibi\u00e7\u00e3o v\u00e9u espa\u00e7os p\u00fablicos\",\"languages\":\"Portugu\u00eas\"},{\"keyword\":\"interdiction voile lieux publics\",\"languages\":\"Franc\u00e9s\"},{\"keyword\":\"burka prohibido lugares p\u00fablicos\",\"languages\":\"Espa\u00f1ol\"},{\"keyword\":\"proibici\u00f3n de usar burka\",\"languages\":\"Espa\u00f1ol\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Italiano",
+            "Portugues",
+            "Frances"
+        ],
+        "population_scope": "P\u00fablico General",
+        "start_date": "2026-02-16",
+        "end_date": "2026-02-22",
+        "status": "deleted",
+        "created_at": "2026-02-24T13:11:28.062727"
+    },
+    {
+        "id": "85a1e6ab-e8da-43bd-a885-f7a421048fb9",
+        "project_name": "martes24b",
+        "tema": "prohibici\u00f3n burka en espacios p\u00fablicos",
+        "username": "admin",
+        "output_folder": "datos/admin/martes24b",
+        "sources": [
+            "twitter",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"prohibici\u00f3n burka espacios p\u00fablicos\",\"languages\":\"Castellano\"},{\"keyword\":\"ban burka llocs p\u00fablics\",\"languages\":\"Catalan\"},{\"keyword\":\"ohorezko maskara leku publikoetan\",\"languages\":\"Euskera\"},{\"keyword\":\"veil ban public spaces\",\"languages\":\"Ingl\u00e9s\"},{\"keyword\":\"divieto burka spazi pubblici\",\"languages\":\"Italiano\"},{\"keyword\":\"proibi\u00e7\u00e3o v\u00e9u espa\u00e7os p\u00fablicos\",\"languages\":\"Portugu\u00e9s\"},{\"keyword\":\"interdiction voile lieux publics\",\"languages\":\"Franc\u00e9s\"},{\"keyword\":\"prohibici\u00f3n del burka\",\"languages\":\"Castellano\"},{\"keyword\":\"ban burka en la calle\",\"languages\":\"Castellano\"},{\"keyword\":\"prohibici\u00f3 del vel p\u00fablic\",\"languages\":\"Catalan\"},{\"keyword\":\"ohorezko maskara gune publikoetan\",\"languages\":\"Euskera\"},{\"keyword\":\"veil ban public areas\",\"languages\":\"Ingl\u00e9s\"},{\"keyword\":\"divieto burka in citt\u00e0\",\"languages\":\"Italiano\"},{\"keyword\":\"proibi\u00e7\u00e3o v\u00e9u em locais abertos\",\"languages\":\"Portugu\u00e9s\"},{\"keyword\":\"interdiction voile dans les lieux publics\",\"languages\":\"Franc\u00e9s\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Italiano",
+            "Portugues",
+            "Frances"
+        ],
+        "population_scope": "P\u00fablico General",
+        "start_date": "2026-02-15",
+        "end_date": "2026-02-21",
+        "status": "completed",
+        "created_at": "2026-02-24T13:31:07.500325"
+    },
+    {
+        "id": "dc4f8fd2-9401-4c26-be0a-1a884a86c067",
+        "project_name": "miercoles25",
+        "tema": "acuerdo mercosur EU",
+        "username": "admin",
+        "output_folder": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\miercoles25",
+        "sources": [
+            "twitter",
+            "youtube",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"acuerdo mercosur eu\",\"languages\":\"Castellano\"},{\"keyword\":\"impacto acuerdo mercosur eu\",\"languages\":\"Castellano\"},{\"keyword\":\"juventud mercosur eu\",\"languages\":\"Castellano\"},{\"keyword\":\"futuro mercosur eu\",\"languages\":\"Castellano\"},{\"keyword\":\"negociaciones mercosur eu\",\"languages\":\"Castellano\"},{\"keyword\":\"beneficios acuerdo mercosur eu\",\"languages\":\"Castellano\"},{\"keyword\":\"desventajas acuerdo mercosur eu\",\"languages\":\"Castellano\"},{\"keyword\":\"juventud europeu\",\"languages\":\"Catalan\"},{\"keyword\":\"futuro mercosur eu\",\"languages\":\"Euskera\"},{\"keyword\":\"acuerdo mercosur eu\",\"languages\":\"Ingl\u00e9s\"},{\"keyword\":\"eu mercosur impact\",\"languages\":\"Italiano\"},{\"keyword\":\"mercado comum eu\",\"languages\":\"Portugu\u00e9s\"},{\"keyword\":\"acordo mercosur eu\",\"languages\":\"Frances\"},{\"keyword\":\"juventud eu\",\"languages\":\"Castellano\"},{\"keyword\":\"futuro comercio eu\",\"languages\":\"Castellano\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Italiano",
+            "Portugues",
+            "Frances"
+        ],
+        "population_scope": "jovenes de 18 a 25 a\u00f1os",
+        "start_date": "2026-01-20",
+        "end_date": "2026-01-27",
+        "status": "deleted",
+        "created_at": "2026-02-25T12:34:25.970678"
+    },
+    {
+        "id": "6f0d3cef-ce35-4370-bb06-cf7ea521c4fb",
+        "project_name": "martes24b",
+        "username": "user",
+        "output_folder": "datos/user/martes24b",
+        "status": "completed",
+        "created_at": "2026-02-25T14:23:05.308988"
+    },
+    {
+        "id": "a540e6a4-6732-4049-98d8-3696ba6c18c8",
+        "project_name": "Prohibici\u00f3n_Burka",
+        "username": "user",
+        "output_folder": "datos/user/Prohibici\u00f3n_Burka",
+        "status": "completed",
+        "created_at": "2026-02-25T14:23:05.308988"
+    },
+    {
+        "id": "d3682e4b-2d91-4a06-97e1-fd47a9d428c7",
+        "project_name": "martes24b",
+        "username": "analista",
+        "output_folder": "datos/analista/martes24b",
+        "status": "completed",
+        "created_at": "2026-03-04T07:50:15.678514"
+    },
+    {
+        "id": "513a42d4-1aa8-4107-831e-497dbe1ce086",
+        "project_name": "ir\u00e1n",
+        "tema": "guerra en ir\u00e1n iniciada por eeuu",
+        "username": "admin",
+        "output_folder": "ir\u00e1n (3)",
+        "sources": [
+            "youtube",
+            "reddit",
+            "bluesky"
+        ],
+        "keywords": "[{\"keyword\":\"guerra ir\u00e1n\",\"languages\":\"Castellano, Catalan, Euskera\"},{\"keyword\":\"EEUU guerra ir\u00e1n\",\"languages\":\"Ingles, Italiano, Portugues, Frances\"}]",
+        "languages": [
+            "Castellano",
+            "Catalan",
+            "Euskera",
+            "Ingles",
+            "Italiano",
+            "Portugues",
+            "Frances"
+        ],
+        "population_scope": "P\u00fablico General",
+        "start_date": "2026-02-28",
+        "end_date": "2026-03-04",
+        "status": "deleted",
+        "created_at": "2026-03-04T09:36:33.177251"
+    },
+    {
+        "id": "31fd7b31-84a8-4eec-9a94-0db0f03fd134",
+        "project_name": "ir\u00e1n",
+        "username": "admin",
+        "output_folder": "datos/admin/ir\u00e1n",
+        "status": "deleted",
+        "created_at": "2026-03-04T09:17:36.989688"
+    },
+    {
+        "id": "e6102af4-bb8f-4bfa-9c08-7b6bb4583069",
+        "project_name": "ir\u00e1n (1)",
+        "username": "admin",
+        "output_folder": "datos/admin/ir\u00e1n (1)",
+        "status": "deleted",
+        "created_at": "2026-03-04T09:30:02.836695"
+    },
+    {
+        "id": "d04150d9-b96a-4e03-bd04-c74505854d92",
+        "project_name": "ir\u00e1n (2)",
+        "username": "admin",
+        "output_folder": "datos/admin/ir\u00e1n (2)",
+        "status": "deleted",
+        "created_at": "2026-03-04T09:32:02.933561"
+    },
+    {
+        "id": "869482be-33f2-4b8c-a2f2-824d75e4c94c",
+        "project_name": "ir\u00e1n (3)",
+        "username": "admin",
+        "output_folder": "datos/admin/ir\u00e1n (3)",
+        "status": "deleted",
+        "created_at": "2026-03-04T09:36:33.174795"
+    },
+    {
+        "id": "77357aa1-18b5-4548-b32e-21ef204afbb0",
+        "project_name": "aaa",
+        "username": "admin",
+        "output_folder": "datos/admin/aaa",
+        "status": "completed",
+        "created_at": "2026-03-04T00:35:50.731299"
+    },
+    {
+        "id": "acd8cad5-4440-464f-a1b7-d53635f830cd",
+        "project_name": "aaa (1)",
+        "username": "admin",
+        "output_folder": "datos/admin/aaa (1)",
+        "status": "completed",
+        "created_at": "2026-03-04T00:37:43.912272"
+    },
+    {
+        "id": "e41fb31b-e580-428f-a0d8-4d6e63c1debf",
+        "project_name": "aaaaaaaaaa",
+        "username": "admin",
+        "output_folder": "datos/admin/aaaaaaaaaa",
+        "status": "completed",
+        "created_at": "2026-03-02T02:24:47.594727"
+    },
+    {
+        "id": "a3bc8d98-7f76-423c-875c-034e4314f757",
+        "project_name": "aaaaaaaaaaa",
+        "username": "admin",
+        "output_folder": "datos/admin/aaaaaaaaaaa",
+        "status": "completed",
+        "created_at": "2026-03-04T00:45:12.231606"
+    },
+    {
+        "id": "a622b532-1d14-4b28-93b4-9443ff1c9443",
+        "project_name": "aaaaaaaaaaa (1)",
+        "username": "admin",
+        "output_folder": "datos/admin/aaaaaaaaaaa (1)",
+        "status": "completed",
+        "created_at": "2026-03-04T00:48:16.736583"
+    },
+    {
+        "id": "3ee3a8c0-f0d2-4c12-a306-f81feb5c567a",
+        "project_name": "aaaaaaaaaaa (2)",
+        "username": "admin",
+        "output_folder": "datos/admin/aaaaaaaaaaa (2)",
+        "status": "completed",
+        "created_at": "2026-03-04T00:50:58.759161"
+    },
+    {
+        "id": "80870d92-4970-4c4a-947d-97e23636cb60",
+        "project_name": "aaaaaaaaaaa (3)",
+        "username": "admin",
+        "output_folder": "datos/admin/aaaaaaaaaaa (3)",
+        "status": "completed",
+        "created_at": "2026-03-04T00:53:18.307599"
+    },
+    {
+        "id": "fb02315a-d11a-4457-b4ce-1647a75a98d8",
+        "project_name": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "username": "admin",
+        "output_folder": "datos/admin/aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "status": "completed",
+        "created_at": "2026-03-03T23:13:00.468108"
+    },
+    {
+        "id": "03c76352-e567-4f0d-a356-65654bdae005",
+        "project_name": "aaaaaaaaaaaaaaaaaaaaaaaaaaa (1)",
+        "username": "admin",
+        "output_folder": "datos/admin/aaaaaaaaaaaaaaaaaaaaaaaaaaa (1)",
+        "status": "completed",
+        "created_at": "2026-03-03T23:13:45.698374"
+    },
+    {
+        "id": "e9248d42-70f2-4aeb-a01d-a132181ae66d",
+        "project_name": "aaaaaaaaaaaaaaaaaaaaaaaaaaa (2)",
+        "username": "admin",
+        "output_folder": "datos/admin/aaaaaaaaaaaaaaaaaaaaaaaaaaa (2)",
+        "status": "completed",
+        "created_at": "2026-03-03T23:18:27.808860"
+    },
+    {
+        "id": "82847573-44fb-476d-b722-99d5f27e1452",
+        "project_name": "aaaaaaaaaaaaaaaaaaaaaaaaaaa (3)",
+        "username": "admin",
+        "output_folder": "datos/admin/aaaaaaaaaaaaaaaaaaaaaaaaaaa (3)",
+        "status": "completed",
+        "created_at": "2026-03-03T23:37:43.534208"
+    },
+    {
+        "id": "d45e67d9-6795-49ae-94d9-f7cf85ef571d",
+        "project_name": "aaaaaaaaaaaaaaaaaaaaaaaaaaa (4)",
+        "username": "admin",
+        "output_folder": "datos/admin/aaaaaaaaaaaaaaaaaaaaaaaaaaa (4)",
+        "status": "completed",
+        "created_at": "2026-03-03T23:37:46.222250"
+    },
+    {
+        "id": "969628af-1ca7-4ad0-b97e-96b65637f031",
+        "project_name": "aaaaaaaaaaaaaaaaaaaaaaaaaaa (5)",
+        "username": "admin",
+        "output_folder": "datos/admin/aaaaaaaaaaaaaaaaaaaaaaaaaaa (5)",
+        "status": "completed",
+        "created_at": "2026-03-04T00:02:06.867012"
+    },
+    {
+        "id": "2b7696b2-7148-453f-b353-20e6f255e645",
+        "project_name": "sdds",
+        "username": "admin",
+        "output_folder": "datos/admin/sdds",
+        "status": "completed",
+        "created_at": "2026-03-02T02:13:00.599251"
+    },
+    {
+        "id": "24ed178f-c7f3-42c6-9a32-541c56702286",
+        "project_name": "sdds (1)",
+        "username": "admin",
+        "output_folder": "datos/admin/sdds (1)",
+        "status": "completed",
+        "created_at": "2026-03-02T02:13:15.155426"
+    },
+    {
+        "id": "fe374b40-9e68-44c0-b562-fbd88b391a93",
+        "project_name": "analista_bigger",
+        "username": "analista",
+        "output_folder": "datos/analista/analista_bigger",
+        "status": "completed",
+        "created_at": "2026-02-26T00:47:43.446421"
+    },
+    {
+        "id": "a0af81f9-8fec-41a5-8920-0829eda6cb1b",
+        "project_name": "ASAS",
+        "username": "analista",
+        "output_folder": "datos/analista/ASAS",
+        "status": "completed",
+        "created_at": "2026-02-25T02:26:10.667192"
+    },
+    {
+        "id": "104b86fd-1c09-48b4-970b-0c20e08e72d2",
+        "project_name": "BalizaV16_mispruebas",
+        "username": "analista",
+        "output_folder": "datos/analista/BalizaV16_mispruebas",
+        "status": "completed",
+        "created_at": "2026-02-23T19:18:19.873332"
+    }
+]

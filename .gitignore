@@ -1,0 +1,121 @@
+# ========================
+# Configuración general
+# ========================
+
+# Archivos de texto de notas y documentación temporal
+*.txt
+
+# ========================
+# R / RStudio
+# ========================
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# ========================
+# Ignorar datos y archivos grandes
+# ========================
+# Directorios de salida de datos y archivos pesados
+project_web/Web_Proyecto/datos/*
+project_web/Web_Proyecto/files/
+# PERO permitir subir estas carpetas específicas
+!project_web/Web_Proyecto/datos/admin/
+!project_web/Web_Proyecto/datos/analista/
+!project_web/Web_Proyecto/datos/user/
+project_web/Web_Proyecto/datos/admin/*
+project_web/Web_Proyecto/datos/analista/*
+project_web/Web_Proyecto/datos/user/*
+# ADMIN
+!project_web/Web_Proyecto/datos/admin/burka19/
+!project_web/Web_Proyecto/datos/admin/burka19/**
+
+!project_web/Web_Proyecto/datos/admin/martes24b/
+!project_web/Web_Proyecto/datos/admin/martes24b/**
+
+# ANALISTA
+!project_web/Web_Proyecto/datos/analista/martes24b/
+!project_web/Web_Proyecto/datos/analista/martes24b/**
+
+!project_web/Web_Proyecto/datos/analista/burka/
+!project_web/Web_Proyecto/datos/analista/burka/**
+
+# USER
+!project_web/Web_Proyecto/datos/user/martes24b/
+!project_web/Web_Proyecto/datos/user/martes24b/**
+
+!project_web/Web_Proyecto/datos/user/Prohibición_Burka/
+!project_web/Web_Proyecto/datos/user/Prohibición_Burka/**
+# ========================
+# Python
+# ========================
+# Python bytecode y caché
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments (si usas venv / virtualenv)
+venv/
+.env/
+env/
+.venv/
+
+# ========================
+# Entornos de desarrollo
+# ========================
+.vscode/
+*.Rproj
+
+# ========================
+# Logs y errores temporales
+# ========================
+clean_project/logs/
+clean_project/errors/
+
+# ========================
+# Sesiones / credenciales
+# ========================
+# Carpetas de sesiones que no deben subirse
+clean_project/sesion_linkedin/
+project_web/sesion_linkedin/
+
+# Si más adelante usas archivos de credenciales, puedes ignorarlos
+# Ejemplo:
+# clean_project/src/clean_project/config/credentials.json
+
+# ========================
+# Certificados, llaves y secretos
+# ========================
+# Archivos de certificado o claves privadas
+# project_web/certificados_web/*.pem
+# project_web/secret_key_servidor.txt
+
+# ========================
+# Archivos temporales del proyecto
+# ========================
+# TikTok salidas de error
+# tiktok_salida ERROR (VER CRISTHIAN).txt
+
+# ========================
+# DB y almacenamiento temporal
+# ========================
+# Archivos de bases de datos
+# *.sqlite
+# *.db
+
+# ========================
+# Sistema operativo
+# ========================
+# MacOS
+# .DS_Store
+
+# # Windows
+# Thumbs.db
+# ehthumbs.db
+
+# ========================
+# Editor / IDE específicos
+# ========================
+# # JetBrains
+# .idea/

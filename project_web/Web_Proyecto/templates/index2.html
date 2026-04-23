@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Configuración del Proyecto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+
+</head>
+
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container-fluid">
+        <span class="navbar-brand fw-semibold">
+            Análisis de Opinión
+        </span>
+
+        <div class="dropdown ms-auto">
+            <button class="btn btn-primary dropdown-toggle d-flex align-items-center"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                <i class="bi bi-person-circle me-2"></i>
+                {{ user }}
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+               <li>
+                    <a class="dropdown-item" href="/mis-analisis">
+                        📁 Mis análisis
+                    </a>
+                </li>
+
+                <li><hr class="dropdown-divider"></li>
+
+                <li>
+                    <button class="dropdown-item text-danger" id="logoutBtn" name="logoutBtn">
+                        🔒 Cerrar sesión
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Proyecto Análisis de Opinión en Redes Sociales</h4>
+                </div>
+
+                <div class="card-body">
+                    <form id="projectForm">
+
+                        <!-- Nombre del proyecto -->
+                        <div class="mb-3">
+                            <label class="form-label">Nombre del proyecto</label>
+                            <input type="text" class="form-control" name="project_name"
+                                   placeholder="Ej: Balizas_V16" required>
+                        </div>
+                        
+                        <!-- Asistente de IA -->
+                        <div class="mb-3">
+                            <label class="form-label">Asistente de IA</label>
+
+                            <input type="text"
+                                class="form-control"
+                                name="asistente"
+                                placeholder="Ej: Opinión pública sobre la implementación de las Balizas V16 en España">
+
+                            <div class="d-flex align-items-center mt-1">
+                                <div class="form-text flex-grow-1">
+                                    La IA se encargará de generar keywords para tu contexto
+                                </div>
+
+                                <button type="button"
+                                        id="generateKeywordsBtn" name="generateKeywordsBtn"
+                                        class="btn btn-outline-primary btn-sm ms-2">
+                                    🤖 Generar keywords
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Palabras generadas por el asistente -->
+                        <div class="mb-3">
+                            <div id="generatedKeywordsContainer" class="mt-2"></div>
+                            <button type="button" id="addSelectedKeywordsBtn" class="btn btn-sm btn-outline-success mt-2 d-none">
+                                ➕ Añadir seleccionadas
+                            </button>
+                        </div>
+                        
+                        <!-- Palabras clave -->
+                        <div class="mb-3">
+                            <label class="form-label">Palabras clave</label>
+                            <input type="text" class="form-control" name="keywords"
+                                   placeholder="Ej: baliza V16, dispositivo de preseñalización V16, balizas V-16" required>
+                            <div class="form-text">
+                                Sepáralas por comas
+                            </div>
+                        </div>
+
+                      <!-- Fechas -->
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Fecha de inicio</label>
+                                <input type="date" class="form-control" name="start_date" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Fecha de fin</label>
+                                <input type="date" class="form-control" name="end_date" required>
+                            </div>
+                        </div>
+
+                        <!-- Fuentes -->
+                        <div class="row mb-4">
+                            <!-- Fuentes -->
+                            <div class="col-md-6">
+                                <label class="form-label">Fuentes a analizar</label>
+                                <!-- Seleccionar todos -->
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="selectAllSources" name="selectAllSources"> 
+                                    <label class="form-check-label fw-bold">Seleccionar todas</label>
+                                </div>    
+                                <!-- Seleccionar todos -->
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="sources[]" value="bluesky">
+                                    <label class="form-check-label">BlueSky</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="sources[]" value="reddit">
+                                    <label class="form-check-label">Reddit</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="sources[]" value="twitter">
+                                    <label class="form-check-label">Twitter / X</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="sources[]" value="youtube">
+                                    <label class="form-check-label">Youtube</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="sources[]" value="linkedin">
+                                    <label class="form-check-label">Linkedin</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="sources[]" value="tiktok">
+                                    <label class="form-check-label">Tiktok</label>
+                                </div>
+                            </div>
+
+                            <!-- Idiomas -->
+                            <div class="col-md-6">
+                                <label class="form-label">Idiomas seleccionados</label>
+                                <!-- Seleccionar todos -->
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="selectAllLanguages" name="selectAllLanguages">
+                                    <label class="form-check-label fw-bold">Seleccionar todas</label>
+                                </div>  
+                                <!-- Seleccionar todos -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="languages[]" value="Castellano">
+                                    <label class="form-check-label">Castellano</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="languages[]" value="Catalan">
+                                    <label class="form-check-label">Catalán</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="languages[]" value="Euskera">
+                                    <label class="form-check-label">Euskera</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="languages[]" value="Ingles">
+                                    <label class="form-check-label">Inglés</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="languages[]" value="Portugues">
+                                    <label class="form-check-label">Portugués</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="languages[]" value="Frances">
+                                    <label class="form-check-label">Francés</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="languages[]" value="Italiano">
+                                    <label class="form-check-label">Italiano</label>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        <!-- Botón para mostrar configuración avanzada -->
+                        <div class="mb-3">
+                            <button
+                                class="btn btn-outline-secondary w-100"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#configuracionAvanzada"
+                                aria-expanded="false"
+                                aria-controls="configuracionAvanzada"
+                            >
+                                ⚙️ Configuración avanzada de Prompts
+                            </button>
+                        </div>
+                        
+                        <!-- Configuración avanzada (oculta) -->
+                        <div class="collapse" id="configuracionAvanzada">
+
+                            <div class="card card-body mb-3">
+
+                                <!-- Descripción de la configuración -->
+                                <div class="mb-3">
+                                    <label class="form-label">Prompt Tropicos</label>
+                                    <textarea
+                                        class="form-control"
+                                        name="config_description"
+                                        rows="4"
+                                        placeholder="Describe criterios, objetivos y configuración del análisis"
+                                    ></textarea>
+                                </div>
+
+                                <!-- Observaciones adicionales -->
+                                <div class="mb-3">
+                                    <label class="form-label">Prompt Pilares</label>
+                                    <textarea
+                                        class="form-control"
+                                        name="additional_notes"
+                                        rows="3"
+                                        placeholder="Notas, advertencias o supuestos"
+                                    ></textarea>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Botón -->
+                        <div class="row g-2" id="actionButtons">
+
+                            <!-- Ejecutar -->
+                            <div class="col-12" id="runCol">
+                                <button type="submit"
+                                        class="btn btn-success btn-lg w-100 btn-ejecutar">
+                                    ▶ Ejecutar análisis
+                                </button>
+                            </div>
+
+                            <!-- Detener -->
+                            <div class="col-2 d-none" id="stopCol">
+                                <button type="button"
+                                        id="stopAnalysisBtn"
+                                        class="btn btn-danger btn-lg w-100">
+                                    ⛔
+                                </button>
+                            </div>
+
+                        </div>
+
+                         <!-- fuera -->
+                        <div id="progressContainer" class="mt-4 d-none">
+
+                            <div class="progress mb-2">
+                                <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated"
+                                        style="width: 0%"></div>
+                            </div>
+                            <div id="progressText" class="text-center fw-semibold"></div>
+                        </div>
+
+                    </form>
+
+                    <!-- Contenedor para resultados -->
+                    <div id="resultsContainer" class="mt-4"></div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container py-4">
+    <h2 class="text-center mb-4">Dashboard de Gráficas</h2>
+
+    <div class="row g-4">
+        <!-- Barras -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Gráfica de Barras</h5>
+                    <canvas id="barras"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quesito -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Gráfica de Quesito</h5>
+                    <canvas id="quesito"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Líneas -->
+        <div class="col-md-12 col-lg-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Gráfica de Líneas</h5>
+                    <canvas id="lineas"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Nuestro JS -->
+<script src="{{ url_for('static', path='main.js') }}"></script>
+
+<!-- JS de resultados avanzados -->
+<script src="{{ url_for('static', path='results.js') }}"></script>
+
+<!--<script src="{{ url_for('static', path='graficas.js') }}"></script> -->>
+
+
+</body>
+</html>

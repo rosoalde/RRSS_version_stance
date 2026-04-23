@@ -1,0 +1,42 @@
+📘 INFORME DE ACEPTACIÓN GLOBAL
+========================================
+
+Aceptación Global [%]              : 35.60
+Interpretación                     : Baja aceptación
+Pilar más influyente               : legitimacion
+Cantidad de publicaciones usadas   : 172
+Mensajes descartados               : 23
+Aceptación por pilar:
+   legitimacion             : -0.58
+   efectividad              : 0.08
+   justicia_equidad         : -0.32
+   confianza_institucional  : -0.07
+   marcos_discursivos       : -0.55
+
+========================================
+DETALLE POR RED SOCIAL
+========================================
+
+🔹 Red: BLUESKY
+   Filas relevantes para cálculo: 113
+      Pilar legitimacion: positivos 23, negativos 86, neutros 4
+      Pilar efectividad: positivos 4, negativos 7, neutros 34
+      Pilar justicia_equidad: positivos 14, negativos 59, neutros 13
+      Pilar confianza_institucional: positivos 1, negativos 4, neutros 34
+      Pilar marcos_discursivos: positivos 31, negativos 45, neutros 10
+
+🔹 Red: REDDIT
+   Filas relevantes para cálculo: 3
+      Pilar legitimacion: positivos 1, negativos 2, neutros 0
+      Pilar efectividad: positivos 0, negativos 0, neutros 0
+      Pilar justicia_equidad: positivos 2, negativos 1, neutros 0
+      Pilar confianza_institucional: positivos 0, negativos 0, neutros 0
+      Pilar marcos_discursivos: positivos 0, negativos 2, neutros 0
+
+🔹 Red: X (TWITTER)
+   Filas relevantes para cálculo: 56
+      Pilar legitimacion: positivos 4, negativos 52, neutros 0
+      Pilar efectividad: positivos 4, negativos 0, neutros 14
+      Pilar justicia_equidad: positivos 4, negativos 35, neutros 2
+      Pilar confianza_institucional: positivos 0, negativos 1, neutros 15
+      Pilar marcos_discursivos: positivos 8, negativos 26, neutros 3

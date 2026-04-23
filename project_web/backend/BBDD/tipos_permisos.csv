@@ -1,0 +1,4 @@
+id_permiso,nombre
+0,admin
+1,cliente
+2,visitante

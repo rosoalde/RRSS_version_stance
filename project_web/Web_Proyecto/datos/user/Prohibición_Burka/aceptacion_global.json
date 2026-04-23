@@ -1,0 +1,106 @@
+{
+    "Aceptación Global [%]": 43.75396825396825,
+    "Interpretación": "Aceptación media",
+    "Pilar más influyente": "legitimacion",
+    "Cantidad de publicaciones usadas": 20,
+    "Mensajes descartados": 68,
+    "Aceptación por pilar": {
+        "legitimacion": -0.45,
+        "efectividad": 0.1111111111111111,
+        "justicia_equidad": -0.42857142857142855,
+        "confianza_institucional": 0.0,
+        "marcos_discursivos": 0.14285714285714285
+    },
+    "Detalle por Red": {
+        "BlueSky": {
+            "filas_relevantes": 20,
+            "conteos": {
+                "legitimacion": {
+                    "pos": 5,
+                    "neg": 14,
+                    "neu": 1
+                },
+                "efectividad": {
+                    "pos": 2,
+                    "neg": 1,
+                    "neu": 6
+                },
+                "justicia_equidad": {
+                    "pos": 3,
+                    "neg": 9,
+                    "neu": 2
+                },
+                "confianza_institucional": {
+                    "pos": 0,
+                    "neg": 0,
+                    "neu": 6
+                },
+                "marcos_discursivos": {
+                    "pos": 7,
+                    "neg": 5,
+                    "neu": 2
+                }
+            }
+        },
+        "Reddit": {
+            "filas_relevantes": 0,
+            "conteos": {
+                "legitimacion": {
+                    "pos": 0,
+                    "neg": 0,
+                    "neu": 0
+                },
+                "efectividad": {
+                    "pos": 0,
+                    "neg": 0,
+                    "neu": 0
+                },
+                "justicia_equidad": {
+                    "pos": 0,
+                    "neg": 0,
+                    "neu": 0
+                },
+                "confianza_institucional": {
+                    "pos": 0,
+                    "neg": 0,
+                    "neu": 0
+                },
+                "marcos_discursivos": {
+                    "pos": 0,
+                    "neg": 0,
+                    "neu": 0
+                }
+            }
+        },
+        "X (Twitter)": {
+            "filas_relevantes": 0,
+            "conteos": {
+                "legitimacion": {
+                    "pos": 0,
+                    "neg": 0,
+                    "neu": 0
+                },
+                "efectividad": {
+                    "pos": 0,
+                    "neg": 0,
+                    "neu": 0
+                },
+                "justicia_equidad": {
+                    "pos": 0,
+                    "neg": 0,
+                    "neu": 0
+                },
+                "confianza_institucional": {
+                    "pos": 0,
+                    "neg": 0,
+                    "neu": 0
+                },
+                "marcos_discursivos": {
+                    "pos": 0,
+                    "neg": 0,
+                    "neu": 0
+                }
+            }
+        }
+    }
+}

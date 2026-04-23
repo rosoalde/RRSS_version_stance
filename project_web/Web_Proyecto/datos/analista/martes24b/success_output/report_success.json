@@ -1,0 +1,40 @@
+{
+  "input": "C:\\Users\\DATS004\\Dropbox\\14. DS4M - Social Media Research\\git\\project_web\\Web_Proyecto\\datos\\admin\\martes24b\\datos_con_pilares.csv",
+  "n_posts_relevant": 172,
+  "window": "D",
+  "success_probability": 0.5460597563067138,
+  "success_score": 70.58603229492203,
+  "risk_dimensions": {
+    "polarization": 0.0,
+    "negativity_momentum": 0.5593028846817046,
+    "negative_amplification": 1.0,
+    "negative_influence": 1.0,
+    "narrative_concentration": 0.039035952556318754,
+    "negative_user_concentration": 0.0,
+    "negativity_persistence": 1.0
+  },
+  "risk_weights_entropy": {
+    "polarization": 0.0587569132881257,
+    "negativity_momentum": 0.05855779550781169,
+    "negative_amplification": 0.09422342646188409,
+    "negative_influence": 0.09463352663879325,
+    "narrative_concentration": 0.3579619191823294,
+    "negative_user_concentration": 0.2773086234132442,
+    "negativity_persistence": 0.05855779550781169
+  },
+  "pattern_probabilities": {
+    "pattern_1": 0.0,
+    "pattern_2": 1.0,
+    "pattern_3": 0.0
+  },
+  "pattern_labels": {
+    "pattern_1": "low_risk",
+    "pattern_2": "medium_risk",
+    "pattern_3": "high_risk"
+  },
+  "uncertainty": 0.07624928516630233,
+  "confidence": 0.9237507148336976,
+  "size_uncertainty": 0.07624928516630233,
+  "pattern_uncertainty": 0.0,
+  "note": null
+}

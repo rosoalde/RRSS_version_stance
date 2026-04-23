@@ -1,0 +1,464 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard resultados{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+
+    <!-- ===================== -->
+    <!-- BARRA SUPERIOR -->
+    <!-- ===================== -->
+     <select id="projectSelect" class="d-none">
+        <option value="">--</option>
+    </select>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2 text-primary fw-bold">Dashboard resultados</h1>
+
+        <!-- <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="input-group">
+                <span class="input-group-text bg-white">
+                    <i class="bi bi-search"></i>
+                </span>
+                <select class="form-select" id="projectSelect" style="max-width: 300px;">
+                    <option value="">-- Selecciona un proyecto --</option>
+                    {% for project in analyses %}
+                    <option value="{{ project.id }}">
+                        {{ project.project_name }} ({{ project.created_at }})
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div> -->
+    </div>
+
+    <!-- ===================== -->
+    <!-- FILTRO GEOGRÁFICO -->
+    <!-- ===================== -->
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <label class="form-label fw-bold small text-uppercase text-muted">
+                📍 Filtro por Ámbito Geográfico
+            </label>
+            <div class="input-group shadow-sm">
+                <span class="input-group-text bg-primary text-white">
+                    <i class="bi bi-geo-alt-fill"></i>
+                </span>
+                <input type="text" id="geoFilterInput" class="form-control" autocomplete="off" placeholder="Ej: Valencia, Madrid, Argentina">
+                <button 
+                    class="btn btn-primary fw-bold
+                        {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}"
+                    id="btnApplyFilter"
+                    {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}>
+                    APLICAR FILTRO
+                </button>
+
+                <button 
+                    class="btn btn-outline-secondary
+                        {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}"
+                    id="btnClearFilter"
+                    {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}>
+                    LIMPIAR
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- CONTENIDO PRINCIPAL -->
+    <!-- ===================== -->
+    <div class="row">
+
+        <!-- COLUMNA IZQUIERDA (DASHBOARD) -->
+        <div class="col-lg-8">
+
+            <!-- 1. NUEVO: ENCABEZADO DE CONTEXTO DEL TEMA -->
+            <div id="projectHeader" class="mb-4 d-none">
+                <div class="card border-0 shadow-sm bg-white rounded-4">
+                    <div class="card-body p-4">
+                        <!-- Nivel 1: Nombre del Proyecto -->
+                        <div class="mb-2">
+                            <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-bold" style="font-size: 0.7rem;">
+                                <i class="bi bi-folder2 me-1"></i> PROYECTO: <span id="displayProjectName">--</span>
+                            </span>
+                        </div>
+
+                        <!-- Nivel 2: Tema (Forzado a Mayúsculas y tamaño ajustado) -->
+                        <h3 id="displayTemaName" class="fw-bold text-dark mb-3" 
+                            style="text-transform: uppercase; font-size: 1.5rem; letter-spacing: 0.5px; line-height: 1.2;">
+                            <!-- El JS pondrá el tema aquí -->
+                        </h3>
+
+                        <!-- Nivel 3: Descripción -->
+                        <div class="pt-3 border-top">
+                            <div class="d-flex align-items-center mb-2 text-muted">
+                                <i class="bi bi-stars me-2 text-info"></i>
+                                <h6 class="small text-uppercase fw-bold mb-0" style="letter-spacing: 1px;">Contexto del Análisis</h6>
+                            </div>
+                            <p id="displayThemeDescription" class="text-secondary mb-0" style="font-size: 1rem; line-height: 1.6; max-width: 850px;">
+                                <!-- El JS pondrá la descripción aquí -->
+                            </p>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+
+            <!-- Placeholder de carga -->
+            <div id="resultsPlaceholder" class="text-center p-5">
+                <div class="text-muted">
+                    <i class="bi bi-bar-chart-line display-1"></i>
+                    <p class="mt-3">Selecciona un proyecto arriba para cargar el dashboard.</p>
+                </div>
+            </div>
+
+            <div id="chartsContainer" class="d-none">
+
+                <!-- ========================================== -->
+                <!-- 📑 NAVEGACIÓN POR PESTAÑAS -->
+                <!-- ========================================== -->
+                <ul class="nav nav-pills mb-4 bg-white p-2 rounded shadow-sm border" id="dashboardTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active fw-bold" id="volumen-tab" data-bs-toggle="tab" data-bs-target="#tab-volumen" type="button" role="tab">
+                            <i class="bi bi-activity me-2"></i>Volumen de menciones
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link fw-bold" id="sentimiento-tab" data-bs-toggle="tab" data-bs-target="#tab-sentimiento" type="button" role="tab">
+                            <i class="bi bi-emoji-smile me-2"></i>Análisis de sentimiento
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link fw-bold" id="contenido-tab" data-bs-toggle="tab" data-bs-target="#tab-contenido" type="button" role="tab">
+                            <i class="bi bi-chat-left-quote me-2"></i>Temas y nubes
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- ========================================== -->
+                <!-- 📦 CONTENIDO DE LAS PESTAÑAS -->
+                <!-- ========================================== -->
+                <div class="tab-content" id="dashboardTabsContent">
+                    <!-- PESTAÑA 1: VOLUMEN -->
+                    <div class="tab-pane fade show active" id="tab-volumen" role="tabpanel">
+                        <div class="bg-light p-3 rounded-3 mb-4 border-start border-4 border-primary shadow-sm">
+                                <h5 class="text-primary fw-bold mb-1"><i class="bi bi-activity me-2"></i> Análisis de volumen de menciones</h5>
+                                <p class="text-muted small mb-0">Esta sección muestra la cantidad de menciones sobre el tema en el periodo establecido. Un mayor volumen indica mayor nivel de actividad o interés.</p>
+                            </div>
+                                <!-- Contenedor de KPI y Donut con alineación vertical perfecta -->
+                                <div class="row g-4 mb-4 align-items-stretch">
+                                    <!-- Tarjeta KPI -->
+                                    <div class="col-md-4 d-flex">
+                                        <div class="p-4 rounded-4 bg-primary-subtle border border-primary-subtle shadow-sm text-center w-100 d-flex flex-column justify-content-center">
+                                            <h6 class="text-primary text-uppercase small fw-bold mb-3">Total de menciones relacionadas</h6>
+                                            <h1 id="kpiTotal" class="display-1 fw-bold text-primary mb-2">0</h1>
+                                            <div class="px-3">
+                                                <p class="text-primary-emphasis small mb-0">
+                                                    <i class="bi bi-filter-circle-fill me-1"></i> 
+                                                   Número de menciones consideradas relevantes para el tema tras el filtrado automático.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Gráfica Donut -->
+                                    <div class="col-md-8 d-flex">
+                                        <div class="p-3 border rounded-3 bg-white h-100">
+                                            <h6 class="text-dark fw-bold small text-uppercase mb-3"><i class="bi bi-graph-up me-2 text-primary"></i>Evolución temporal de menciones</h6>
+                                            <div style="height: 250px;">
+                                                <canvas id="tendenciaGlobalVolChart"></canvas>
+                                            </div>
+                                            <p class="text-muted small mt-3 mb-0 text-center">Muestra cómo varía el número de menciones a lo largo del tiempo. Los picos pueden estar asociados a eventos, noticias u otros factores externos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-4">
+                                    <div class="col-md-4">
+                                        
+                                    <div class="p-3 border rounded-3 bg-white h-100">
+                                            <h6 class="text-muted text-uppercase small fw-bold mb-4 text-center">Distribución por red social</h6>
+                                            <div style="height: 250px; position: relative;">
+                                                <canvas id="volumenRedChart"></canvas>
+                                            </div>
+                                            <p class="text-muted small mt-3 mb-0 text-center">Distribución de las menciones entre las distintas plataformas.</p>
+                                    </div>
+
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="p-3 border rounded-3 bg-white h-100">
+                                            <h6 class="text-dark fw-bold small text-uppercase mb-3"><i class="bi bi-funnel me-2 text-primary"></i>Comparativa de menciones por fuente</h6>
+                                            <div style="height: 250px;">
+                                                <canvas id="tendenciaRedVolChart"></canvas>
+                                            </div>
+                                            <p class="text-muted small mt-3 mb-0 text-center">Compara la evolución de menciones entre las distintas plataformas para identificar diferencias de actividad.</p>
+                                        </div>
+                                    </div>
+                                
+                            </div>
+                    </div>
+
+                    <!-- PESTAÑA 2: SENTIMIENTO -->
+                    <div class="tab-pane fade" id="tab-sentimiento" role="tabpanel">
+                        <!-- CABECERA UNIFICADA (VERDE) -->
+                        <div class="bg-light p-3 rounded-3 mb-4 border-start border-4 border-success shadow-sm">
+                            <h5 class="text-success fw-bold mb-1"><i class="bi bi-emoji-smile me-2"></i> Análisis de sentimiento</h5>
+                            <p class="text-muted small mb-0">La IA analiza el tono de cada mensaje para clasificarlo. Esto permite entender la carga emocional predominante.</p>
+                        </div>
+                        <div class="row g-4 align-items-stretch mb-4">
+                            <!-- Tarjeta 1: Polaridad Global -->
+                            <div class="col-md-4">
+                                <div class="card border-0 shadow-sm h-100 rounded-4 p-4">
+                                    <h6 class="text-dark fw-bold small text-uppercase mb-4">Polaridad general de menciones</h6>
+                                    <div style="height: 220px;">
+                                        <canvas id="sentimientoGlobalDonut"></canvas>
+                                    </div>
+                                    <div class="d-flex justify-content-center gap-2 mt-3">
+                                        <div class="badge bg-success-subtle text-success rounded-pill"><span id="kpiPos">0</span> Pos</div>
+                                        <div class="badge bg-secondary-subtle text-secondary rounded-pill"><span id="kpiNeu">0</span> Neu</div>
+                                        <div class="badge bg-danger-subtle text-danger rounded-pill"><span id="kpiNeg">0</span> Neg</div>
+                                    </div>
+                                    <p class="text-muted small mt-3 mb-0 text-center">Sintetiza la percepción emocional global detectada por la IA en el conjunto de menciones.</p>
+                                </div>
+                            </div>
+
+                            <!-- Tarjeta 2: Evolución Sentimiento -->
+                            <div class="col-md-8">
+                                <div class="card border-0 shadow-sm h-100 rounded-4 p-4">
+                                    <h6 class="text-dark fw-bold small text-uppercase mb-4"><i class="bi bi-graph-up me-2 text-primary"></i>Evolución temporal de menciones por sentimiento</h6>
+                                    <div style="height: 250px;">
+                                        <canvas id="sentimientoGlobalTrend"></canvas>
+                                    </div>
+                                    <p class="text-muted small mt-3 mb-0 text-center">Rastrea las variaciones en el tono de la conversación para identificar cambios en el clima de opinión.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Título Desglose -->
+                        <div class="bg-light p-3 rounded-3 mb-4 border-start border-4 border-success">
+                            <h6 class="text-dark fw-bold small text-uppercase mb-0">Desglose de menciones por fuente</h6>
+                        </div>
+
+                        <!-- Contenedor dinámico -->
+                        <div id="redesContainer" class="row g-4"></div>
+                    </div>
+                        
+
+                    <!-- PESTAÑA 3: TEMAS Y NUBES -->
+                    <div class="tab-pane fade" id="tab-contenido" role="tabpanel">
+                        <div class="bg-light p-3 rounded-3 mb-4 border-start border-4 border-primary shadow-sm">
+                                <h5 class="text-info fw-bold mb-1"><i class="bi bi-chat-left-quote me-2"></i> Temas y nubes de palabras</h5>
+                                <p class="text-muted small mb-0">Extracción semántica de los conceptos más relevantes. Permite conocer de qué se habla exactamente cuando se menciona el tema principal.</p>
+                            </div>
+                            <div class="row g-4 align-items-stretch">
+                                <div class="col-md-5 d-flex">
+                                    <div class="card border-0 shadow-sm h-100 rounded-4 p-4 w-100">
+                                            <!-- Filtro Topic IA -->
+                                            <div class="mb-4 p-3 bg-info-subtle rounded-3 border border-info-subtle">
+                                                <label class="form-label fw-bold small text-uppercase text-info mb-2">🧠 Explorador de Subtemas</label>
+                                                <div class="input-group">
+                                                    <input type="text" id="topicFilterInput" class="form-control border-info" placeholder="Ej: economía, seguridad...">
+                                                    <button 
+                                                        class="btn btn-info text-white fw-bold {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}" 
+                                                        id="btnApplyTopic"
+                                                        {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}>
+                                                        BUSCAR
+                                                    </button>
+                                                    <!-- Botón Limpiar -->
+                                                    <button class="btn btn-outline-info {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}" 
+                                                            id="btnClearTopic"
+                                                            title="Limpiar filtro de topic"
+                                                            {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}>
+                                                        <i class="bi bi-x-lg"></i>
+                                                    </button>
+                                                </div>
+                                                <small class="text-info-emphasis d-block mt-2" style="font-size: 0.75rem;">Se filtrarán los temas detectados que tengan una carga semántica similar al término introducido.</small>
+                                            </div>
+                                            
+                                            <h6 class="text-dark fw-bold small text-uppercase mb-3">Distribución de temas y sentimiento</h6>
+                                            <div style="height: 250px;" class="mb-4">
+                                                <canvas id="topicsPieChart"></canvas>
+                                            </div>
+                                            <hr class="my-4 opacity-25">
+                
+                                            <div id="topicsDetailContainer">
+                                                <!-- Aquí se cargan las barras segmentadas por JS -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-7 d-flex">
+                                        <div class="card border-0 shadow-sm h-100 rounded-4 p-4 w-100">
+                                            <h6 class="text-dark fw-bold small text-uppercase mb-2">Nubes de Palabras por Fuente</h6>
+                                            <p class="text-muted small mb-4 fst-italic">Representación visual de los términos más frecuentes en cada red social.</p>                                            <div id="cloudContainer" class="row g-3"></div>
+                                        </div>
+                                    </div>
+                            </div>
+                    </div>
+                </div> <!-- Fin tab-content -->
+            </div> <!-- Fin chartsContainer -->
+        </div>
+
+        <!-- COLUMNA DERECHA (ACCIONES) -->
+        <div class="col-lg-4">
+            <div class="card shadow border-0 mb-4">
+                <div class="card-header bg-dark text-white py-3">
+                    <h5 class="mb-0"><i class="bi bi-stars text-warning me-2"></i> Análisis Profundo IA</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-3 mb-3">
+                        <button id="btnRunAcep" class="btn btn-outline-primary text-start p-3 shadow-sm position-relative">
+                            <div class="fw-bold"><i class="bi bi-check2-circle me-2"></i> Indicador de aceptación</div>
+                            <small class="text-muted d-block mt-1">Aceptación estratégica por pilares definidos.</small>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">Fase 2</span>
+                        </button>
+                    </div>
+                    <div id="aceptacionContainer" class="mt-3"></div>
+
+                    <!-- Modal Aceptación -->
+                    <div class="modal fade" id="aceptacionModal" tabindex="-1" aria-labelledby="aceptacionModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="aceptacionModalLabel">Informe de aceptación</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body" id="aceptacionModalBody">
+                            <!-- Se rellenará por JS -->
+                            <div class="text-center my-3" id="aceptacionModalLoading">
+                            <div class="spinner-border text-primary"></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="me-auto">
+                            <small class="text-muted" id="aceptacionModalFooterSuggested"></small>
+                            </div>
+                            <h6 class="small text-uppercase text-muted">Filtro geográfico</h6>
+                            <div class="mb-2">
+                            <input type="text" id="geoInputModal" 
+                                    class="form-control form-control-sm" 
+                                    placeholder="Ej: Madrid, Cataluña, España">
+                            </div>
+                            <button 
+                                type="button"
+                                id="btnApplyGeoFromModal" 
+                                class="btn btn-primary {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}" 
+                                {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}
+                            >
+                                Aplicar filtro geográfico
+                            </button>
+
+                            <button 
+                                type="button"
+                                id="btnClearGeoFromModal"
+                                class="btn btn-outline-secondary">
+                                Limpiar filtro
+                            </button>
+
+                            <button 
+                                id="btnDownloadAceptacion" 
+                                class="btn btn-outline-secondary {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}" 
+                                {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}
+                            >
+                                Descargar informe
+                            </button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+
+
+                    <div class="d-grid gap-3">
+                        <button 
+                            id="btnRunPred" 
+                            class="btn btn-outline-success text-start p-3 shadow-sm position-relative
+                                {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}"
+                            {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}
+                        >
+                            <div class="fw-bold"><i class="bi bi-graph-up me-2"></i> Predicción</div>
+                            <small class="text-muted d-block mt-1">Predicción de tendencias futuras.</small>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">Fase 3</span>
+                        </button>
+                    </div>
+
+                    <div class="d-grid gap-3 mt-3">
+                        <button 
+                            id="btnRunAlerts" 
+                            class="btn btn-outline-warning text-start p-3 shadow-sm position-relative
+                                {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}"
+                            {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}
+                        >
+                            <div class="fw-bold"><i class="bi bi-exclamation-triangle me-2"></i> Generar alertas</div>
+                            <small class="text-muted d-block mt-1">Genera alertas de interés.</small>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">Fase 4</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Configuración avanzada -->
+            <div class="card shadow-sm border-0 bg-light" style="display:none;">
+                <div class="card-header bg-transparent border-0">
+                    <button class="btn btn-link text-decoration-none text-dark fw-bold w-100 text-start p-0 d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#configuracionAvanzada">
+                        <span><i class="bi bi-gear me-2"></i> Configuración avanzada</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="collapse" id="configuracionAvanzada">
+                    <div class="card-body pt-0">
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">Instrucciones temas</label>
+                            <textarea class="form-control form-control-sm" rows="3" placeholder="Contexto para la IA..."></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">Instrucciones pilares</label>
+                            <textarea class="form-control form-control-sm" rows="3" placeholder="Definición de pilares..."></textarea>
+                        </div>
+                        <button class="btn btn-sm btn-secondary w-100">Actualizar contexto</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal para ver nubes en grande -->
+    <div class="modal fade" id="vllmCloudModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-transparent border-0">
+                <div class="modal-body p-0 text-center">
+                    <img src="" id="vllmCloudZoomImg" class="img-fluid rounded shadow-lg" style="max-height: 90vh;">
+                    <button type="button" class="btn btn-light mt-3 fw-bold" data-bs-dismiss="modal">CERRAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Efecto visual para que el usuario sepa que es clicable */
+        #cloudContainer img {
+            cursor: zoom-in;
+            transition: transform 0.2s;
+        }
+        #cloudContainer img:hover {
+            transform: scale(1.02);
+            filter: brightness(0.9);
+        }
+    </style>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- 1. Estilos de Tagify -->
+<link href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+
+<!-- 2. Script de Tagify -->
+<script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+<script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+
+<!-- 3. Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- 4. Tu script principal (SOLO UNA VEZ) -->
+<script src="{{ url_for('static', path='analizar_datasets.js') }}?v=5"></script>
+<script>
+    const userRole = "{{ user.role }}";
+</script>
+
+{% endblock %}
