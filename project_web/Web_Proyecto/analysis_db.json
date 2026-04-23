@@ -6072,5 +6072,97 @@
     "end_date": "2026-04-23",
     "status": "completed",
     "created_at": "2026-04-23T11:12:31.149067"
+  },
+  {
+    "id": "49fdc59e-350b-4a2a-8024-d01d8286b7c1",
+    "project_name": "transporte",
+    "tema": "Transporte p\u00fablico",
+    "desc_tema": "El transporte p\u00fablico en Valencia provincia incluye autobuses, trolebuses, tranv\u00edas y otros medios de transporte colectivo que facilitan el desplazamiento de los ciudadanos.",
+    "username": "admin",
+    "output_folder": "datos/admin/transporte",
+    "sources": [
+      "youtube",
+      "reddit",
+      "bluesky"
+    ],
+    "keywords": "[{\"keyword\":\"transporte p\u00fablico valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"autobuses valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"tranv\u00edas valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"desplazamiento ciudadanos valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"medios transporte valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"servicio autobuses valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"transporte colectivo valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"movilidad valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"transporte urbano valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"transport p\u00fablic val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"autobusos val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"tranviari val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"despla\u00e7ament ciutadans val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"medi transport colectiu\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"transport p\u00fablic valencian\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"mobilitat urbana val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"tren metropolit\u00e0\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"taxi val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"}]",
+    "languages": [
+      "Castellano",
+      "Catalan"
+    ],
+    "population_scope": "Valencia provincia",
+    "start_date": "2026-03-23",
+    "end_date": "2026-04-23",
+    "status": "completed",
+    "created_at": "2026-04-23T12:43:13.504456"
+  },
+  {
+    "id": "cd7648eb-d5a2-4a3e-8411-ebe2a797ccfc",
+    "project_name": "transporte",
+    "tema": "transporte p\u00fablico",
+    "desc_tema": "El transporte p\u00fablico es el sistema de movilidad colectiva que permite el traslado de personas mediante diferentes modos como autobuses, trenes, metros y trolebuses. Este sistema opera bajo regulaciones gubernamentales y se adapta a horarios y rutas preestablecidas.",
+    "username": "admin",
+    "output_folder": "datos/admin/transporte (1)",
+    "sources": [
+      "youtube",
+      "reddit",
+      "bluesky"
+    ],
+    "keywords": "[{\"keyword\":\"transporte p\u00fablico\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"autob\u00fas\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"metro\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"tren\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"horario buses\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"tarjeta abono\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"rutas urbanas\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"servicio colectivo\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"paradas buses\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"tr\u00e1fico p\u00fablico\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"transporte p\u00fablic\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"autobus metropolit\u00e0nic\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"l\u00ednies de tren\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"horari autobus\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"tarifa transport\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"servei p\u00fablic\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"troleb\u00fas ciutat\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"rutes autobus\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"control passatges\",\"languages\":\"Catalan\",\"razon\":\"\"}]",
+    "languages": [
+      "Castellano",
+      "Catalan"
+    ],
+    "population_scope": "Provincia Valencia",
+    "start_date": "2026-03-23",
+    "end_date": "2026-04-23",
+    "status": "completed",
+    "created_at": "2026-04-23T12:44:47.749707"
+  },
+  {
+    "id": "99dd16b9-7ea6-465f-9ed6-d3774bff9bf2",
+    "project_name": "transporte",
+    "tema": "transporte p\u00fablico",
+    "desc_tema": "El sistema de transporte p\u00fablico en la provincia de Valencia incluye autobuses, trolebuses, tranv\u00edas y otros medios de transporte colectivo. Se beneficia de diversas ayudas y bonificaciones para fomentar su uso.",
+    "username": "admin",
+    "output_folder": "datos/admin/transporte (2)",
+    "sources": [
+      "youtube",
+      "reddit",
+      "bluesky"
+    ],
+    "keywords": "[{\"keyword\":\"transport p\u00fablic val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"autobusos val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"tranviari val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"bonificacions transport\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"transport colectiu val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"ajudes transport val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"tarifa transport val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"transporte p\u00fablico valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"autobuses valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"tranv\u00edas valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"ayudas transporte valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"bonificaciones transporte valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"sistema transporte valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"medios transporte valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"uso transporte valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"fomento transporte valencia\",\"languages\":\"Castellano\",\"razon\":\"\"}]",
+    "languages": [
+      "Castellano",
+      "Catalan"
+    ],
+    "population_scope": "provincia valencia",
+    "start_date": "2026-03-01",
+    "end_date": "2026-04-23",
+    "status": "completed",
+    "created_at": "2026-04-23T13:06:35.776999"
+  },
+  {
+    "id": "69e0b50c-e9f5-47b5-8330-4859e46b2e8b",
+    "project_name": "transporte",
+    "tema": "transporte publico",
+    "desc_tema": "El sistema de transporte p\u00fablico en la provincia de Valencia incluye diversos medios como autobuses, trolebuses, tranv\u00edas y trenes, dise\u00f1ados para facilitar el desplazamiento de los residentes y turistas.",
+    "username": "admin",
+    "output_folder": "datos/admin/transporte (3)",
+    "sources": [
+      "youtube",
+      "reddit",
+      "bluesky"
+    ],
+    "keywords": "[{\"keyword\":\"transport p\u00fablic val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"autobusos val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"trolebus val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"tranviari val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"ferrocarrils val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"despla\u00e7ament val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"mobilitat p\u00fablica val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"residents val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"turistes val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"sistema transport val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"transporte p\u00fablico valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"autobuses valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"trenes valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"tranv\u00edas valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"trolebuses valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"desplazamiento valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"transporte urbano valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"servicio transporte valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"movilidad valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"transporte residentes valencia\",\"languages\":\"Castellano\",\"razon\":\"\"}]",
+    "languages": [
+      "Castellano",
+      "Catalan"
+    ],
+    "population_scope": "provincia valencia",
+    "start_date": "2026-03-01",
+    "end_date": "2026-04-23",
+    "status": "completed",
+    "created_at": "2026-04-23T13:21:48.568139"
   }
 ]

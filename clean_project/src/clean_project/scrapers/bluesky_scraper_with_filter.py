@@ -8,15 +8,15 @@ import sys
 import re
 from pathlib import Path
 from datetime import datetime
-
 # Imports de tu proyecto
 try:
     from clean_project.config import settings as config
 except ImportError:
     config = None
-from clean_project.filters.llm_relevance_filter import check_relevance_sync
 print("Bluesky SCRAPER OPTIMIZADO (MODO SIN LÍMITES) INICIADO")
+from clean_project.filters.llm_relevance_filter import LLMRelevanceFilter, PostContent
 
+filter_instance = LLMRelevanceFilter()
 # Semáforo para no saturar la API
 SEM = asyncio.Semaphore(10)
 
@@ -116,6 +116,11 @@ async def fetch_profile_batch(session, batch, headers):
 # 3. LÓGICA PRINCIPAL ASÍNCRONA
 # ---------------------------------------------------------------
 async def _run_bluesky_async(config):
+    stats = {
+        "posts_encontrados": 0,
+        "posts_relevantes": 0,
+        "posts_filtrados": 0
+    }
     search_form_lang_map = config.general.get("search_form_lang_map", {})
     output_folder = Path(config.general["output_folder"])
     output_folder.mkdir(parents=True, exist_ok=True)
@@ -134,7 +139,6 @@ async def _run_bluesky_async(config):
     desc_tema = config.general.get("desc_tema", "")
     geo_scope = config.general.get("population_scope", "España")
     languages = config.general.get("languages", [])
-    keywords = config.scraping["youtube"]["query"]
 
     
     start_dt = datetime.strptime(start_date, "%Y-%m-%d")
@@ -176,9 +180,10 @@ async def _run_bluesky_async(config):
 
         for p in unique_posts:
             text = p.get("record", {}).get("text", "")
+            stats["posts_encontrados"] += 1  # ← NUEVO
 
-            es_relevante = check_relevance_sync(
-                text=text,
+            es_relevante, confianza, razon = await filter_instance.check_relevance(
+                post=PostContent(text=text),  
                 # images=None,  # Bluesky no ofrece imágenes en el endpoint de texto, se podría mejorar en el futuro con análisis de enlaces o similar
                 tema=tema,
                 keywords=keywords,
@@ -188,9 +193,10 @@ async def _run_bluesky_async(config):
             )
 
             if not es_relevante:
-                stats_filtrados += 1
+                stats["posts_filtrados"] += 1
                 continue
 
+            stats["posts_relevantes"] += 1  # ← NUEVO
             p["_llm_relevante"] = "SI"
             filtered_posts.append(p)
             stats_relevantes += 1

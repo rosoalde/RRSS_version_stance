@@ -1186,7 +1186,7 @@ async def backend_analisis(data,analysis_id): # 1. Asegurar que es async
             elif red == "twitter":
                 await run_twitter(u_conf)
             elif red == "youtube":
-                run_youtube(u_conf)
+                await run_youtube(u_conf)
             elif red == "linkedin":
                 await run_linkedin(u_conf)
             elif red == "tiktok":

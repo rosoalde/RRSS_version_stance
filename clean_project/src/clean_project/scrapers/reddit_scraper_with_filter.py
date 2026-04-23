@@ -8,8 +8,9 @@ import re
 import asyncpraw
 
 # NUEVO: Importar filtro LLM
+from clean_project.filters.llm_relevance_filter import LLMRelevanceFilter, PostContent
 from clean_project.filters.llm_relevance_filter import check_relevance_sync
-
+filter_instance = LLMRelevanceFilter() 
 print(f"REDDIT SCRAPER INICIADO (CON FILTRO LLM)")
 
 # -------------------------------------------------------------------------
@@ -97,8 +98,8 @@ async def run_reddit(config):
                 # ===================================================================
                 print(f"\n📝 Verificando relevancia del post: {titulo[:60]}...")
                 
-                es_relevante = check_relevance_sync(
-                    text=texto_post_completo,
+                es_relevante, confianza, razon = await filter_instance.check_relevance(
+                    post=PostContent(text=texto_post_completo),
                     #images=None,  # Reddit no incluye imágenes en API de texto
                     tema=tema,
                     keywords=keywords,

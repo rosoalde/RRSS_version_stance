@@ -2,24 +2,18 @@ import csv
 import time
 import re
 from pathlib import Path
+import asyncio
 from datetime import datetime
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-
+from clean_project.filters.llm_relevance_filter import LLMRelevanceFilter, PostContent
+import clean_project.config.settings as config
 # NUEVO: Importar filtro LLM
 from clean_project.filters.llm_relevance_filter import check_relevance_sync
-
 print("YouTube SCRAPER INICIADO (CON FILTRO LLM)")
 
 # Definir las claves de API disponibles
-api_keys = [
-    config.CREDENTIALS["youtube"]["API_KEY_YOUTUBE"],
-    config.CREDENTIALS["youtube"]["API_KEY_YOUTUBE2"],
-    config.CREDENTIALS["youtube"]["API_KEY_YOUTUBE3"]
-]
 
-current_api_key_index = 0
-api_keys_exceeded = [False] * len(api_keys)
 
 def get_youtube_service():
     """Construye el servicio de YouTube con la clave actual."""
@@ -225,8 +219,16 @@ def get_video_comments(video_id):
     return comments
 
 # ===========================================================================
+filter_instance = LLMRelevanceFilter()
+async def run_youtube(config):
+    api_keys = [
+    config.CREDENTIALS["youtube"]["API_KEY_YOUTUBE"],
+    config.CREDENTIALS["youtube"]["API_KEY_YOUTUBE2"],
+    config.CREDENTIALS["youtube"]["API_KEY_YOUTUBE3"]
+]
 
-def run_youtube(config):
+    current_api_key_index = 0
+    api_keys_exceeded = [False] * len(api_keys)
     print("YouTube SCRAPER INICIADO CON FILTRO LLM")
     
     start_date = datetime.strptime(config.general["start_date"], "%Y-%m-%d")
@@ -297,8 +299,8 @@ def run_youtube(config):
                 # ===================================================================
                 print(f"\n🎥 Verificando relevancia del video: {titulo_v[:60]}...")
                 
-                es_relevante = check_relevance_sync(
-                    text=texto_video_completo,
+                es_relevante, confianza, razon = await filter_instance.check_relevance(
+                    post=PostContent(text=texto_video_completo),
                     #images=None,  # Podríamos añadir thumbnail si queremos
                     tema=tema,
                     keywords=keywords,
