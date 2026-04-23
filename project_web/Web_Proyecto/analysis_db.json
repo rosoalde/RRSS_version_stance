@@ -6048,5 +6048,29 @@
     "end_date": "2026-04-02",
     "status": "completed",
     "created_at": "2026-04-21T12:17:59.764649"
+  },
+  {
+    "id": "e1b43d96-95b2-478d-87ce-c333b340bdf8",
+    "project_name": "plan vivienda",
+    "tema": "plan estatal vivienda",
+    "desc_tema": "Es un programa gubernamental que destina 7.000 millones de euros para mejorar y ampliar el parque p\u00fablico de viviendas en Espa\u00f1a, con \u00e9nfasis en viviendas asequibles y protegidas.",
+    "username": "admin",
+    "output_folder": "datos/admin/plan_vivienda",
+    "sources": [
+      "youtube",
+      "reddit",
+      "bluesky"
+    ],
+    "keywords": "[{\"keyword\":\"plan estatal de vivienda\",\"languages\":\"Castellano, Catalan\",\"razon\":\"\"},{\"keyword\":\"vivienda asequible\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"parque p\u00fablico de viviendas\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"viviendas protegidas\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"inversi\u00f3n en vivienda\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"mejora de viviendas\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"nuevas viviendas\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"pol\u00edtica de vivienda\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"ayudas a la vivienda\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"viviendes asequibles\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"parc p\u00fablic de viviendes\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"viviendes protegides\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"inversi\u00f3 viviendes\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"pol\u00edtica vivienda\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"subvencions vivienda\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"accesibilitat vivienda\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"protecci\u00f3 vivienda\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"viviandutegoki planoa\",\"languages\":\"Euskera\",\"razon\":\"\"},{\"keyword\":\"viviandu laguntza planoa\",\"languages\":\"Euskera\",\"razon\":\"\"},{\"keyword\":\"viviandu zuzendari planoa\",\"languages\":\"Euskera\",\"razon\":\"\"},{\"keyword\":\"viviandu auzolan planoa\",\"languages\":\"Euskera\",\"razon\":\"\"},{\"keyword\":\"viviandu ezagutz planoa\",\"languages\":\"Euskera\",\"razon\":\"\"},{\"keyword\":\"viviandu laster planoa\",\"languages\":\"Euskera\",\"razon\":\"\"},{\"keyword\":\"viviandu garbi planoa\",\"languages\":\"Euskera\",\"razon\":\"\"},{\"keyword\":\"viviandu zuzendu planoa\",\"languages\":\"Euskera\",\"razon\":\"\"},{\"keyword\":\"viviandu auzolari planoa\",\"languages\":\"Euskera\",\"razon\":\"\"}]",
+    "languages": [
+      "Castellano",
+      "Catalan",
+      "Euskera"
+    ],
+    "population_scope": "Espa\u00f1a",
+    "start_date": "2026-04-20",
+    "end_date": "2026-04-23",
+    "status": "completed",
+    "created_at": "2026-04-23T11:12:31.149067"
   }
 ]

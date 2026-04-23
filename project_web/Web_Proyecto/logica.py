@@ -114,13 +114,13 @@ try:
     print("OK ✅")
 
     print("   - Importando Bluesky...", end=" ")
-    # from clean_project.scrapers.bluesky_scraper_last_version import run_bluesky
-    from clean_project.scrapers.bluesky_scraper_NEW_last_version import run_bluesky
+    # from clean_project.scrapers.bluesky_scraper_NEW_last_version import run_bluesky
+    from clean_project.scrapers.bluesky_scraper_with_filter import run_bluesky
     print("OK ✅")
 
     print("   - Importando Reddit...", end=" ")
-    # from clean_project.scrapers.reddit_scraper_last_version import run_bluesky
-    from clean_project.scrapers.reddit_scrapper_NEW_faster_last_version import run_reddit
+    # from clean_project.scrapers.reddit_scrapper_NEW_faster_last_version import run_reddit
+    from clean_project.scrapers.reddit_scraper_with_filter import run_reddit
     print("OK ✅")
 
     print("   - Importando Twitter...", end=" ")
@@ -132,9 +132,11 @@ try:
     print("OK ✅")
 
     print("   - Importando YouTube...", end=" ")
-    from clean_project.scrapers.youtube_scraper2 import run_youtube      
-    print("OK ✅")
+    # from clean_project.scrapers.youtube_scraper2 import run_youtube
+    from clean_project.scrapers.youtube_scraper_with_filter import run_youtube
 
+    print("OK ✅")
+    from clean_project.filters.llm_relevance_filter import check_relevance_sync
     print("   - Importando TikTok...", end=" ")
     from clean_project.scrapers.tiktok_scraping_last_version import scrape_tiktok as run_tiktok #run_tiktok #import scape_tiktok as run_tiktok            
     print("OK ✅")
