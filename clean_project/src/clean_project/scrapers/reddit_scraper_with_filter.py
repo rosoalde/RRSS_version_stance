@@ -69,13 +69,21 @@ async def verificar_relevancia_vlm_reddit(post, b64_images, u_conf):
     """
     keywords_str = ", ".join(u_conf.general["keywords"])
     subreddit_name = post.subreddit.display_name
+
+    geo_instruction = ""
+    if "GLOBAL" in u_conf.population_scope.upper():
+        geo_instruction = " Filtro desactivado. Acepta comentarios de cualquier ubicación geográfica."
+    else:
+        geo_instruction =  f" Considerar RELEVANTE si el autor, el subreddit, el contexto o la falta de información permiten inferir la ubicación {u_conf.population_scope}."
+        geo_instruction += f" Descartar únicamente cuando los datos del post o del subreddit indiquen de forma explícita otra ubicación no relacionada con {u_conf.population_scope},"
+        geo_instruction += f" sin penalizar menciones adicionales de otros lugares. "
+        geo_instruction += f"(ej: r/uruguay y buscas España), marca NO RELEVANTE."
     
     prompt = f"""
     TAREA: Determinar si este contenido de Reddit es RELEVANTE.
     TEMA: {u_conf.tema}
     CONTEXTO: {u_conf.desc_tema}
     KEYWORDS: {keywords_str}
-    UBICACIÓN OBJETIVO: {u_conf.population_scope}
 
     DATOS DE ENTRADA:
     - Subreddit: r/{subreddit_name}
@@ -83,10 +91,13 @@ async def verificar_relevancia_vlm_reddit(post, b64_images, u_conf):
     - Texto: {post.selftext[:500]}
 
     REGLAS:
-    1. Herencia de Contexto: Si el subreddit es de una ubicación ajena (ej: r/uruguay y buscas España), marca NO RELEVANTE.
+    1. Herencia de Contexto: Si el subreddit es conocido por tratar temas relacionados con {u_conf.tema} o el contexto, eso sugiere relevancia, incluso si el texto es breve o ambiguo.
     2. Prioridad semántica: Si trata sobre el tema o términos relacionados -> RELEVANTE.
     3. Imagen: Úsala para confirmar el contexto si el texto es breve.
-    4. En caso de duda o si no se puede inferir ubicación, marcar como RELEVANTE.
+    4. Geografía: {geo_instruction}
+    5. Si no se puede inferir ubicación marcar como RELEVANTE, no descartar por defecto.
+    6. En caso de duda, marcar como RELEVANTE para no perder datos potenciales.
+    
 
     Responde en JSON: {{"relevante": true/false, "razon": "...", "idioma": "..."}}
     """

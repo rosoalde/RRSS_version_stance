@@ -90,6 +90,16 @@ def get_video_transcript(video_id):
 # =====================================================
 
 def verificar_relevancia_vlm(detalles, transcripcion, b64_image, u_conf):
+
+    geo_instruction = ""
+    if "GLOBAL" in u_conf.population_scope.upper():
+        geo_instruction = "2. GEOGRAFÍA:\n"
+        geo_instruction += " Filtro desactivado. Acepta comentarios de cualquier ubicación geográfica."
+    else:
+        geo_instruction = f"2. GEOGRAFÍA:\n"
+        geo_instruction += f" Considerar RELEVANTE si el autor, el contexto o la falta de información permiten inferir la ubicación {u_conf.population_scope}."
+        geo_instruction += f" Descartar únicamente cuando los datos del post indiquen de forma explícita otra ubicación no relacionada con {u_conf.population_scope},"
+        geo_instruction += f" sin penalizar menciones adicionales de otros lugares."
     keywords_str = ", ".join(u_conf.general["keywords"])
     """
     IA con jerarquía de evidencia: El texto manda sobre la imagen.
@@ -118,9 +128,7 @@ def verificar_relevancia_vlm(detalles, transcripcion, b64_image, u_conf):
     Si el título contiene términos clave del TEMA OBJETIVO → RELEVANTE.
     Si el contenido describe términos cercanos o relacionados semánticamente → RELEVANTE.
 
-    2. CONTEXTO GEOGRÁFICO (FLEXIBLE)
-    - Si menciona ubicaciones adicionales → NO descartar automáticamente
-    - Solo descartar si el contenido claramente trata de OTRO lugar distinto
+    {geo_instruction}
 
     3. LA IMAGEN ES SECUNDARIA
     - SOLO usarla si el texto es ambiguo

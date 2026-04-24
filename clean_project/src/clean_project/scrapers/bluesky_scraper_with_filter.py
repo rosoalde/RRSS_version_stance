@@ -63,6 +63,15 @@ async def verificar_relevancia_vlm(post_data, b64_image, u_conf):
     text = post_data.get("record", {}).get("text", "")
     author = post_data.get("author", {}).get("displayName", "Usuario")
 
+    geo_instruction = ""
+    if "GLOBAL" in u_conf.population_scope.upper():
+        geo_instruction = " Filtro desactivado. Acepta comentarios de cualquier ubicación geográfica."
+    else:
+        geo_instruction =  f" Considerar RELEVANTE si el autor, el contexto o la falta de información permiten inferir la ubicación {u_conf.population_scope}."
+        geo_instruction += f" Descartar únicamente cuando los datos del post indiquen de forma explícita otra ubicación no relacionada con {u_conf.population_scope},"
+        geo_instruction += f" sin penalizar menciones adicionales de otros lugares. "
+    keywords_str = ", ".join(u_conf.general["keywords"])
+
     prompt = f"""
     TAREA: Determinar si este post de Bluesky es RELEVANTE.
     TEMA: {u_conf.tema}
@@ -76,11 +85,10 @@ async def verificar_relevancia_vlm(post_data, b64_image, u_conf):
 
     REGLAS:
     1. Prioridad semántica: Si el texto trata sobre el tema o tiene términos relacionados con el tema o el contexto o las keywords relacionadas -> RELEVANTE.
-    2. Inferencia: Si el autor o el contexto sugieren la ubicación {u_conf.population_scope} -> RELEVANTE.
-    3. Imagen: Úsala solo si el texto es ambiguo.
-    4. Descarte geográfico: descartar únicamente si los DATOS DEL POST mencionan explícitamente OTRO lugar no relacionado con {u_conf.population_scope}, pero no descartar solo por mencionar otras ubicaciones adicionales. 
-    5. Si no se puede inferir ubicación marcar como RELEVANTE, no descartar por defecto.
-    6. En caso de duda, marcar como RELEVANTE para no perder datos potencial
+    2. Imagen: Úsala solo si el texto es ambiguo.
+    3. Geografía: {geo_instruction}
+    4. Si no se puede inferir ubicación marcar como RELEVANTE, no descartar por defecto.
+    5. En caso de duda, marcar como RELEVANTE para no perder datos potencial
 
     Responde en JSON: {{"relevante": true/false, "razon": "...", "idioma": "..."}}
     """
@@ -234,9 +242,9 @@ async def run_bluesky(u_conf):
 if __name__ == "__main__":
     from types import SimpleNamespace
     mock_conf = SimpleNamespace(
-        tema="ROSALIA LUX TOUR",#"Pantalán de Sagunto",
+        tema="ROSALIA",# LUX TOUR",#"Pantalán de Sagunto",
         desc_tema="Rosalia es una cantante española",#"La cuarta gira de conciertos de la cantante española Rosalía, promoviendo su álbum 'Lux', comenzará el 16 de marzo de 2026 en Lyon, Francia, y finalizará el 3 de septiembre de 2026 en San Juan, Puerto Rico.",#"Infraestructura portuaria renovada en Sagunto, Valencia.",
-        population_scope="SIN CONTEXTO GEOGRAFICO ESPECÍFICO",#"España",
+        population_scope="GLOBAL",#"España",
         general={
             "output_folder": "./debug_bsky",
             "keywords": ["ROSALIA"], #"Rosalía LUX 2026", "conciertos rosalía 2026", "lux tour rosalía", "rosalía en gira 2026"],#["pantalán sagunto", "puerto sagunto"],
