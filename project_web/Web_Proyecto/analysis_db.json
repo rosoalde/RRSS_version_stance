@@ -6276,5 +6276,27 @@
     "end_date": "2026-04-24",
     "status": "completed",
     "created_at": "2026-04-24T10:46:44.033565"
+  },
+  {
+    "id": "def16df5-f180-48f4-965c-a23575297751",
+    "project_name": "fdfsa",
+    "tema": "balizas",
+    "desc_tema": "Objetos se\u00f1alizadores utilizados para indicar lugares geogr\u00e1ficos o situaciones de peligro potencial.",
+    "username": "admin",
+    "output_folder": "datos/admin/fdfsa",
+    "sources": [
+      "youtube",
+      "reddit",
+      "bluesky"
+    ],
+    "keywords": "[{\"keyword\":\"se\u00f1alizaci\u00f3n\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"se\u00f1ales de tr\u00e1fico\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"se\u00f1ales de emergencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"se\u00f1ales de seguridad\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"se\u00f1ales de peligro\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"se\u00f1ales de advertencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"se\u00f1ales de control\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"se\u00f1ales de tr\u00e1nsito\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"se\u00f1ales de seguridad vial\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"se\u00f1ales de emergencia vial\",\"languages\":\"Castellano\",\"razon\":\"\"}]",
+    "languages": [
+      "Castellano"
+    ],
+    "population_scope": "GLOBAL",
+    "start_date": "2026-01-01",
+    "end_date": "2026-01-02",
+    "status": "completed",
+    "created_at": "2026-04-24T11:43:48.790186"
   }
 ]

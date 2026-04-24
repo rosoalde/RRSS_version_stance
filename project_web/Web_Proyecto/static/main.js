@@ -70,15 +70,22 @@ function initKeywordGenerator() {
         let rawPopulation = popInput ? popInput.value.trim() : "";
         let populationList = [];
 
-        // 2. Lógica de Validación y Conversión a Lista
         if (!rawPopulation) {
-            alert("⚠️ El campo 'Contexto geográfico' es obligatorio para generar los términos.");
-            popInput.classList.add("is-invalid"); // Pone el borde en rojo
-            popInput.focus();
-            return; // SE DETIENE AQUÍ, no envía nada a la IA
+            // Informamos al usuario de la consecuencia de dejarlo vacío
+            const confirmarGlobal = confirm(
+                "⚠️ No has especificado un contexto geográfico.\n\n" +
+                "El sistema NO filtrará los datos por ubicación y recogerá menciones de cualquier lugar del mundo.\n\n" +
+                "¿Deseas continuar con un análisis GLOBAL?"
+            );
+            
+            if (!confirmarGlobal) {
+                popInput.focus();
+                return; // Detiene la ejecución para que el usuario corrija
+            }
+            // Si acepta, enviamos un marcador especial
+            populationList = ["GLOBAL"]; 
         } else {
-            // Convertimos "investigadores, adultos mayores" -> ["investigadores", "adultos mayores"]
-            popInput.classList.remove("is-invalid"); // Quita el rojo si ya escribió
+            popInput.classList.remove("is-invalid");
             populationList = rawPopulation.split(",").map(s => s.trim()).filter(s => s !== "");
         }
 
@@ -332,6 +339,7 @@ async function runAnalysis() {
     const progressDiv = document.getElementById("progressContainer");
     const progressBar = document.getElementById("progressBar");
     const progressText = document.getElementById("progressText");
+    const populationValue = formData.get("population") ? formData.get("population").trim() : "";
 
     btnRun.disabled = true;
     btnRun.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Procesando...';
@@ -349,7 +357,7 @@ async function runAnalysis() {
         end_date: formData.get("end_date"),
         sources: sources,
         languages: languages,
-        population: formData.get("population") || "",
+        population: populationValue || "GLOBAL", 
         results: sources.map(s => ({ social: s, success: true }))
     };
 
