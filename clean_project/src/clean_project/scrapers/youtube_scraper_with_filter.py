@@ -1,540 +1,268 @@
-# youtube_scraper2.py - VERSIÓN CORREGIDA
-
-import sys
 import os
-from pathlib import Path
-root_path = str(Path(__file__).resolve().parents[2])
-if root_path not in sys.path:
-    sys.path.insert(0, root_path)
-
-import clean_project.config.settings as config
 import csv
-import time
+import json
+import hashlib
+import requests
 import re
-import pandas as pd
-import numpy as np
+import sys
+import base64
+from pathlib import Path
 from datetime import datetime
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from youtube_transcript_api import YouTubeTranscriptApi
-import json
-import hashlib
+from openai import OpenAI
+from io import BytesIO
 
-# ===========================================================================
-# 1. TRANSCRIPCIÓN DE VIDEO
-# ===========================================================================
+# Configuración de rutas relativas
+ROOT_PATH = Path(__file__).resolve().parents[2]
+if str(ROOT_PATH) not in sys.path:
+    sys.path.insert(0, str(ROOT_PATH))
 
-def get_video_transcript(video_id, return_data=False):
-    ytt_api = YouTubeTranscriptApi()
+import clean_project.config.settings as config
+
+# Cliente vLLM
+client = OpenAI(base_url="http://localhost:8001/v1", api_key="local-token")
+MODELO_VLM = "Qwen/Qwen2.5-VL-7B-Instruct"
+
+# =====================================================
+# 1. UTILIDADES DE APOYO
+# =====================================================
+
+def generar_id_anonimo(username):
+    if not username: return "UNKNOWN"
+    return hashlib.sha256(username.encode()).hexdigest()[:16].upper()
+
+def download_and_base64(url):
     try:
-        transcript_list = ytt_api.list(video_id)
-    except Exception as e:
-        print(f"⚠️ No hay transcripción para {video_id}: {e}")
-        return ("", "") if return_data else ""
-
-    transcript = None
-
-    # 1. Español MANUAL
-    try:
-        transcript = transcript_list.find_manually_created_transcript(['es'])
-        print("✅ ES manual")
+        response = requests.get(url)
+        return base64.b64encode(response.content).decode('utf-8')
     except:
-        pass
-
-    # 2. Español AUTOMÁTICO
-    if not transcript:
-        try:
-            transcript = transcript_list.find_generated_transcript(['es'])
-            print("🤖 ES automático")
-        except:
-            pass
-
-    # 3. Traducido a español
-    if not transcript:
-        try:
-            base = next(t for t in transcript_list if t.is_translatable)
-            transcript = base.translate('es')
-            print(f"🌐 Traducido desde {base.language_code} → ES")
-        except:
-            pass
-
-    # 4. Original (fallback)
-    if not transcript:
-        try:
-            transcript = next(iter(transcript_list))
-            print(f"🌍 Original: {transcript.language_code}")
-        except:
-            return ("", "") if return_data else ""
-
-    # FETCH + LIMPIEZA
-    data = transcript.fetch()
-    text = " ".join(snippet.text for snippet in data)
-    
-    # Limpieza
-    text = re.sub(r'\[.*?\]', '', text)
-    text = re.sub(r'\(.*?\)', '', text)
-    text = re.sub(r'[♪♫]+', '', text)
-    text = re.sub(r'\s+', ' ', text).strip()
-    
-    if return_data:
-        return data, text
-    return text
-
-def save_transcript(video_id, data, base_folder):
-    transcripts_folder = Path(base_folder) / "transcripts"
-    transcripts_folder.mkdir(parents=True, exist_ok=True)
-    path = transcripts_folder / f"{video_id}.json"
-    
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(
-            [{"text": s.text, "start": s.start, "duration": s.duration} for s in data],
-            f, ensure_ascii=False, indent=2
-        )
-    return str(path)
-
-# ===========================================================================
-# 2. CONFIGURACIÓN API DE YOUTUBE (CORREGIDO)
-# ===========================================================================
-
-class YouTubeAPIManager:
-    """Gestor de API Keys de YouTube con manejo de cuota"""
-    
-    def __init__(self, api_keys):
-        self.api_keys = api_keys
-        self.current_index = 0
-        self.exceeded = [False] * len(api_keys)
-        self.youtube = self._build_service()
-    
-    def _build_service(self):
-        return build("youtube", "v3", developerKey=self.api_keys[self.current_index])
-    
-    def switch_key(self):
-        """Cambia a la siguiente API key disponible"""
-        self.current_index = (self.current_index + 1) % len(self.api_keys)
-        print(f"🔑 Cambiando a API Key {self.current_index + 1}")
-        self.youtube = self._build_service()
-    
-    def mark_exceeded(self):
-        """Marca la key actual como excedida"""
-        self.exceeded[self.current_index] = True
-    
-    def all_exceeded(self):
-        """Verifica si todas las keys se agotaron"""
-        return all(self.exceeded)
-    
-    def get_service(self):
-        return self.youtube
-
-# ===========================================================================
-# 3. FUNCIONES DE BÚSQUEDA Y FILTRADO
-# ===========================================================================
-
-def pasa_filtro_contenido(texto, keyword_query):
-    if not texto:
-        return False
-    texto_norm = texto.lower()
-    query_clean = keyword_query.replace('"', '').lower()
-    palabras_clave = [p.replace('*', '') for p in query_clean.split()]
-    for palabra in palabras_clave:
-        patron = r'(?:^|\W)#?' + re.escape(palabra) + r'\w*'
-        if not re.search(patron, texto_norm):
-            return False
-    return True
-
-def preparar_query_youtube(keyword):
-    """Prepara query con comillas para búsqueda exacta"""
-    palabras = keyword.strip().split()
-    return " ".join(f'"{p}"' for p in palabras) if len(palabras) > 1 else f'"{keyword}"'
-
-def search_videos(api_manager, keyword, start_dt, end_dt, max_pages=1):
-    """Busca videos con manejo de cuota de API"""
-    videos = []
-    next_page_token = None
-    rfc_start = start_dt.strftime("%Y-%m-%dT%H:%M:%SZ")
-    rfc_end = end_dt.strftime("%Y-%m-%dT%H:%M:%SZ")
-
-    for _ in range(max_pages):
-        try:
-            youtube = api_manager.get_service()
-            response = youtube.search().list(
-                part="snippet",
-                q=keyword,
-                type="video",
-                order="date",
-                publishedAfter=rfc_start,
-                publishedBefore=rfc_end,
-                maxResults=50,
-                regionCode="ES",
-                relevanceLanguage="es",
-                pageToken=next_page_token
-            ).execute()
-            
-        except HttpError as e:
-            if e.resp.status == 403 and "quotaExceeded" in str(e):
-                print("⚠️ Quota alcanzada, cambiando key...")
-                api_manager.mark_exceeded()
-                if api_manager.all_exceeded():
-                    print("❌ TODAS las API Keys agotadas")
-                    return None
-                api_manager.switch_key()
-                return search_videos(api_manager, keyword, start_dt, end_dt, max_pages)
-            else:
-                print(f"❌ Error en búsqueda: {e}")
-                return []
-
-        items = response.get("items", [])
-        if not items:
-            break
-            
-        for item in items:
-            videos.append({
-                "videoId": item["id"]["videoId"],
-                "title": item["snippet"]["title"]
-            })
-            
-        next_page_token = response.get("nextPageToken")
-        if not next_page_token:
-            break
-            
-    return videos
-
-def get_video_details(api_manager, video_id):
-    """Obtiene detalles del video"""
-    try:
-        youtube = api_manager.get_service()
-        response = youtube.videos().list(
-            part="snippet,statistics",
-            id=video_id
-        ).execute()
-        
-        if not response["items"]:
-            return None
-            
-        video = response["items"][0]
-        return {
-            "titulo": video["snippet"].get("title"),
-            "descripcion": video["snippet"].get("description"),
-            "fecha_publicacion": video["snippet"].get("publishedAt"),
-            "num_comentarios": video["statistics"].get("commentCount", 0),
-            "num_likes": video["statistics"].get("likeCount", 0),
-            "num_visualizaciones": video["statistics"].get("viewCount", 0),
-            "canal_publica": video["snippet"].get("channelTitle"),
-            "tags": video["snippet"].get("tags", [])
-        }
-    except Exception as e:
-        print(f"Error obteniendo detalles: {e}")
         return None
 
-def get_video_comments(api_manager, video_id):
-    """Obtiene comentarios del video (solo top-level)"""
-    comments = []
-    next_page_token = None
-    
+def get_video_transcript(video_id):
     try:
-        while True:
-            youtube = api_manager.get_service()
-            response = youtube.commentThreads().list(
-                part="snippet",
-                videoId=video_id,
-                maxResults=100,
-                textFormat="plainText",
-                pageToken=next_page_token
-            ).execute()
-            
-            for item in response.get("items", []):
-                top = item["snippet"]["topLevelComment"]["snippet"]
-                comments.append({
-                    "autor": top.get("authorDisplayName"),
-                    "fecha": top.get("publishedAt"),
-                    "likes": top.get("likeCount"),
-                    "contenido": top.get("textDisplay"),
-                    "num_respuestas": item["snippet"].get("totalReplyCount", 0)
-                })
-                
-            next_page_token = response.get("nextPageToken")
-            if not next_page_token:
-                break
-                
-    except HttpError as e:
-        if e.resp.status in [403, 404]:
-            # Comentarios desactivados
-            return []
-        print(f"Error obteniendo comentarios: {e}")
-        return []
-    except Exception as e:
-        print(f"Error inesperado en comentarios: {e}")
-        return []
-        
-    return comments
+        t_list = YouTubeTranscriptApi.list_transcripts(video_id)
+        try:
+            transcript = t_list.find_transcript(['es', 'es-ES'])
+        except:
+            transcript = next(iter(t_list)).translate('es')
+        return " ".join([t['text'] for t in transcript.fetch()])
+    except:
+        return ""
 
-# ===========================================================================
-# 4. FILTRO LLM DE RELEVANCIA
-# ===========================================================================
+# =====================================================
+# 2. EL PORTERO (GATEKEEPER) MULTIMODAL MEJORADO
+# =====================================================
 
-def check_relevance_llm(text, tema, desc_tema, keywords, geo_scope, languages):
+def verificar_relevancia_vlm(detalles, transcripcion, b64_image, u_conf):
+    keywords_str = ", ".join(u_conf.general["keywords"])
     """
-    Verifica si el contenido es relevante usando LLM.
-    PLACEHOLDER: Implementar con vLLM real.
+    IA con jerarquía de evidencia: El texto manda sobre la imagen.
     """
-    import ollama
-    
-    prompt = f"""Eres un filtro de relevancia.
+    prompt = f"""
+    TAREA:
+    Determinar si este contenido es RELEVANTE para el tema.
 
-**TEMA DE ANÁLISIS**: {tema}
-**DESCRIPCIÓN DEL TEMA**: {desc_tema}
-**ÁMBITO GEOGRÁFICO**: {geo_scope}
-**IDIOMAS PERMITIDOS**:  {', '.join(languages)}
-**KEYWORDS DE REFERENCIA**: {', '.join(keywords)}
+    TEMA OBJETIVO:
+    {u_conf.tema}
 
-**TEXTO**:
-{text[:1000]}
+    CONTEXTO DEL TEMA:
+    {u_conf.desc_tema}
 
-**TAREA**: Determinar si este post/video es relevante para el análisis.
+    PALABRAS CLAVE RELACIONADAS:
+    {keywords_str}
 
-**CRITERIOS DE RELEVANCIA** (Deben cumplirse TODOS):
+    ÁMBITO GEOGRÁFICO (REFERENCIA, NO RESTRICTIVO):
+    {u_conf.population_scope}
 
-1. **IDIOMA**: El texto está principalmente en uno de los idiomas permitidos
-2. **GEOGRAFÍA**: NO hay referencia fuera del ámbito geográfico (modismos correspondientes fuera de la región, referencias culturales, etc)
-3. **TEMA**: El contenido se relaciona directamente con "{tema}"  cuya descripción es "{desc_tema}"
-   - El post menciona explícitamente el tema o sus componentes clave
-   - NO es solo una mención tangencial o indirecta
-   
-**CRITERIOS DE EXCLUSIÓN AUTOMÁTICA**:
-- spam evidente
-- Idioma totalmente diferente a los permitidos
-- Sin relación alguna con {tema}
-- Hay referencia implícita en el contexto o explícita en el contenido fuera del ámbito geográfico
+    -------------------------
+    REGLAS DE DECISIÓN
+    -------------------------
 
-**INSTRUCCIONES**:
-- Sé PERMISIVO: En caso de duda razonable, marca como relevante
-- Busca la intención: ¿Este post aporta algo al análisis de opinión sobre {tema}?
-- Un post con opinión sobre {tema} es SIEMPRE relevante, incluso si parece noticia
+    1. PRIORIDAD ABSOLUTA: SEMÁNTICA
+    Si el título contiene términos clave del TEMA OBJETIVO → RELEVANTE.
+    Si el contenido describe términos cercanos o relacionados semánticamente → RELEVANTE.
 
-**FORMATO DE SALIDA** (JSON):
-{{
-  "es_relevante": true o false,
-  "confianza": 0.0-1.0,
-  "razon": "breve explicación de 1-2 líneas"
-}}
+    2. CONTEXTO GEOGRÁFICO (FLEXIBLE)
+    - Si menciona ubicaciones adicionales → NO descartar automáticamente
+    - Solo descartar si el contenido claramente trata de OTRO lugar distinto
 
-Responde SOLO con el JSON, sin texto adicional."""
+    3. LA IMAGEN ES SECUNDARIA
+    - SOLO usarla si el texto es ambiguo
+    - NO descartar contenido textual relevante por imagen genérica
+
+    4. PRINCIPIO DE INCLUSIÓN
+    - Si hay duda → RELEVANTE
+
+    5. CASOS DE DESCARTE
+    Solo marcar NO relevante si:
+    - trata de otro tema completamente distinto
+    - o de otra ubicación sin relación clara
+
+    -------------------------
+    DATOS
+    -------------------------
+    Título: {detalles['titulo']}
+    Descripción: {detalles['descripcion'][:1000]}
+    Transcripción: {transcripcion[:1000]}
+
+    -------------------------
+    RESPUESTA (JSON)
+    -------------------------
+    {{
+    "relevante": true/false,
+    "razon": "Explica brevemente por qué (máx 2 líneas)"
+    }}
+    """
+
+    content = [{"type": "text", "text": prompt}]
+    if b64_image:
+        content.append({"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{b64_image}"}})
 
     try:
-        response = ollama.chat(
-            model="Qwen/Qwen2.5-14B-Instruct",
-            messages=[{"role": "user", "content": prompt}],
-            options={"temperature": 0.0}
+        response = client.chat.completions.create(
+            model=MODELO_VLM,
+            messages=[{"role": "user", "content": content}],
+            temperature=0,
+            max_tokens=200
         )
-
         raw = response.choices[0].message.content
-        data = json.loads(raw)
-        
-        return (
-            data.get("es_relevante", False),
-            data.get("confianza", 0.0),
-            data.get("razon", "Sin razón")
-        )
-        
+        clean_raw = re.sub(r"```json|```", "", raw, flags=re.IGNORECASE).strip()
+        res = json.loads(clean_raw)
+        return res.get("relevante", False), res.get("razon", "No se proporcionó razón")
     except Exception as e:
-        print(f"❌ Error en filtro LLM: {e}")
-        # En caso de error, marcamos como relevante para no perder datos
-        return (True, 0.0, f"Error: {str(e)}")
-        
+        return True, f"Error en Gatekeeper: {str(e)}" # En caso de duda, no descartamos
 
-# ===========================================================================
-# 5. SCRAPER PRINCIPAL
-# ===========================================================================
+# =====================================================
+# 3. SCRAPER CORE
+# =====================================================
 
-def run_youtube(config):
-    """Scraper principal de YouTube con filtro LLM"""
-    print("🎥 YouTube SCRAPER INICIADO (CON FILTRO LLM)")
+def run_youtube_with_filter(u_conf):
+    print(f"🚀 YouTube Scraper (Filtro IA + Fechas) para: {u_conf.tema}")
     
-    # Fechas
-    start_date = datetime.strptime(config.general["start_date"], "%Y-%m-%d")
-    end_date = datetime.strptime(config.general["end_date"], "%Y-%m-%d").replace(hour=23, minute=59, second=59)
+    output_folder = Path(u_conf.general["output_folder"])
+    output_folder.mkdir(parents=True, exist_ok=True) 
+    media_folder = output_folder / "media"
+    media_folder.mkdir(parents=True, exist_ok=True)
     
-    # Keywords y configuración
-    keywords = config.scraping["youtube"]["query"]
-    search_form_lang_map = config.general.get("search_form_lang_map", {})
-    tema = getattr(config, 'tema', 'Análisis General')
-    geo_scope = getattr(config, 'geo_scope', 'España')
-    desc_tema = getattr(config, 'desc_tema', '')
-    languages = getattr(config, 'languages', [])
+    youtube = build("youtube", "v3", developerKey=config.CREDENTIALS["youtube"]["API_KEY_YOUTUBE"])
     
-    # Output
-    output_folder = config.general["output_folder"]
-    Path(output_folder).mkdir(parents=True, exist_ok=True)
-    output_file = f"{output_folder}/youtube_global_dataset.csv"
-    
-    # Inicializar API Manager
-    api_keys = [
-        config.CREDENTIALS["youtube"]["API_KEY_YOUTUBE"],
-        config.CREDENTIALS["youtube"]["API_KEY_YOUTUBE2"],
-        config.CREDENTIALS["youtube"]["API_KEY_YOUTUBE3"]
-    ]
-    api_manager = YouTubeAPIManager(api_keys)
-    
-    # IDs vistos (deduplicación)
+    # Formatear fechas para la API
+    rfc_start = f"{u_conf.general['start_date']}T00:00:00Z"
+    rfc_end = f"{u_conf.general['end_date']}T23:59:59Z"
+
+    csv_path = output_folder / "youtube_global_dataset.csv"
     seen_ids = set()
-    
-    # Estadísticas
-    stats = {
-        "videos_encontrados": 0,
-        "videos_relevantes": 0,
-        "videos_filtrados": 0,
-        "comentarios_guardados": 0
-    }
-    
-    with open(output_file, "w", newline="", encoding="utf-8") as f:
+
+    with open(csv_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f, delimiter=';')
         writer.writerow([
-            "tipo", "titulo_video", "descripcion_video", "transcripcion_path",
-            "usuario_comentario", "contenido", "fecha_comentario",
-            "id_video", "fecha_publicacion_video", "numero_respuestas_al_comentario",
-            "likes_comentario", "nombre_canal", "likes_video", "hashtags_video",
-            "enlace_video", "numero_visualizaciones_video", "num_comentarios_video",
-            "search_keyword", "keyword_languages", "usuario_hash", "llm_relevante"
+            "tipo", "id_video", "fecha", "usuario", "id_anonimo", "contenido", 
+            "titulo_video", "transcripcion", "likes", "comments", "vistas", 
+            "canal", "thumbnail_path", "relevancia_ia"
         ])
-        
-        for keyword in keywords:
-            languages = search_form_lang_map.get(keyword, [])
-            print(f"\n🔹 Buscando videos para: {keyword}")
-            
-            query = preparar_query_youtube(keyword)
-            videos = search_videos(api_manager, query, start_date, end_date, max_pages=10)
-            
-            if videos is None:
-                print("❌ Error de cuota, finalizando...")
-                break
-            if not videos:
-                print("⚠️ No se encontraron videos")
-                continue
-            
-            print(f"   📹 Procesando {len(videos)} videos...")
-            
-            for vid in videos:
-                stats["videos_encontrados"] += 1
-                vid_id = vid["videoId"]
-                
-                detalles = get_video_details(api_manager, vid_id)
-                if not detalles:
-                    continue
-                
-                titulo = detalles["titulo"]
-                descripcion = detalles["descripcion"] or ""
-                texto_completo = f"{titulo} {descripcion}"
-                
-                # ===================================================================
-                # FILTRO LLM DE RELEVANCIA
-                # ===================================================================
-                print(f"\n🤖 Verificando relevancia: {titulo[:60]}...")
-                
-                es_relevante, confianza, razon = check_relevance_llm(
-                    text=texto_completo,
-                    tema=tema,
-                    keywords=[keyword],
-                    geo_scope=geo_scope,
-                    languages=languages
-                )
-                
-                if not es_relevante:
-                    print(f"  ⏭️  Video NO relevante. Saltando.")
-                    stats["videos_filtrados"] += 1
-                    continue
-                
-                print(f"  ✅ Video RELEVANTE. Descargando comentarios...")
-                stats["videos_relevantes"] += 1
-                # ===================================================================
-                
-                # Obtener transcripción
-                transcript_path = ""
-                try:
-                    data, text_trans = get_video_transcript(vid_id, return_data=True)
-                    if data:
-                        transcript_path = save_transcript(vid_id, data, output_folder)
-                except:
-                    pass
-                
-                enlace = f"https://www.youtube.com/watch?v={vid_id}"
-                
-                # Hash del canal
-                canal_hash = hashlib.sha256(
-                    detalles["canal_publica"].encode()
-                ).hexdigest()[:16]
-                
-                # Guardar fila de VIDEO
-                if (vid_id, "VIDEO") not in seen_ids:
-                    writer.writerow([
-                        "VIDEO", titulo, descripcion, transcript_path,
-                        detalles["canal_publica"], descripcion[:200],
-                        detalles["fecha_publicacion"], vid_id,
-                        detalles["fecha_publicacion"], 0, 0,
-                        detalles["canal_publica"], detalles["num_likes"],
-                        str(detalles["tags"]), enlace,
-                        detalles["num_visualizaciones"],
-                        detalles["num_comentarios"], keyword,
-                        ",".join(languages), canal_hash, "SI"
-                    ])
-                    seen_ids.add((vid_id, "VIDEO"))
-                
-                # Obtener comentarios
-                comments = get_video_comments(api_manager, vid_id)
-                
-                for c in comments:
-                    # Filtro de fecha
-                    try:
-                        fecha_com = datetime.strptime(c["fecha"], "%Y-%m-%dT%H:%M:%SZ")
-                    except:
-                        continue
-                    
-                    if not (start_date <= fecha_com <= end_date):
-                        continue
-                    
-                    # Hash del usuario
-                    usuario_hash = hashlib.sha256(
-                        c["autor"].encode()
-                    ).hexdigest()[:16]
-                    
-                    writer.writerow([
-                        "COMENTARIO", titulo, descripcion, "",
-                        c["autor"], c["contenido"], c["fecha"],
-                        vid_id, detalles["fecha_publicacion"],
-                        c["num_respuestas"], c["likes"],
-                        detalles["canal_publica"], detalles["num_likes"],
-                        str(detalles["tags"]), enlace,
-                        detalles["num_visualizaciones"],
-                        detalles["num_comentarios"], keyword,
-                        ",".join(languages), usuario_hash, "PENDIENTE"
-                    ])
-                    stats["comentarios_guardados"] += 1
-    
-    print(f"\n✅ YouTube completado: {output_file}")
-    print(f"\n📊 ESTADÍSTICAS:")
-    print(f"  Videos encontrados: {stats['videos_encontrados']}")
-    print(f"  Videos relevantes: {stats['videos_relevantes']}")
-    print(f"  Videos filtrados: {stats['videos_filtrados']}")
-    print(f"  Comentarios guardados: {stats['comentarios_guardados']}")
 
-# ===========================================================================
-# DEBUG
-# ===========================================================================
+        for kw in u_conf.general["keywords"]:
+            print(f"🔍 Buscando: {kw} (Periodo: {u_conf.general['start_date']} al {u_conf.general['end_date']})")
+            
+            search_res = youtube.search().list(
+                q=f'"{kw}"', 
+                part="snippet", 
+                type="video", 
+                maxResults=50, 
+                regionCode="ES",
+                publishedAfter=rfc_start,
+                publishedBefore=rfc_end
+            ).execute()
+
+            for item in search_res.get("items", []):
+                vid_id = item["id"]["videoId"]
+                if vid_id in seen_ids: continue
+                seen_ids.add(vid_id)
+
+                try:
+                    v_stats_res = youtube.videos().list(part="statistics,snippet", id=vid_id).execute()
+                    if not v_stats_res["items"]: continue
+                    v_stats = v_stats_res["items"][0]
+                    
+                    detalles = {
+                        "titulo": v_stats["snippet"]["title"],
+                        "descripcion": v_stats["snippet"]["description"],
+                        "canal_publica": v_stats["snippet"]["channelTitle"],
+                        "thumb_url": v_stats["snippet"]["thumbnails"]["high"]["url"]
+                    }
+                    
+                    transcripcion = get_video_transcript(vid_id)
+                    b64_img = download_and_base64(detalles["thumb_url"])
+
+                    es_relevante, razon_ia = verificar_relevancia_vlm(detalles, transcripcion, b64_img, u_conf)
+
+                    if not es_relevante:
+                        # IMPRIMIMOS LA RAZÓN EN LA TERMINAL
+                        print(f"⏩ SALTADO: {detalles['titulo']}")
+                        print(f"   └─ ❌ RAZÓN IA: {razon_ia}") 
+                        continue
+
+                    # Guardar imagen
+                    img_path = media_folder / f"{vid_id}.jpg"
+                    if b64_img:
+                        with open(img_path, "wb") as img_f:
+                            img_f.write(base64.b64decode(b64_img))
+
+                    # Fila Video
+                    writer.writerow([
+                        "VIDEO", vid_id, v_stats["snippet"]["publishedAt"], 
+                        detalles["canal_publica"], generar_id_anonimo(detalles["canal_publica"]),
+                        detalles["descripcion"], detalles["titulo"], transcripcion,
+                        v_stats["statistics"].get("likeCount", 0), v_stats["statistics"].get("commentCount", 0),
+                        v_stats["statistics"].get("viewCount", 0), detalles["canal_publica"],
+                        f"media/{vid_id}.jpg", "SI"
+                    ])
+
+                    # --- DESCARGAR TODOS LOS COMENTARIOS (PAGINACIÓN) ---
+                    print(f"📥 Descargando comentarios para: {vid_id}")
+                    next_page_token = None
+                    while True:
+                        try:
+                            comments_res = youtube.commentThreads().list(
+                                part="snippet", 
+                                videoId=vid_id, 
+                                maxResults=100, 
+                                textFormat="plainText",
+                                pageToken=next_page_token
+                            ).execute()
+
+                            for c_item in comments_res.get("items", []):
+                                c = c_item["snippet"]["topLevelComment"]["snippet"]
+                                writer.writerow([
+                                    "COMENTARIO", vid_id, c["publishedAt"], c["authorDisplayName"],
+                                    generar_id_anonimo(c["authorDisplayName"]), c["textDisplay"],
+                                    detalles["titulo"], "", c["likeCount"], 
+                                    c_item["snippet"]["totalReplyCount"], 0, detalles["canal_publica"], "", "SI"
+                                ])
+
+                            next_page_token = comments_res.get("nextPageToken")
+                            if not next_page_token: break
+                        except HttpError as e:
+                            if e.resp.status in [403, 404]: break
+                            raise e
+                except Exception as e:
+                    print(f"⚠️ Error procesando video {vid_id}: {e}")
+
+    print(f"✅ Proceso finalizado. Datos en: {csv_path}")
 
 if __name__ == "__main__":
     from types import SimpleNamespace
-    
-    mock_config = SimpleNamespace(
+    mock_conf = SimpleNamespace(
+        tema="Pantalán de Sagunto",
+        desc_tema="Infraestructura portuaria renovada como espacio turístico y cultural con vistas al Mediterráneo.",
+        population_scope="Sagunto, España",
         general={
-            "start_date": "2026-04-01",
-            "end_date": "2026-04-24",
-            "output_folder": "./test_youtube",
-            "search_form_lang_map": {"transporte público valencia": ["Castellano"]}
-        },
-        scraping={
-            "youtube": {"query": ["transporte público valencia"]}
-        },
-        CREDENTIALS=config.CREDENTIALS,
-        tema="Transporte público",
-        geo_scope="Valencia"
+            "output_folder": "./debug_test",
+            "keywords": ["pantalán sagunto", "paseo marítimo sagunto", "renovación pantalán sagunto"],
+            "start_date": "2024-08-20",
+            "end_date": "2025-03-01"
+        }
     )
-    
-    run_youtube(mock_config)
+    run_youtube_with_filter(mock_conf)
