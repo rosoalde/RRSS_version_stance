@@ -15,18 +15,6 @@ print("YouTube SCRAPER INICIADO (CON FILTRO LLM)")
 # Definir las claves de API disponibles
 
 
-def get_youtube_service():
-    """Construye el servicio de YouTube con la clave actual."""
-    return build("youtube", "v3", developerKey=api_keys[current_api_key_index])
-
-youtube = get_youtube_service()
-
-def switch_api_key():
-    """Cambia a la siguiente API Key si la actual se agota."""
-    global current_api_key_index, youtube
-    current_api_key_index = (current_api_key_index + 1) % len(api_keys)
-    print(f"🔑 Cambiando a la API Key {current_api_key_index + 1}")
-    youtube = get_youtube_service()
 
 # ===========================================================================
 # 2. FUNCIÓN DE FILTRO ESTRICTO (REGEX)
@@ -222,10 +210,23 @@ def get_video_comments(video_id):
 filter_instance = LLMRelevanceFilter()
 async def run_youtube(config):
     api_keys = [
-    config.CREDENTIALS["youtube"]["API_KEY_YOUTUBE"],
-    config.CREDENTIALS["youtube"]["API_KEY_YOUTUBE2"],
-    config.CREDENTIALS["youtube"]["API_KEY_YOUTUBE3"]
-]
+        config.CREDENTIALS["youtube"]["API_KEY_YOUTUBE"],
+        config.CREDENTIALS["youtube"]["API_KEY_YOUTUBE2"],
+        config.CREDENTIALS["youtube"]["API_KEY_YOUTUBE3"]
+        ]
+
+
+    def get_youtube_service():
+        """Construye el servicio de YouTube con la clave actual."""
+        return build("youtube", "v3", developerKey=api_keys[current_api_key_index])
+
+    youtube = get_youtube_service()
+
+    def switch_api_key():
+        """Cambia a la siguiente API Key si la actual se agota."""
+        global current_api_key_index, youtube
+        current_api_key_index = (current_api_key_index + 1) % len(api_keys)
+        print(f"🔑 Cambiando a la API Key {current_api_key_index + 1}")
 
     current_api_key_index = 0
     api_keys_exceeded = [False] * len(api_keys)

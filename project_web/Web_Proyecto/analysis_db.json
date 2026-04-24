@@ -6164,5 +6164,28 @@
     "end_date": "2026-04-23",
     "status": "completed",
     "created_at": "2026-04-23T13:21:48.568139"
+  },
+  {
+    "id": "80b481db-52d6-4748-994a-1dbfd1db9a8a",
+    "project_name": "transporte",
+    "tema": "Transporte p\u00fablico",
+    "desc_tema": "El transporte p\u00fablico en la Comunidad Valenciana incluye servicios de autob\u00fas, tranv\u00eda, metro y otros modos de transporte colectivo. Estos servicios son gestionados por la Autoridad de Transporte Metropolitano de Valencia y otras entidades locales.",
+    "username": "admin",
+    "output_folder": "datos/admin/transporte (4)",
+    "sources": [
+      "youtube",
+      "reddit",
+      "bluesky"
+    ],
+    "keywords": "[{\"keyword\":\"transporte p\u00fablico valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"autobuses comunitat valenciana\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"tranv\u00edas valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"metro valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"atmv transporte\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"transporte colectivo valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"servicios transporte valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"transporte urbano valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"transporte interurbano valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"transporte metropolitano valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"transport p\u00fablic valencia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"autobus metropolit\u00e0\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"tranviari val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"metropolit\u00e0 val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"ats val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"transport colectiu\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"tren val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"transport urb\u00e0\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"transports val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"transport metropolit\u00e0\",\"languages\":\"Catalan\",\"razon\":\"\"}]",
+    "languages": [
+      "Castellano",
+      "Catalan"
+    ],
+    "population_scope": "Valencia Provincia",
+    "start_date": "2026-04-01",
+    "end_date": "2026-04-24",
+    "status": "completed",
+    "created_at": "2026-04-24T06:19:32.904151"
   }
 ]

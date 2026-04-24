@@ -123,13 +123,13 @@ try:
     from clean_project.scrapers.reddit_scraper_with_filter import run_reddit
     print("OK ✅")
 
-    print("   - Importando Twitter...", end=" ")
-    from clean_project.scrapers.twitter_scraper_last_version import run_twitter
-    print("OK ✅")
+    # print("   - Importando Twitter...", end=" ")
+    # from clean_project.scrapers.twitter_scraper_last_version import run_twitter
+    # print("OK ✅")
 
-    print("   - Importando LinkedIn...", end=" ")
-    from clean_project.scrapers.linkedin_scraper import run_linkedin    
-    print("OK ✅")
+    # print("   - Importando LinkedIn...", end=" ")
+    # from clean_project.scrapers.linkedin_scraper import run_linkedin    
+    # print("OK ✅")
 
     print("   - Importando YouTube...", end=" ")
     # from clean_project.scrapers.youtube_scraper2 import run_youtube
@@ -137,9 +137,9 @@ try:
 
     print("OK ✅")
     from clean_project.filters.llm_relevance_filter import check_relevance_sync
-    print("   - Importando TikTok...", end=" ")
-    from clean_project.scrapers.tiktok_scraping_last_version import scrape_tiktok as run_tiktok #run_tiktok #import scape_tiktok as run_tiktok            
-    print("OK ✅")
+    # print("   - Importando TikTok...", end=" ")
+    # from clean_project.scrapers.tiktok_scraping_last_version import scrape_tiktok as run_tiktok #run_tiktok #import scape_tiktok as run_tiktok            
+    # print("OK ✅")
     
     print("   - Importando procesamiento de las keywords...", end=" ")
     from clean_project.keyword_processing.keyword_expansion import generate_search_forms
@@ -1076,27 +1076,27 @@ def ejecutar_analisis(data):
     for item in data["results"]:
         red_social = item["social"]
 
-        if red_social == "twitter":
-            try:
-                resultado = run_twitter()
-            except:
-                print("Error al ejecutar run_twitter")    
-        elif red_social == "linkedin":
-            try:
-                resultado = run_linkedin()
-            except:
-                print("Error al ejecutar run_linkedin")    
-        elif red_social == "youtube":
-            try:
-                resultado = run_youtube()
-            except:
-                print("Error al ejecutar run_youtube")
-        elif red_social == "tiktok":
-            try:
-                resultado = run_tiktok()
-            except:
-                print("Error al ejecutar run_tiktok")
-        elif red_social == "reddit":
+        # if red_social == "twitter":
+        #     try:
+        #         resultado = run_twitter()
+        #     except:
+        #         print("Error al ejecutar run_twitter")    
+        # elif red_social == "linkedin":
+        #     try:
+        #         resultado = run_linkedin()
+        #     except:
+        #         print("Error al ejecutar run_linkedin")    
+        # elif red_social == "youtube":
+        #     try:
+        #         resultado = run_youtube()
+        #     except:
+        #         print("Error al ejecutar run_youtube")
+        # elif red_social == "tiktok":
+        #     try:
+        #         resultado = run_tiktok()
+        #     except:
+        #         print("Error al ejecutar run_tiktok")
+        if red_social == "reddit":
             try:
                 async def ejecutar_scraper():
                     resultados_reddit = await run_reddit(u_conf)
@@ -1183,14 +1183,14 @@ async def backend_analisis(data,analysis_id): # 1. Asegurar que es async
                 #     print(f"✅ Bluesky completado (vía thread)")    
             elif red == "reddit":
                 await run_reddit(u_conf)  # await corregido
-            elif red == "twitter":
-                await run_twitter(u_conf)
+            # elif red == "twitter":
+            #     await run_twitter(u_conf)
             elif red == "youtube":
                 await run_youtube(u_conf)
-            elif red == "linkedin":
-                await run_linkedin(u_conf)
-            elif red == "tiktok":
-                await run_tiktok(u_conf)
+            # elif red == "linkedin":
+            #     await run_linkedin(u_conf)
+            # elif red == "tiktok":
+            #     await run_tiktok(u_conf)
                 # ... (lógica de filtrado de fechas de tiktok se mantiene igual)
             print(f"✅ {red} completado")
         except Exception as e:
