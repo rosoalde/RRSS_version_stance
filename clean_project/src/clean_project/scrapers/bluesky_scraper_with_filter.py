@@ -34,7 +34,6 @@ def generar_id_anonimo(username):
     return hashlib.sha256(username.encode()).hexdigest()[:16].upper()
 
 async def download_image_b64(session, url):
-    """Descarga imagen de Bluesky y la pasa a B64 para el VLM."""
     if not url: return None
     try:
         async with session.get(url, timeout=10) as resp:
@@ -46,8 +45,9 @@ async def download_image_b64(session, url):
 
 def parse_bluesky_date(fecha_iso):
     try:
-        dt = datetime.fromisoformat(fecha_iso.replace("Z", "+00:00"))
-        return dt.replace(tzinfo=None)
+        # Manejo más robusto de fechas ISO de Bluesky
+        clean_date = fecha_iso.split('.')[0].replace("Z", "")
+        return datetime.fromisoformat(clean_date)
     except:
         return None
 
@@ -107,24 +107,31 @@ async def verificar_relevancia_vlm(post_data, b64_image, u_conf):
 
 async def fetch_posts(session, keyword, headers, start_date, end_date):
     url = "https://bsky.social/xrpc/app.bsky.feed.searchPosts"
-    params = {
-        "q": keyword, "limit": 50,
-        "since": f"{start_date}T00:00:00Z",
-        "until": f"{end_date}T23:59:59Z"
-    }
+    # Ponemos las fechas en el query 'q' para mayor fiabilidad
+    query_string = f"{keyword} since:{start_date} until:{end_date}"
+    params = {"q": query_string, "limit": 50}
+    
     async with SEM:
-        async with session.get(url, headers=headers, params=params) as resp:
-            if resp.status != 200: return []
-            data = await resp.json()
-            return data.get("posts", [])
+        try:
+            async with session.get(url, headers=headers, params=params) as resp:
+                if resp.status != 200: 
+                    print(f"⚠️ Error API Bluesky ({resp.status})")
+                    return []
+                data = await resp.json()
+                return data.get("posts", [])
+        except Exception as e:
+            print(f"❌ Error de conexión: {e}")
+            return []
 
 async def fetch_thread(session, uri, headers):
     url = "https://bsky.social/xrpc/app.bsky.feed.getPostThread"
     async with SEM:
-        async with session.get(url, headers=headers, params={"uri": uri, "depth": 1}) as resp:
-            if resp.status != 200: return {}
-            data = await resp.json()
-            return data.get("thread", {})
+        try:
+            async with session.get(url, headers=headers, params={"uri": uri, "depth": 1}) as resp:
+                if resp.status != 200: return {}
+                data = await resp.json()
+                return data.get("thread", {})
+        except: return {}
 
 # =====================================================
 # 4. LÓGICA PRINCIPAL
@@ -137,10 +144,6 @@ async def run_bluesky(u_conf):
     output_folder.mkdir(parents=True, exist_ok=True)
     media_folder = output_folder / "media"
     media_folder.mkdir(exist_ok=True)
-    start_date = config.general["start_date"]
-    end_date = config.general["end_date"]
-    start_dt = datetime.strptime(start_date, "%Y-%m-%d")
-    end_dt = datetime.strptime(end_date, "%Y-%m-%d").replace(hour=23, minute=59, second=59)
     
     csv_path = output_folder / "bluesky_global_dataset.csv"
     
@@ -155,6 +158,7 @@ async def run_bluesky(u_conf):
             headers = {"Authorization": f"Bearer {auth['accessJwt']}"}
 
         seen_uris = set()
+        count_total = 0
         
         with open(csv_path, "w", newline="", encoding="utf-8") as f:
             writer = csv.writer(f, delimiter=';')
@@ -166,16 +170,14 @@ async def run_bluesky(u_conf):
             for kw in u_conf.general["keywords"]:
                 print(f"🔍 Buscando en Bluesky: {kw}")
                 posts = await fetch_posts(session, kw, headers, u_conf.general["start_date"], u_conf.general["end_date"])
+                print(f"   -> Encontrados {len(posts)} posts brutos.")
 
                 for p in posts:
                     uri = p["uri"]
-                    fecha_p_raw = p["record"]["createdAt"]
-                    fecha_p = datetime.fromisoformat(fecha_p_raw.replace("Z", "+00:00")).replace(tzinfo=None) 
-                    if not (start_dt <= fecha_p <= end_dt): continue
                     if uri in seen_uris: continue
                     seen_uris.add(uri)
 
-                    # Extraer imagen si existe
+                    # Extraer imagen
                     img_url = None
                     embed = p.get("embed", {})
                     if embed.get("$type") == "app.bsky.embed.images":
@@ -187,10 +189,10 @@ async def run_bluesky(u_conf):
                     es_relevante, razon, idioma = await verificar_relevancia_vlm(p, b64_img, u_conf)
                     
                     if not es_relevante:
-                        print(f"⏩ SALTADO: {p['record'].get('text', '')[:50]}... \n   └─ RAZÓN: {razon}")
+                        print(f"   ⏩ SALTADO: {p['record'].get('text', '')[:40]}... | Razón: {razon}")
                         continue
 
-                    # Guardar imagen local
+                    # Guardar imagen
                     local_img_path = ""
                     if b64_img:
                         filename = f"bsky_{generar_id_anonimo(uri)}.jpg"
@@ -198,45 +200,33 @@ async def run_bluesky(u_conf):
                             img_f.write(base64.b64decode(b64_img))
                         local_img_path = f"media/{filename}"
 
-                    # Guardar Post Original
+                    # Guardar Post
                     writer.writerow([
                         "POST", uri, uri, p["record"]["createdAt"], p["author"]["handle"],
                         generar_id_anonimo(p["author"]["handle"]), p["record"]["text"],
                         p.get("likeCount", 0), p.get("repostCount", 0), p.get("replyCount", 0),
                         local_img_path, idioma, "SI"
                     ])
+                    count_total += 1
 
-                    # Descargar Comentarios del hilo
+                    # Comentarios
                     if p.get("replyCount", 0) > 0:
                         thread = await fetch_thread(session, uri, headers)
                         for reply in thread.get("replies", []):
                             rep_post = reply.get("post", {})
-                            
                             if not rep_post: continue
-
-                            rep_local_img_path = ""
-                            rep_embed = rep_post.get("embed", {})
                             
-                            if rep_embed.get("$type") == "app.bsky.embed.images":
-                                rep_img_url = rep_embed["images"][0]["fullsize"]
-                                
-                                # Descargamos la imagen de la respuesta
-                                rep_b64 = await download_image_b64(session, rep_img_url)
-                                if rep_b64:
-                                    rep_filename = f"bsky_reply_{generar_id_anonimo(rep_post['uri'])}.jpg"
-                                    with open(media_folder / rep_filename, "wb") as img_f:
-                                        img_f.write(base64.b64decode(rep_b64))
-                                    rep_local_img_path = f"media/{rep_filename}"    
-
                             writer.writerow([
                                 "COMENTARIO", rep_post["uri"], uri, rep_post["record"]["createdAt"],
                                 rep_post["author"]["handle"], generar_id_anonimo(rep_post["author"]["handle"]),
                                 rep_post["record"]["text"], rep_post.get("likeCount", 0),
                                 rep_post.get("repostCount", 0), rep_post.get("replyCount", 0),
-                                rep_local_img_path, idioma, "SI"
+                                "", idioma, "SI"
                             ])
+                            count_total += 1
 
-    print(f"✅ Bluesky finalizado. Datos en: {csv_path}")
+    print(f"✅ Bluesky finalizado. Total registros guardados: {count_total}")
+
 
 # =====================================================
 # DEBUG AISLADO
@@ -245,12 +235,12 @@ if __name__ == "__main__":
     from types import SimpleNamespace
     mock_conf = SimpleNamespace(
         tema="ROSALIA LUX TOUR",#"Pantalán de Sagunto",
-        desc_tema="La cuarta gira de conciertos de la cantante española Rosalía, promoviendo su álbum 'Lux', comenzará el 16 de marzo de 2026 en Lyon, Francia, y finalizará el 3 de septiembre de 2026 en San Juan, Puerto Rico.",#"Infraestructura portuaria renovada en Sagunto, Valencia.",
+        desc_tema="Rosalia es una cantante española",#"La cuarta gira de conciertos de la cantante española Rosalía, promoviendo su álbum 'Lux', comenzará el 16 de marzo de 2026 en Lyon, Francia, y finalizará el 3 de septiembre de 2026 en San Juan, Puerto Rico.",#"Infraestructura portuaria renovada en Sagunto, Valencia.",
         population_scope="SIN CONTEXTO GEOGRAFICO ESPECÍFICO",#"España",
         general={
             "output_folder": "./debug_bsky",
-            "keywords": ["ROSALIA LUX TOUR", "Rosalía LUX 2026", "conciertos rosalía 2026", "lux tour rosalía", "rosalía en gira 2026"],#["pantalán sagunto", "puerto sagunto"],
-            "start_date": "2026-03-01",#"2025-02-01",
+            "keywords": ["ROSALIA"], #"Rosalía LUX 2026", "conciertos rosalía 2026", "lux tour rosalía", "rosalía en gira 2026"],#["pantalán sagunto", "puerto sagunto"],
+            "start_date": "2026-04-22",#"2026-03-01",#"2025-02-01",
             "end_date": "2026-04-24",#"2026-04-21"
         }
     )
