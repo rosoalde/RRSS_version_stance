@@ -1,222 +1,238 @@
-import praw
+import asyncio
 import csv
+import json
+import hashlib
+import requests
+import re
+import os
+import sys
+import base64
 from pathlib import Path
 from datetime import datetime
-from langdetect import detect, LangDetectException
-import time
-import re
 import asyncpraw
+from openai import OpenAI
+from types import SimpleNamespace
 
-# NUEVO: Importar filtro LLM
-from clean_project.filters.llm_relevance_filter import LLMRelevanceFilter, PostContent
-from clean_project.filters.llm_relevance_filter import check_relevance_sync
-filter_instance = LLMRelevanceFilter() 
-print(f"REDDIT SCRAPER INICIADO (CON FILTRO LLM)")
+# Configuración de rutas
+ROOT_PATH = Path(__file__).resolve().parents[2]
+if str(ROOT_PATH) not in sys.path:
+    sys.path.insert(0, str(ROOT_PATH))
 
-# -------------------------------------------------------------------------
-# SCRAPER PRINCIPAL CON FILTRO LLM
-# -------------------------------------------------------------------------
-async def run_reddit(config):
-    search_form_lang_map = config.general.get("search_form_lang_map", {})
+import clean_project.config.settings as config
+
+# Cliente vLLM
+client = OpenAI(base_url="http://localhost:8001/v1", api_key="local-token")
+MODELO_VLM = "Qwen/Qwen2.5-VL-7B-Instruct"
+
+# =====================================================
+# 1. UTILIDADES
+# =====================================================
+
+def generar_id_anonimo(username):
+    if not username: return "UNKNOWN"
+    return hashlib.sha256(username.encode()).hexdigest()[:16].upper()
+
+def download_to_base64(url):
+    if not url: return None
+    try:
+        # Reddit a veces bloquea peticiones sin User-Agent
+        headers = {'User-Agent': 'SocialInsight/2.0'}
+        res = requests.get(url, headers=headers, timeout=10)
+        if res.status_code == 200:
+            return base64.b64encode(res.content).decode('utf-8')
+    except: return None
+    return None
+
+def extraer_urls_imagenes(obj):
+    """Extrae URLs de imágenes/GIFs de un post o comentario de Reddit."""
+    urls = []
+    # Caso 1: URL directa (Posts de imagen simple)
+    if hasattr(obj, 'url'):
+        if any(obj.url.lower().endswith(ext) for ext in ['.jpg', '.png', '.jpeg', '.gif']):
+            urls.append(obj.url)
     
-    # Preparar carpeta y archivo
-    output_folder = config.general["output_folder"]
-    Path(output_folder).mkdir(parents=True, exist_ok=True)
-    output_file = f"{output_folder}/reddit_global_dataset.csv"
+    # Caso 2: Media Metadata (Galerías, imágenes en comentarios o GIFs de Giphy)
+    if hasattr(obj, 'media_metadata') and obj.media_metadata:
+        for item in obj.media_metadata.values():
+            # 's' es el objeto original, 'u' es la URL
+            if 's' in item and 'u' in item['s']:
+                urls.append(item['s']['u'])
+    return list(set(urls)) # Deduplicar URLs
 
-    if Path(output_file).exists() and Path(output_file).stat().st_size > 0:
-        print(f"⚠️ El archivo CSV de Reddit ya existe en: {output_file}. Saltando...")
-        return
+# =====================================================
+# 2. EL PORTERO (GATEKEEPER) REDDIT
+# =====================================================
 
-    # Configuración
-    keywords = config.scraping["reddit"]["query"]
-    limit = config.scraping["reddit"].get("limit", None)
-    start_date = datetime.strptime(config.general["start_date"], "%Y-%m-%d")
-    end_date_raw = datetime.strptime(config.general["end_date"], "%Y-%m-%d")
-    end_date = end_date_raw.replace(hour=23, minute=59, second=59)
+async def verificar_relevancia_vlm_reddit(post, b64_images, u_conf):
+    """
+    Analiza la relevancia usando Texto + Imágenes + Nombre del Subreddit.
+    """
+    keywords_str = ", ".join(u_conf.general["keywords"])
+    subreddit_name = post.subreddit.display_name
     
-    # NUEVO: Configuración para filtro LLM
-    tema = config.general.get("tema", "")
-    geo_scope = config.general.get("population_scope", "España")
-    desc_tema = config.general.get("desc_tema", "")
-    languages = config.general.get("languages", [])
+    prompt = f"""
+    TAREA: Determinar si este contenido de Reddit es RELEVANTE.
+    TEMA: {u_conf.tema}
+    CONTEXTO: {u_conf.desc_tema}
+    KEYWORDS: {keywords_str}
+    UBICACIÓN OBJETIVO: {u_conf.population_scope}
 
-    
-    print(f"📅 Rango configurado: {start_date} <--> {end_date}")
-    print(f"🎯 Tema de análisis: {tema}")
-    
-    IDIOMAS = ["en", "es", "ca", "eu", "pt", "fr", "gl", "it"]
-    all_rows = []
-    seen_rows = set()
-    
-    # Estadísticas
-    stats = {
-        "posts_encontrados": 0,
-        "posts_relevantes": 0,
-        "posts_filtrados": 0,
-        "comentarios_guardados": 0
-    }
+    DATOS DE ENTRADA:
+    - Subreddit: r/{subreddit_name}
+    - Título: {post.title}
+    - Texto: {post.selftext[:500]}
 
-    print(f"\n KEYWORDS QUE SE VAN A BUSCAR EN REDDIT: {keywords}\n")
+    REGLAS:
+    1. Herencia de Contexto: Si el subreddit es de una ubicación ajena (ej: r/uruguay y buscas España), marca NO RELEVANTE.
+    2. Prioridad semántica: Si trata sobre el tema o términos relacionados -> RELEVANTE.
+    3. Imagen: Úsala para confirmar el contexto si el texto es breve.
+    4. En caso de duda o si no se puede inferir ubicación, marcar como RELEVANTE.
+
+    Responde en JSON: {{"relevante": true/false, "razon": "...", "idioma": "..."}}
+    """
+
+    content = [{"type": "text", "text": prompt}]
+    # Añadimos hasta 2 imágenes para el análisis
+    for b64 in b64_images[:2]:
+        content.append({"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{b64}"}})
+
+    try:
+        response = client.chat.completions.create(
+            model=MODELO_VLM,
+            messages=[{"role": "user", "content": content}],
+            response_format={"type": "json_object"},
+            temperature=0
+        )
+        res = json.loads(response.choices[0].message.content)
+        return res.get("relevante", False), res.get("razon", "N/A"), res.get("idioma", "Desconocido")
+    except:
+        return True, "Error en validación", "Desconocido"
+
+# =====================================================
+# 3. SCRAPER PRINCIPAL
+# =====================================================
+
+async def run_reddit(u_conf):
+    print(f"🚀 Reddit Scraper Multimodal para: {u_conf.tema}")
+    
+    output_folder = Path(u_conf.general["output_folder"])
+    output_folder.mkdir(parents=True, exist_ok=True)
+    media_folder = output_folder / "media" / "reddit"
+    media_folder.mkdir(parents=True, exist_ok=True)
+    
+    csv_path = output_folder / "reddit_global_dataset.csv"
     
     async with asyncpraw.Reddit(
         client_id=config.CREDENTIALS["reddit"]["reddit_client_id"],
         client_secret=config.CREDENTIALS["reddit"]["reddit_client_secret"],
-        user_agent="SpainUserCollector/1.0"
+        user_agent="SocialInsight/2.0"
     ) as reddit:
-        for keyword in keywords:
-            print(f"🔹 Buscando posts Reddit para keyword: {keyword}")
-            languages = search_form_lang_map.get(keyword, [])
 
-            subreddit = await reddit.subreddit("all")
-            resultados = subreddit.search(keyword, limit=limit)
-            
-            async for post in resultados:
-                stats["posts_encontrados"] += 1
+        all_rows = []
+        seen_ids = set()
+        start_dt = datetime.strptime(u_conf.general["start_date"], "%Y-%m-%d")
+        end_dt = datetime.strptime(u_conf.general["end_date"], "%Y-%m-%d").replace(hour=23, minute=59, second=59)
+
+        for kw in u_conf.general["keywords"]:
+            print(f"🔍 Buscando: {kw}")
+            subreddit_all = await reddit.subreddit("all")
+            search_results = subreddit_all.search(f'"{kw}"', sort="relevance")
+
+            async for post in search_results:
+                if post.id in seen_ids: continue
+                fecha_p = datetime.fromtimestamp(post.created_utc)
+                if not (start_dt <= fecha_p <= end_dt): continue
                 
-                # --- 1. Filtro de Fecha ---
-                fecha_post = datetime.fromtimestamp(post.created_utc)
-                if not (start_date <= fecha_post <= end_date):
-                    continue
-                try:
-                    await post.load()
-                except Exception as e:
-                    print(f"⚠️ Error cargando post: {e}")
-                    continue
+                await post.load()
+                seen_ids.add(post.id)
 
-                # --- 2. Preparar Texto ---
-                titulo = post.title or ""
-                cuerpo = post.selftext or ""
-                texto_post_completo = titulo + " " + cuerpo
+                # --- A. PROCESAR MEDIA DEL POST ---
+                img_urls = extraer_urls_imagenes(post)
+                b64_imgs = [download_to_base64(u) for u in img_urls]
+                b64_imgs = [img for img in b64_imgs if img]
 
-                import hashlib
-                user_name = post.author.name if post.author else "[deleted]"
-                user_hash = hashlib.sha256(user_name.encode()).hexdigest()[:16]
-                
-                # --- 3. Filtro de Idioma ---
-                try:
-                    idioma = detect(texto_post_completo) if len(texto_post_completo.strip()) > 5 else "unknown"
-                except LangDetectException:
-                    idioma = "unknown"
+                # --- B. GATEKEEPER ---
+                es_relevante, razon, idioma = await verificar_relevancia_vlm_reddit(post, b64_imgs, u_conf)
 
-                if idioma not in IDIOMAS:
-                    continue
-
-                # ===================================================================
-                # NUEVO: FILTRO LLM DE RELEVANCIA
-                # ===================================================================
-                print(f"\n📝 Verificando relevancia del post: {titulo[:60]}...")
-                
-                es_relevante, confianza, razon = await filter_instance.check_relevance(
-                    post=PostContent(text=texto_post_completo),
-                    images=None,  # Reddit no incluye imágenes en API de texto
-                    tema=tema,
-                    keywords=keywords,
-                    geo_scope=geo_scope,
-                    languages=languages,
-                    desc_tema=desc_tema
-                )
-                
                 if not es_relevante:
-                    print(f"  ⏭️  Post NO relevante. Saltando comentarios.")
-                    stats["posts_filtrados"] += 1
+                    print(f"  ⏩ SALTADO: {post.title[:50]}... (Razón: {razon})")
                     continue
-                
-                print(f"  ✅ Post RELEVANTE. Descargando comentarios...")
-                stats["posts_relevantes"] += 1
-                # ===================================================================
 
-                # --- 4. GUARDAR POST ---
-                row_post = {
-                    "post_title": titulo,
-                    "post_selftext": cuerpo,
+                # Guardar imágenes localmente
+                local_paths = []
+                for i, b64 in enumerate(b64_imgs):
+                    filename = f"red_{post.id}_{i}.jpg"
+                    with open(media_folder / filename, "wb") as f: f.write(base64.b64decode(b64))
+                    local_paths.append(f"media/reddit/{filename}")
+
+                # --- C. GUARDAR FILA POST ---
+                all_rows.append({
+                    "tipo": "POST",
+                    "id_raiz": post.id,
+                    "id_propio": post.id,
+                    "fecha": fecha_p.strftime("%Y-%m-%d %H:%M"),
                     "usuario": post.author.name if post.author else "[deleted]",
-                    "Fullname": post.author.name if post.author else "[deleted]",
-                    "contenido": texto_post_completo,
-                    "fecha": fecha_post.strftime("%Y-%m-%d %H:%M"),
-                    "enlace": f"https://reddit.com{post.permalink}",
-                    "TipoDeTweet": "Post",
-                    "UsuarioOriginal": "",
-                    "EnlaceOriginal": "",
+                    "id_anonimo": generar_id_anonimo(post.author.name if post.author else "deleted"),
+                    "contenido": post.selftext if post.selftext else post.title,
+                    "likes": post.score,
                     "comments": post.num_comments,
-                    "retweets": 0, 
-                    "quotes": 0,
-                    "hearts": post.score, 
-                    "Likes": post.score,
-                    "Followers": "", "Following": "", "Tweets": "", "Bio": "", 
-                    "Ubicacion": "", "JoinDate": "", "Website": "", 
-                    "IsVerified": "", "IsProtected": "", "plays": 0, 
-                    "search_keyword": keyword,
-                    "keyword_languages": ",".join(languages),
-                    "llm_relevante": "SI"  # NUEVO CAMPO
-                }
-                
-                fila_tuple = tuple(row_post.items())
-                if fila_tuple not in seen_rows:
-                    seen_rows.add(fila_tuple)
-                    all_rows.append(row_post)
+                    "media_path": "|".join(local_paths),
+                    "fuente": f"r/{post.subreddit.display_name}",
+                    "idioma_ia": idioma,
+                    "relevancia_ia": "SI"
+                })
 
-                # --- 5. COMENTARIOS DIRECTOS ÚNICAMENTE (NO RESPUESTAS ANIDADAS) ---
-                try:
-                    await post.comments.replace_more(limit=0)  # No expandir respuestas
-                    
-                    # SOLO top-level comments (comentarios directos al post)
-                    for comment in post.comments:
-                        if not hasattr(comment, 'body'):
-                            continue
-                            
-                        fecha_com = datetime.fromtimestamp(comment.created_utc)
-                        if not (start_date <= fecha_com <= end_date):
-                            continue
+                # --- D. COMENTARIOS DIRECTOS ---
+                await post.comments.replace_more(limit=0)
+                for comment in post.comments:
+                    # Extraer media de comentarios (Reddit permite 1 imagen/GIF por comentario)
+                    c_urls = extraer_urls_imagenes(comment)
+                    c_b64 = download_to_base64(c_urls[0]) if c_urls else None
+                    c_local_path = ""
+                    if c_b64:
+                        c_filename = f"red_comm_{comment.id}.jpg"
+                        with open(media_folder / c_filename, "wb") as f: f.write(base64.b64decode(c_b64))
+                        c_local_path = f"media/reddit/{c_filename}"
 
-                        texto_comentario = comment.body or ""
-                        
-                        # Guardar comentario directo
-                        row_comment = {
-                            "post_title": titulo,
-                            "post_selftext": cuerpo,
-                            "usuario": comment.author.name if comment.author else "[deleted]",
-                            "Fullname": comment.author.name if comment.author else "[deleted]",
-                            "contenido": texto_comentario,
-                            "fecha": fecha_com.strftime("%Y-%m-%d %H:%M"),
-                            "enlace": f"https://reddit.com{post.permalink}",
-                            "TipoDeTweet": "Comentario",
-                            "UsuarioOriginal": post.author.name if post.author else "[deleted]",
-                            "EnlaceOriginal": f"https://reddit.com{post.permalink}",
-                            "comments": "", "retweets": "", "quotes": "",
-                            "hearts": comment.score, 
-                            "Likes": comment.score,
-                            "Followers": "", "Following": "", "Tweets": "", "Bio": "",
-                            "Ubicacion": "", "JoinDate": "", "Website": "",
-                            "IsVerified": "", "IsProtected": "", "plays": 0,
-                            "search_keyword": keyword,
-                            "keyword_languages": ",".join(languages),
-                            "llm_relevante": "PENDIENTE"  # Se filtrará en fase 2
-                        }
-                        
-                        fila_tuple = tuple(row_comment.items())
-                        if fila_tuple not in seen_rows:
-                            seen_rows.add(fila_tuple)
-                            all_rows.append(row_comment)
-                            stats["comentarios_guardados"] += 1
-                            
-                except Exception as e:
-                    print(f"Error obteniendo comentarios: {e}")
+                    all_rows.append({
+                        "tipo": "COMENTARIO",
+                        "id_raiz": post.id,
+                        "id_propio": comment.id,
+                        "fecha": datetime.fromtimestamp(comment.created_utc).strftime("%Y-%m-%d %H:%M"),
+                        "usuario": comment.author.name if comment.author else "[deleted]",
+                        "id_anonimo": generar_id_anonimo(comment.author.name if comment.author else "deleted"),
+                        "contenido": comment.body,
+                        "likes": comment.score,
+                        "comments": len(comment.replies),
+                        "media_path": c_local_path,
+                        "fuente": f"r/{post.subreddit.display_name}",
+                        "idioma_ia": idioma,
+                        "relevancia_ia": "SI"
+                    })
 
-                time.sleep(1)
+        # Guardar CSV
+        if all_rows:
+            with open(csv_path, 'w', newline='', encoding='utf-8') as f:
+                writer = csv.DictWriter(f, fieldnames=all_rows[0].keys(), delimiter=';')
+                writer.writeheader()
+                writer.writerows(all_rows)
 
-    # Guardar CSV
-    fieldnames = list(all_rows[0].keys()) if all_rows else []
-    with open(output_file, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(all_rows)
 
-    print(f"\n✅ CSV Reddit guardado en: {output_file}")
-    print(f"\n📊 ESTADÍSTICAS:")
-    print(f"  Posts encontrados: {stats['posts_encontrados']}")
-    print(f"  Posts relevantes: {stats['posts_relevantes']}")
-    print(f"  Posts filtrados: {stats['posts_filtrados']}")
-    print(f"  Comentarios guardados: {stats['comentarios_guardados']}")
-    
-    return all_rows
+# =====================================================
+# DEBUG AISLADO
+# =====================================================
+if __name__ == "__main__":
+    mock_conf = SimpleNamespace(
+        tema="Pantalán de Sagunto",
+        desc_tema="Renovación de la infraestructura portuaria en Sagunto.",
+        population_scope="España",
+        languages=["es"],
+        general={
+            "output_folder": "./debug_reddit",
+            "keywords": ["pantalán sagunto", "puerto sagunto"],
+            "start_date": "2025-02-01",
+            "end_date": "2026-04-21"
+        },
+        scraping={"reddit": {"limit": 10}}
+    )
+    asyncio.run(run_reddit(mock_conf))

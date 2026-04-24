@@ -12,7 +12,7 @@ import os
 # CONFIGURACIÓN vLLM
 # =====================================================
 client = OpenAI(base_url="http://localhost:8001/v1", api_key="local-token", timeout=30.0)
-MODELO_VLLM = "Qwen/Qwen2.5-14B-Instruct" #"Qwen/Qwen2.5-7B-Instruct"
+MODELO_VLLM = "Qwen/Qwen2.5-VL-7B-Instruct" #"Qwen/Qwen2.5-14B-Instruct" #"Qwen/Qwen2.5-7B-Instruct"
 
 # Ajusta esto según tu GPU (30-50 es ideal para una 3090/4090)
 MICRO_BATCH_SIZE = 10 #1 #30

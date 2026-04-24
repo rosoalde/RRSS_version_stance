@@ -15,7 +15,7 @@ client = OpenAI(
 #   --dtype bfloat16 \
 #   --max-model-len 7000 \
 #   --gpu-memory-utilization 0.95
-MODELO = "Qwen/Qwen2.5-14B-Instruct" #"Qwen/Qwen2.5-7B-Instruct" #"Qwen/Qwen3-30B-A3B"
+MODELO = "Qwen/Qwen2.5-VL-7B-Instruct" #"Qwen/Qwen2.5-14B-Instruct" #"Qwen/Qwen2.5-7B-Instruct" #"Qwen/Qwen3-30B-A3B"
 
 IDIOMAS_COOFICIALES = {"catalán", "valenciano", "euskera", "gallego"}
 

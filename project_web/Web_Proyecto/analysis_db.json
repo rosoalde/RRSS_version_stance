@@ -6208,5 +6208,28 @@
     "end_date": "2026-04-24",
     "status": "completed",
     "created_at": "2026-04-24T07:00:12.695912"
+  },
+  {
+    "id": "1a0d130d-719c-4baf-bc4f-0a1ab571372b",
+    "project_name": "semana santa saguntina",
+    "tema": "semana santa saguntina",
+    "desc_tema": "Fiesta religiosa y cultural celebrada en Sagunto con procesiones, representaciones teatrales y eventos musicales.",
+    "username": "admin",
+    "output_folder": "datos/admin/semana_santa_saguntina",
+    "sources": [
+      "youtube",
+      "reddit",
+      "bluesky"
+    ],
+    "keywords": "[{\"keyword\":\"semana santa sagunto\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"procesiones sagunto\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"religi\u00f3n sagunto\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"sagrado viernes sagunto\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"process\u00f3 de sagunt\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"vestits de penit\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"process\u00f3 saguntina\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"penitents de sagunt\",\"languages\":\"Catalan\",\"razon\":\"\"}]",
+    "languages": [
+      "Castellano",
+      "Catalan"
+    ],
+    "population_scope": "Sagunto",
+    "start_date": "2026-03-01",
+    "end_date": "2026-04-06",
+    "status": "completed",
+    "created_at": "2026-04-24T10:25:54.921723"
   }
 ]

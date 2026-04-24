@@ -1,302 +1,253 @@
-# ---------------------------------------------------------------
-# Scraper de Bluesky OPTIMIZADO (ASYNC) - VERSIÓN FINAL PRO
-# ---------------------------------------------------------------
 import csv
 import asyncio
 import aiohttp
-import sys
+import json
+import hashlib
 import re
+import os
+import sys
+import base64
 from pathlib import Path
 from datetime import datetime
-# Imports de tu proyecto
-try:
-    from clean_project.config import settings as config
-except ImportError:
-    config = None
-print("Bluesky SCRAPER OPTIMIZADO (MODO SIN LÍMITES) INICIADO")
-from clean_project.filters.llm_relevance_filter import LLMRelevanceFilter, PostContent
+from openai import OpenAI
 
-filter_instance = LLMRelevanceFilter()
-# Semáforo para no saturar la API
+# Configuración de rutas relativas
+ROOT_PATH = Path(__file__).resolve().parents[2]
+if str(ROOT_PATH) not in sys.path:
+    sys.path.insert(0, str(ROOT_PATH))
+
+import clean_project.config.settings as config
+
+# Cliente vLLM
+client = OpenAI(base_url="http://localhost:8001/v1", api_key="local-token")
+MODELO_VLM = "Qwen/Qwen2.5-VL-7B-Instruct"
+
+# Semáforo para no saturar la red
 SEM = asyncio.Semaphore(10)
+
+# =====================================================
+# 1. UTILIDADES DE APOYO
+# =====================================================
+
+def generar_id_anonimo(username):
+    if not username: return "UNKNOWN"
+    return hashlib.sha256(username.encode()).hexdigest()[:16].upper()
+
+async def download_image_b64(session, url):
+    """Descarga imagen de Bluesky y la pasa a B64 para el VLM."""
+    if not url: return None
+    try:
+        async with session.get(url, timeout=10) as resp:
+            if resp.status == 200:
+                content = await resp.read()
+                return base64.b64encode(content).decode('utf-8')
+    except:
+        return None
 
 def parse_bluesky_date(fecha_iso):
     try:
-        # Convertimos a datetime y quitamos zona horaria para comparar (Naive)
         dt = datetime.fromisoformat(fecha_iso.replace("Z", "+00:00"))
         return dt.replace(tzinfo=None)
-    except Exception:
+    except:
         return None
 
-# ---------------------------------------------------------------
-# 1. FUNCIÓN PARA BUSCAR POSTS (PAGINACIÓN TOTAL)
-# ---------------------------------------------------------------
-async def fetch_posts_for_keyword(session, keyword, headers, start_date, end_date, search_form_lang_map):
-    url_search = "https://bsky.social/xrpc/app.bsky.feed.searchPosts"
+# =====================================================
+# 2. EL PORTERO (GATEKEEPER) MULTIMODAL
+# =====================================================
+
+async def verificar_relevancia_vlm(post_data, b64_image, u_conf):
+    """
+    Analiza si el post de Bluesky es relevante antes de bajar el hilo.
+    """
+    keywords_str = ", ".join(u_conf.general["keywords"])
+    text = post_data.get("record", {}).get("text", "")
+    author = post_data.get("author", {}).get("displayName", "Usuario")
+
+    prompt = f"""
+    TAREA: Determinar si este post de Bluesky es RELEVANTE.
+    TEMA: {u_conf.tema}
+    CONTEXTO PARA CONTEXTUALIZAR EL TEMA: {u_conf.desc_tema}
+    KEYWORDS RELACIONADAS CON EL TEMA: {keywords_str}
+    UBICACIÓN OBJETIVO: {u_conf.population_scope}
+
+    DATOS DEL POST:
+    - Autor: {author}
+    - Texto: {text}
+
+    REGLAS:
+    1. Prioridad semántica: Si el texto trata sobre el tema o términos relacionados -> RELEVANTE.
+    2. Inferencia: Si el autor o el contexto sugieren la ubicación {u_conf.population_scope} -> RELEVANTE.
+    3. Imagen: Úsala solo si el texto es ambiguo.
+    4. Descarte geográfico: descartar únicamente si los DATOS DEL POST mencionan explícitamente OTRO lugar no relacionado con {u_conf.population_scope}, pero no descartar solo por mencionar otras ubicaciones adicionales. 
+    5. Si no se puede inferir ubicación marcar como RELEVANTE, no descartar por defecto.
+    6. En caso de duda, marcar como RELEVANTE para no perder datos potencial
+
+    Responde en JSON: {{"relevante": true/false, "razon": "...", "idioma": "..."}}
+    """
+
+    content = [{"type": "text", "text": prompt}]
+    if b64_image:
+        content.append({"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{b64_image}"}})
+
+    try:
+        response = client.chat.completions.create(
+            model=MODELO_VLM,
+            messages=[{"role": "user", "content": content}],
+            response_format={"type": "json_object"},
+            temperature=0
+        )
+        res = json.loads(response.choices[0].message.content)
+        return res.get("relevante", False), res.get("razon", "N/A"), res.get("idioma", "Desconocido")
+    except:
+        return True, "Error en validación, se mantiene por precaución", "Desconocido"
+
+# =====================================================
+# 3. FUNCIONES DE COMUNICACIÓN BLUESKY
+# =====================================================
+
+async def fetch_posts(session, keyword, headers, start_date, end_date):
+    url = "https://bsky.social/xrpc/app.bsky.feed.searchPosts"
     params = {
-        "q": keyword,
-        "limit": 100, 
+        "q": keyword, "limit": 50,
         "since": f"{start_date}T00:00:00Z",
-        "until": f"{end_date}T23:59:59Z",
-        "sort": "latest" 
+        "until": f"{end_date}T23:59:59Z"
     }
-    
-    posts_collected = []
-    cursor = None
-    languages = search_form_lang_map.get(keyword, [])
-    
-    print(f"🔹 Iniciando búsqueda profunda para: {keyword}")
-
-    while True:
-        if cursor: params["cursor"] = cursor
-        
-        async with SEM:
-            try:
-                async with session.get(url_search, headers=headers, params=params, timeout=20) as response:
-                    if response.status != 200:
-                        break
-                    
-                    data = await response.json()
-                    posts = data.get("posts", [])
-                    
-                    if not posts:
-                        break 
-                    
-                    for post in posts:
-                        post["_search_keyword"] = keyword
-                        post["_keyword_languages"] = languages
-                    
-                    posts_collected.extend(posts)
-                    cursor = data.get("cursor")
-                    if not cursor:
-                        break
-                    
-                    await asyncio.sleep(0.1)
-            except Exception as e:
-                print(f"❌ Error en keyword {keyword}: {e}")
-                break
-    
-    return posts_collected
-
-# ---------------------------------------------------------------
-# 1.5 FUNCIÓN PARA OBTENER EL HILO (COMENTARIOS)
-# ---------------------------------------------------------------
-async def fetch_post_thread(session, post_uri, headers):
-    url_thread = "https://bsky.social/xrpc/app.bsky.feed.getPostThread"
-    params = {"uri": post_uri, "depth": 1}
-    
     async with SEM:
-        try:
-            async with session.get(url_thread, headers=headers, params=params, timeout=15) as response:
-                if response.status == 200:
-                    data = await response.json()
-                    return data.get("thread", {})
-        except:
-            return {}
-    return {}
+        async with session.get(url, headers=headers, params=params) as resp:
+            if resp.status != 200: return []
+            data = await resp.json()
+            return data.get("posts", [])
 
-# ---------------------------------------------------------------
-# 2. FUNCIÓN PARA DESCARGAR PERFILES
-# ---------------------------------------------------------------
-async def fetch_profile_batch(session, batch, headers):
-    url_profiles = "https://bsky.social/xrpc/app.bsky.actor.getProfiles"
-    params = [("actors", h) for h in batch]
-    
+async def fetch_thread(session, uri, headers):
+    url = "https://bsky.social/xrpc/app.bsky.feed.getPostThread"
     async with SEM:
-        try:
-            async with session.get(url_profiles, headers=headers, params=params, timeout=15) as response:
-                if response.status == 200:
-                    data = await response.json()
-                    return data.get("profiles", [])
-        except:
-            return []
-    return []
+        async with session.get(url, headers=headers, params={"uri": uri, "depth": 1}) as resp:
+            if resp.status != 200: return {}
+            data = await resp.json()
+            return data.get("thread", {})
 
-# ---------------------------------------------------------------
-# 3. LÓGICA PRINCIPAL ASÍNCRONA
-# ---------------------------------------------------------------
-async def _run_bluesky_async(config):
-    stats = {
-        "posts_encontrados": 0,
-        "posts_relevantes": 0,
-        "posts_filtrados": 0
-    }
-    search_form_lang_map = config.general.get("search_form_lang_map", {})
-    output_folder = Path(config.general["output_folder"])
+# =====================================================
+# 4. LÓGICA PRINCIPAL
+# =====================================================
+
+async def run_bluesky(u_conf):
+    print(f"🚀 Bluesky Scraper Multimodal para: {u_conf.tema}")
+    
+    output_folder = Path(u_conf.general["output_folder"])
     output_folder.mkdir(parents=True, exist_ok=True)
-    output_file = output_folder / "bluesky_global_dataset.csv"
+    media_folder = output_folder / "media"
+    media_folder.mkdir(exist_ok=True)
     
-    if output_file.exists() and output_file.stat().st_size > 0:
-        print(f"⚠️ El archivo CSV de Bluesky ya existe. Saltando...")
-        return
-
-    keywords = config.scraping["bluesky"]["query"]
+    csv_path = output_folder / "bluesky_global_dataset.csv"
+    
     username = config.CREDENTIALS["bluesky"]["USERNAME_bluesky"]
     password = config.CREDENTIALS["bluesky"]["PASSWORD_bluesky"]
-    start_date = config.general["start_date"]
-    end_date = config.general["end_date"]
-    tema = config.general.get("tema", "")
-    desc_tema = config.general.get("desc_tema", "")
-    geo_scope = config.general.get("population_scope", "España")
-    languages = config.general.get("languages", [])
-
-    
-    start_dt = datetime.strptime(start_date, "%Y-%m-%d")
-    end_dt = datetime.strptime(end_date, "%Y-%m-%d").replace(hour=23, minute=59, second=59)
 
     async with aiohttp.ClientSession() as session:
-        # --- A. AUTENTICACIÓN ---
-        async with session.post(
-            "https://bsky.social/xrpc/com.atproto.server.createSession",
-            json={"identifier": username, "password": password}
-        ) as resp:
-            if resp.status != 200:
-                print(f"❌ Error Auth Bluesky: {resp.status}")
-                return
-            auth_data = await resp.json()
-            headers = {"Authorization": f"Bearer {auth_data['accessJwt']}"}
+        # Auth
+        async with session.post("https://bsky.social/xrpc/com.atproto.server.createSession",
+                                json={"identifier": username, "password": password}) as resp:
+            auth = await resp.json()
+            headers = {"Authorization": f"Bearer {auth['accessJwt']}"}
 
-        # --- B. BÚSQUEDA DE POSTS ---
-        tasks_posts = [
-            fetch_posts_for_keyword(session, kw, headers, start_date, end_date, search_form_lang_map)
-            for kw in keywords
-        ]
-        results_posts = await asyncio.gather(*tasks_posts)
-        
         seen_uris = set()
-        unique_posts = []
-        for sublist in results_posts:
-            for p in sublist:
-                if p["uri"] not in seen_uris:
-                    seen_uris.add(p["uri"])
-                    unique_posts.append(p)
-
-        # --- B.2 OBTENER COMENTARIOS Y CONTEXTO ---
-        print(f"💬 Buscando hilos para {len(unique_posts)} posts únicos...")
-        all_elements = []
-        filtered_posts = []
-        stats_relevantes = 0
-        stats_filtrados = 0
-
-        for p in unique_posts:
-            text = p.get("record", {}).get("text", "")
-            stats["posts_encontrados"] += 1  # ← NUEVO
-
-            es_relevante, confianza, razon = await filter_instance.check_relevance(
-                post=PostContent(text=text),  
-                # images=None,  # Bluesky no ofrece imágenes en el endpoint de texto, se podría mejorar en el futuro con análisis de enlaces o similar
-                tema=tema,
-                keywords=keywords,
-                geo_scope=geo_scope,
-                languages=languages,
-                desc_tema=desc_tema
-            )
-
-            if not es_relevante:
-                stats["posts_filtrados"] += 1
-                continue
-
-            stats["posts_relevantes"] += 1  # ← NUEVO
-            p["_llm_relevante"] = "SI"
-            filtered_posts.append(p)
-            stats_relevantes += 1
-        # Mapeo para no perder la relación post-hilo
-        posts_to_fetch = [p for p in filtered_posts if p.get("replyCount", 0) > 0]
-        tasks_threads = [fetch_post_thread(session, p["uri"], headers) for p in posts_to_fetch]
         
-        # Añadir posts originales primero
-        for p in unique_posts:
-            p["_is_comment"] = False
-            all_elements.append(p)
+        with open(csv_path, "w", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f, delimiter=';')
+            writer.writerow([
+                "tipo", "uri", "parent_uri", "fecha", "usuario", "id_anonimo", "contenido", 
+                "likes", "reposts", "replies", "media_path", "idioma_ia", "relevancia_ia"
+            ])
 
-        if tasks_threads:
-            results_threads = await asyncio.gather(*tasks_threads)
-            for i, thread_obj in enumerate(results_threads):
-                parent_post_data = posts_to_fetch[i]
-                replies = thread_obj.get("replies", [])
-                for r in replies:
-                    comment_data = r.get("post")
-                    if comment_data and comment_data["uri"] not in seen_uris:
-                        fecha_c = parse_bluesky_date(comment_data["record"].get("createdAt", ""))
-                        #if fecha_c and start_dt <= fecha_c <= end_dt:
-                        seen_uris.add(comment_data["uri"])
-                        comment_data["_is_comment"] = True
-                        comment_data["_parent_text"] = parent_post_data["record"].get("text", "")
-                        comment_data["_parent_author"] = parent_post_data["author"].get("handle")
-                        comment_data["_search_keyword"] = parent_post_data.get("_search_keyword")
-                        comment_data["_keyword_languages"] = parent_post_data.get("_keyword_languages")
-                        all_elements.append(comment_data)
+            for kw in u_conf.general["keywords"]:
+                print(f"🔍 Buscando en Bluesky: {kw}")
+                posts = await fetch_posts(session, kw, headers, u_conf.general["start_date"], u_conf.general["end_date"])
 
-        # --- C. DESCARGA DE PERFILES ---
-        unique_handles = list(set(p["author"]["handle"] for p in all_elements if p.get("author", {}).get("handle")))
-        profile_map = {}
-        for i in range(0, len(unique_handles), 25):
-            batch = unique_handles[i : i + 25]
-            profiles = await fetch_profile_batch(session, batch, headers)
-            for prof in profiles:
-                profile_map[prof["handle"]] = prof
+                for p in posts:
+                    uri = p["uri"]
+                    fecha_p_raw = p["record"]["createdAt"]
+                    fecha_p = datetime.fromisoformat(fecha_p_raw.replace("Z", "+00:00")).replace(tzinfo=None) 
+                    if not (start_dt <= fecha_p <= end_dt): continue
+                    if uri in seen_uris: continue
+                    seen_uris.add(uri)
 
-        # --- D. GENERAR CSV ---
-        fieldnames = [
-            'post_title', 'post_selftext', 'usuario', 'Fullname', 'contenido', 'fecha', 'enlace', 
-            'TipoDeTweet', 'UsuarioOriginal', 'EnlaceOriginal', 
-            'comments', 'retweets', 'quotes', 'hearts', 'plays', 
-            'Likes', 'Followers', 'Following', 'Tweets', 'Bio', 
-            'Ubicacion', 'JoinDate', 'Website', 'IsVerified', 'IsProtected', 
-            'search_keyword', 'keyword_languages'
-        ]
+                    # Extraer imagen si existe
+                    img_url = None
+                    embed = p.get("embed", {})
+                    if embed.get("$type") == "app.bsky.embed.images":
+                        img_url = embed["images"][0]["fullsize"]
+                    
+                    b64_img = await download_image_b64(session, img_url)
 
-        rows = []
-        for post in all_elements:
-            author = post.get("author", {})
-            record = post.get("record", {})
-            handle = author.get("handle")
-            profile = profile_map.get(handle, {})
-            is_comment = post.get("_is_comment", False)
+                    # --- PASO PORTERO ---
+                    es_relevante, razon, idioma = await verificar_relevancia_vlm(p, b64_img, u_conf)
+                    
+                    if not es_relevante:
+                        print(f"⏩ SALTADO: {p['record'].get('text', '')[:50]}... \n   └─ RAZÓN: {razon}")
+                        continue
 
-            rows.append({
-                "post_title": post.get("_parent_text", "") if is_comment else "",
-                "post_selftext": post.get("_parent_text", "") if is_comment else "",
-                "usuario": handle,
-                "Fullname": author.get("displayName", ""),
-                "contenido": record.get("text", ""),
-                "fecha": record.get("createdAt", ""),
-                "enlace": f"https://bsky.app/profile/{handle}/post/{post.get('uri').split('/')[-1]}",
-                "TipoDeTweet": "Comentario" if is_comment else "Post",
-                "UsuarioOriginal": post.get("_parent_author", "N/A"),
-                "EnlaceOriginal": "N/A",
-                "comments": post.get("replyCount", 0),
-                "retweets": post.get("repostCount", 0),
-                "quotes": post.get("quoteCount", 0),
-                "hearts": post.get("likeCount", 0),
-                "Likes": post.get("likeCount", 0),
-                "Followers": profile.get("followersCount", 0),
-                "Following": profile.get("followsCount", 0),
-                "Tweets": profile.get("postsCount", 0),
-                "Bio": profile.get("description", "").replace("\n", " ") if profile.get("description") else "",
-                "Ubicacion": "N/A",
-                "JoinDate": profile.get("createdAt", ""),
-                "Website": "N/A",
-                "IsVerified": author.get("verified", False),
-                "IsProtected": "N/A",
-                "plays": 0,
-                "search_keyword": post.get("_search_keyword", ""),
-                "keyword_languages": ",".join(post.get("_keyword_languages", [])),
-                "llm_relevante": "SI" 
-            })
+                    # Guardar imagen local
+                    local_img_path = ""
+                    if b64_img:
+                        filename = f"bsky_{generar_id_anonimo(uri)}.jpg"
+                        with open(media_folder / filename, "wb") as img_f:
+                            img_f.write(base64.b64decode(b64_img))
+                        local_img_path = f"media/{filename}"
 
-        rows.sort(key=lambda x: x['fecha'], reverse=True)
-        with open(output_file, "w", newline="", encoding="utf-8") as f:
-            writer = csv.DictWriter(f, fieldnames=fieldnames)
-            writer.writeheader()
-            writer.writerows(rows)
+                    # Guardar Post Original
+                    writer.writerow([
+                        "POST", uri, uri, p["record"]["createdAt"], p["author"]["handle"],
+                        generar_id_anonimo(p["author"]["handle"]), p["record"]["text"],
+                        p.get("likeCount", 0), p.get("repostCount", 0), p.get("replyCount", 0),
+                        local_img_path, idioma, "SI"
+                    ])
 
-        print(f"✅ CSV Bluesky guardado: {output_file} ({len(rows)} filas)")
-        print(f"\n📊 ESTADÍSTICAS:")
-        print(f"  Posts encontrados: {stats['posts_encontrados']}")
-        print(f"  Posts relevantes: {stats['posts_relevantes']}")
-        print(f"  Posts filtrados: {stats['posts_filtrados']}")
+                    # Descargar Comentarios del hilo
+                    if p.get("replyCount", 0) > 0:
+                        thread = await fetch_thread(session, uri, headers)
+                        for reply in thread.get("replies", []):
+                            rep_post = reply.get("post", {})
+                            
+                            if not rep_post: continue
 
-# 🔥 CAMBIO CRÍTICO: Función principal ahora es ASYNC
-async def run_bluesky(config):
-    await _run_bluesky_async(config)
+                            rep_local_img_path = ""
+                            rep_embed = rep_post.get("embed", {})
+                            
+                            if rep_embed.get("$type") == "app.bsky.embed.images":
+                                rep_img_url = rep_embed["images"][0]["fullsize"]
+                                
+                                # Descargamos la imagen de la respuesta
+                                rep_b64 = await download_image_b64(session, rep_img_url)
+                                if rep_b64:
+                                    rep_filename = f"bsky_reply_{generar_id_anonimo(rep_post['uri'])}.jpg"
+                                    with open(media_folder / rep_filename, "wb") as img_f:
+                                        img_f.write(base64.b64decode(rep_b64))
+                                    rep_local_img_path = f"media/{rep_filename}"    
+
+                            writer.writerow([
+                                "COMENTARIO", rep_post["uri"], uri, rep_post["record"]["createdAt"],
+                                rep_post["author"]["handle"], generar_id_anonimo(rep_post["author"]["handle"]),
+                                rep_post["record"]["text"], rep_post.get("likeCount", 0),
+                                rep_post.get("repostCount", 0), rep_post.get("replyCount", 0),
+                                rep_local_img_path, idioma, "SI"
+                            ])
+
+    print(f"✅ Bluesky finalizado. Datos en: {csv_path}")
+
+# =====================================================
+# DEBUG AISLADO
+# =====================================================
+if __name__ == "__main__":
+    from types import SimpleNamespace
+    mock_conf = SimpleNamespace(
+        tema="Pantalán de Sagunto",
+        desc_tema="Infraestructura portuaria renovada en Sagunto, Valencia.",
+        population_scope="España",
+        general={
+            "output_folder": "./debug_bsky",
+            "keywords": ["pantalán sagunto", "puerto sagunto"],
+            "start_date": "2025-02-01",
+            "end_date": "2026-04-21"
+        }
+    )
+    asyncio.run(run_bluesky_with_filter(mock_conf))
