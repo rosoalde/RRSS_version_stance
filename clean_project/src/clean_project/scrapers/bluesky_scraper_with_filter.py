@@ -137,6 +137,10 @@ async def run_bluesky(u_conf):
     output_folder.mkdir(parents=True, exist_ok=True)
     media_folder = output_folder / "media"
     media_folder.mkdir(exist_ok=True)
+    start_date = config.general["start_date"]
+    end_date = config.general["end_date"]
+    start_dt = datetime.strptime(start_date, "%Y-%m-%d")
+    end_dt = datetime.strptime(end_date, "%Y-%m-%d").replace(hour=23, minute=59, second=59)
     
     csv_path = output_folder / "bluesky_global_dataset.csv"
     

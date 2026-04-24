@@ -6231,5 +6231,50 @@
     "end_date": "2026-04-06",
     "status": "completed",
     "created_at": "2026-04-24T10:25:54.921723"
+  },
+  {
+    "id": "d53a5813-4c34-45d0-9522-19221759a7e1",
+    "project_name": "semana santa saguntina",
+    "tema": "semana santa sagunto",
+    "desc_tema": "Fiesta de Inter\u00e9s Tur\u00edstico Nacional que celebra la Pasi\u00f3n de Cristo con procesiones y tradiciones religiosas y culturales.",
+    "username": "admin",
+    "output_folder": "datos/admin/semana_santa_saguntina (1)",
+    "sources": [
+      "youtube",
+      "reddit",
+      "bluesky"
+    ],
+    "keywords": "[{\"keyword\":\"semana santa sagunto\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"procesiones sagunto\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"pasi\u00f3n de cristo sagunto\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"fiestas religiosas sagunto\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"religi\u00f3n sagunto\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"process\u00f3 sagunt\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"passi\u00f3 de sagunt\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"religi\u00f3 sagunt\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"p\u00e0ssions sagunt\",\"languages\":\"Catalan\",\"razon\":\"\"}]",
+    "languages": [
+      "Castellano",
+      "Catalan"
+    ],
+    "population_scope": "Sagunto",
+    "start_date": "2026-03-01",
+    "end_date": "2026-04-06",
+    "status": "completed",
+    "created_at": "2026-04-24T10:41:11.057000"
+  },
+  {
+    "id": "6ceca97f-9eb2-489e-9a8f-0e2033a5d21f",
+    "project_name": "ROSALIA",
+    "tema": "ROSALIA LUX TOUR",
+    "desc_tema": "La cuarta gira de conciertos de la cantante espa\u00f1ola Rosal\u00eda, promoviendo su \u00e1lbum 'Lux', comenzar\u00e1 el 16 de marzo de 2026 en Lyon, Francia, y finalizar\u00e1 el 3 de septiembre de 2026 en San Juan, Puerto Rico.",
+    "username": "admin",
+    "output_folder": "datos/admin/ROSALIA",
+    "sources": [
+      "youtube",
+      "reddit",
+      "bluesky"
+    ],
+    "keywords": "[{\"keyword\":\"rosal\u00eda lux tour\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"rosal\u00eda lux 2026\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"conciertos rosal\u00eda 2026\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"rosal\u00eda en concierto 2026\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"lux tour rosal\u00eda\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"rosal\u00eda en gira 2026\",\"languages\":\"Castellano\",\"razon\":\"\"}]",
+    "languages": [
+      "Castellano"
+    ],
+    "population_scope": "SIN CONTEXTO GEOGRAFICO",
+    "start_date": "2026-03-01",
+    "end_date": "2026-04-24",
+    "status": "completed",
+    "created_at": "2026-04-24T10:46:44.033565"
   }
 ]

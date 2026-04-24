@@ -138,7 +138,7 @@ def verificar_relevancia_vlm(detalles, transcripcion, b64_image, u_conf):
 # 3. SCRAPER CORE
 # =====================================================
 
-def run_youtube(u_conf):
+async def run_youtube(u_conf):
     print(f"🚀 YouTube Scraper (Filtro IA + Fechas) para: {u_conf.tema}")
     
     output_folder = Path(u_conf.general["output_folder"])
