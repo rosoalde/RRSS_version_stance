@@ -26,6 +26,40 @@ client = OpenAI(base_url="http://localhost:8001/v1", api_key="local-token")
 MODELO_VLM = "Qwen/Qwen2.5-VL-7B-Instruct"
 
 # =====================================================
+# 1. GESTIÓN DE API KEYS (ROTACIÓN)
+# =====================================================
+
+api_keys = [
+    config.CREDENTIALS["youtube"]["API_KEY_YOUTUBE"],
+    config.CREDENTIALS["youtube"]["API_KEY_YOUTUBE2"],
+    config.CREDENTIALS["youtube"]["API_KEY_YOUTUBE3"]
+]
+
+current_api_key_index = 0
+api_keys_exceeded = [False] * len(api_keys)
+
+def get_youtube_service():
+    """Construye el servicio de YouTube con la clave actual."""
+    return build("youtube", "v3", developerKey=api_keys[current_api_key_index])
+
+# Inicialización global del servicio
+youtube = get_youtube_service()
+
+def switch_api_key():
+    """Cambia a la siguiente API Key si la actual se agota."""
+    global current_api_key_index, youtube, api_keys_exceeded
+    api_keys_exceeded[current_api_key_index] = True
+    current_api_key_index += 1
+    
+    if current_api_key_index >= len(api_keys):
+        print("❌ TODAS las API Keys de YouTube han agotado su cuota.")
+        return False
+        
+    print(f"🔑 Cuota agotada. Cambiando a la API Key {current_api_key_index + 1}...")
+    youtube = get_youtube_service()
+    return True
+
+# =====================================================
 # 1. UTILIDADES DE APOYO
 # =====================================================
 
@@ -139,6 +173,7 @@ def verificar_relevancia_vlm(detalles, transcripcion, b64_image, u_conf):
 # =====================================================
 
 async def run_youtube(u_conf):
+    global youtube
     print(f"🚀 YouTube Scraper (Filtro IA + Fechas) para: {u_conf.tema}")
     
     output_folder = Path(u_conf.general["output_folder"])
@@ -166,16 +201,23 @@ async def run_youtube(u_conf):
         for kw in u_conf.general["keywords"]:
             print(f"🔍 Buscando: {kw} (Periodo: {u_conf.general['start_date']} al {u_conf.general['end_date']})")
             
-            search_res = youtube.search().list(
-                q=f'"{kw}"', 
-                part="snippet", 
-                type="video", 
-                maxResults=50, 
-                regionCode="ES",
-                publishedAfter=rfc_start,
-                publishedBefore=rfc_end
-            ).execute()
+            try:
+                search_res = youtube.search().list(
+                    q=f'"{kw}"', 
+                    part="snippet", 
+                    type="video", 
+                    maxResults=50, 
+                    regionCode="ES",
+                    publishedAfter=rfc_start,
+                    publishedBefore=rfc_end
+                ).execute()
 
+            except HttpError as e:
+                if e.resp.status == 403 and switch_api_key():
+                    # Reintentar con la nueva llave
+                    continue
+                break
+                
             for item in search_res.get("items", []):
                 vid_id = item["id"]["videoId"]
                 if vid_id in seen_ids: continue
