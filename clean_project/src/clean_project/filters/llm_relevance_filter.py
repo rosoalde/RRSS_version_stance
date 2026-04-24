@@ -69,10 +69,10 @@ class LLMRelevanceFilter:
    - NO es solo una mención tangencial o indirecta
    
 **CRITERIOS DE EXCLUSIÓN AUTOMÁTICA**:
-- Publicidad/spam evidente
+- spam evidente
 - Idioma totalmente diferente a los permitidos
 - Sin relación alguna con {tema}
-- Hay referencia fuera del ámbito geográfico
+- Hay referencia implícita en el contexto o explícita en el contenido fuera del ámbito geográfico
 
 **INSTRUCCIONES**:
 - Sé PERMISIVO: En caso de duda razonable, marca como relevante

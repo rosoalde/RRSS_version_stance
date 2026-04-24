@@ -78,11 +78,20 @@ async def run_reddit(config):
                 fecha_post = datetime.fromtimestamp(post.created_utc)
                 if not (start_date <= fecha_post <= end_date):
                     continue
+                try:
+                    await post.load()
+                except Exception as e:
+                    print(f"⚠️ Error cargando post: {e}")
+                    continue
 
                 # --- 2. Preparar Texto ---
                 titulo = post.title or ""
                 cuerpo = post.selftext or ""
                 texto_post_completo = titulo + " " + cuerpo
+
+                import hashlib
+                user_name = post.author.name if post.author else "[deleted]"
+                user_hash = hashlib.sha256(user_name.encode()).hexdigest()[:16]
                 
                 # --- 3. Filtro de Idioma ---
                 try:
@@ -100,7 +109,7 @@ async def run_reddit(config):
                 
                 es_relevante, confianza, razon = await filter_instance.check_relevance(
                     post=PostContent(text=texto_post_completo),
-                    #images=None,  # Reddit no incluye imágenes en API de texto
+                    images=None,  # Reddit no incluye imágenes en API de texto
                     tema=tema,
                     keywords=keywords,
                     geo_scope=geo_scope,

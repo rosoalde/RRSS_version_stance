@@ -6187,5 +6187,26 @@
     "end_date": "2026-04-24",
     "status": "completed",
     "created_at": "2026-04-24T06:19:32.904151"
+  },
+  {
+    "id": "2f7bd27a-9991-4501-870b-7861d7e131d2",
+    "project_name": "transporte",
+    "tema": "transporte p\u00fablico",
+    "desc_tema": "El sistema de transporte p\u00fablico en Valencia Provincia incluye autobuses, trolebuses, tranv\u00edas y otros medios de transporte colectivo. Ofrece servicios regulares y adaptados a las necesidades de los usuarios, incluyendo descuentos y bonificaciones.",
+    "username": "admin",
+    "output_folder": "datos/admin/transporte (5)",
+    "sources": [
+      "youtube"
+    ],
+    "keywords": "[{\"keyword\":\"transport p\u00fablic val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"autobusos val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"trolebus val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"tranviari val\u00e8ncia\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"bonificacions transport\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"descants transport\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"servici autobus\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"transport colectiu\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"tarifa transport\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"usuaris transport\",\"languages\":\"Catalan\",\"razon\":\"\"},{\"keyword\":\"transporte p\u00fablico valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"autobuses valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"tranv\u00edas valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"descuentos transporte valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"servicios p\u00fablicos valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"trolebuses valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"tarifas transporte valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"transporte colectivo valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"bonificaciones transporte valencia\",\"languages\":\"Castellano\",\"razon\":\"\"},{\"keyword\":\"horarios autobuses valencia\",\"languages\":\"Castellano\",\"razon\":\"\"}]",
+    "languages": [
+      "Castellano",
+      "Catalan"
+    ],
+    "population_scope": "Valencia Provincia",
+    "start_date": "2026-04-01",
+    "end_date": "2026-04-24",
+    "status": "completed",
+    "created_at": "2026-04-24T07:00:12.695912"
   }
 ]
