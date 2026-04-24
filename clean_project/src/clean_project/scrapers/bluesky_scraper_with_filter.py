@@ -75,7 +75,7 @@ async def verificar_relevancia_vlm(post_data, b64_image, u_conf):
     - Texto: {text}
 
     REGLAS:
-    1. Prioridad semántica: Si el texto trata sobre el tema o términos relacionados -> RELEVANTE.
+    1. Prioridad semántica: Si el texto trata sobre el tema o tiene términos relacionados con el tema o el contexto o las keywords relacionadas -> RELEVANTE.
     2. Inferencia: Si el autor o el contexto sugieren la ubicación {u_conf.population_scope} -> RELEVANTE.
     3. Imagen: Úsala solo si el texto es ambiguo.
     4. Descarte geográfico: descartar únicamente si los DATOS DEL POST mencionan explícitamente OTRO lugar no relacionado con {u_conf.population_scope}, pero no descartar solo por mencionar otras ubicaciones adicionales. 
@@ -244,14 +244,14 @@ async def run_bluesky(u_conf):
 if __name__ == "__main__":
     from types import SimpleNamespace
     mock_conf = SimpleNamespace(
-        tema="Pantalán de Sagunto",
-        desc_tema="Infraestructura portuaria renovada en Sagunto, Valencia.",
-        population_scope="España",
+        tema="ROSALIA LUX TOUR",#"Pantalán de Sagunto",
+        desc_tema="La cuarta gira de conciertos de la cantante española Rosalía, promoviendo su álbum 'Lux', comenzará el 16 de marzo de 2026 en Lyon, Francia, y finalizará el 3 de septiembre de 2026 en San Juan, Puerto Rico.",#"Infraestructura portuaria renovada en Sagunto, Valencia.",
+        population_scope="SIN CONTEXTO GEOGRAFICO ESPECÍFICO",#"España",
         general={
             "output_folder": "./debug_bsky",
-            "keywords": ["pantalán sagunto", "puerto sagunto"],
-            "start_date": "2025-02-01",
-            "end_date": "2026-04-21"
+            "keywords": ["ROSALIA LUX TOUR", "Rosalía LUX 2026", "conciertos rosalía 2026", "lux tour rosalía", "rosalía en gira 2026"],#["pantalán sagunto", "puerto sagunto"],
+            "start_date": "2026-03-01",#"2025-02-01",
+            "end_date": "2026-04-24",#"2026-04-21"
         }
     )
-    asyncio.run(run_bluesky_with_filter(mock_conf))
+    asyncio.run(run_bluesky(mock_conf))
