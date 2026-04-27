@@ -219,7 +219,7 @@ try:
 except Exception as e:
     print("ERROR VLLM KEYWORDS:", e)
 try:
-    from clean_project.vllm.vllm_sentiment_topic import llm_analysis as vllm_sentiment_analysis
+    from clean_project.vllm.vllm_sentiment_topic_new import llm_analysis as vllm_sentiment_analysis
 except Exception as e:    
     print("ERROR VLLM SENTIMENT:", e)
 try:    
@@ -274,48 +274,51 @@ def calcular_dashboard_base(df):
         if scoreop_file.exists():
             df_scoreop = pd.read_csv(scoreop_file, sep=';', encoding='utf-8')
             
-            # Métricas agregadas por plataforma
-            scoreop_por_plataforma = df_scoreop.groupby('plataforma').agg({
-                'ScoreOP': ['mean', 'median', 'min', 'max', 'count'],
-                'num_comentarios': 'sum'
-            }).round(2).to_dict()
-            
-            # Top posts
-            top_posts = df_scoreop.nlargest(10, 'ScoreOP')[[
-                'plataforma', 'contenido_post', 'stance_post', 
-                'num_comentarios', 'ScoreOP', 'topic'
-            ]].to_dict('records')
-            
-            # Bottom posts (más controversiales)
-            bottom_posts = df_scoreop.nsmallest(10, 'ScoreOP')[[
-                'plataforma', 'contenido_post', 'stance_post', 
-                'num_comentarios', 'ScoreOP', 'topic'
-            ]].to_dict('records')
-            
-            # Distribución de ScoreOP
-            scoreop_distribution = {
-                'muy_positivo': len(df_scoreop[df_scoreop['ScoreOP'] > 100]),
-                'positivo': len(df_scoreop[(df_scoreop['ScoreOP'] > 0) & (df_scoreop['ScoreOP'] <= 100)]),
-                'neutro': len(df_scoreop[df_scoreop['ScoreOP'] == 0]),
-                'negativo': len(df_scoreop[(df_scoreop['ScoreOP'] < 0) & (df_scoreop['ScoreOP'] >= -100)]),
-                'muy_negativo': len(df_scoreop[df_scoreop['ScoreOP'] < -100])
-            }
-            
-            dashboard_base["scoreop"] = {
-                "disponible": True,
-                "total_posts": len(df_scoreop),
-                "por_plataforma": scoreop_por_plataforma,
-                "top_posts": top_posts,
-                "bottom_posts": bottom_posts,
-                "distribution": scoreop_distribution,
-                "stats": {
-                    "media": float(df_scoreop['ScoreOP'].mean()),
-                    "mediana": float(df_scoreop['ScoreOP'].median()),
-                    "min": float(df_scoreop['ScoreOP'].min()),
-                    "max": float(df_scoreop['ScoreOP'].max()),
-                    "std": float(df_scoreop['ScoreOP'].std())
+            if not df_scoreop.empty:
+                # Métricas agregadas por plataforma
+                scoreop_por_plataforma = df_scoreop.groupby('plataforma').agg({
+                    'ScoreOP':['mean', 'median', 'min', 'max', 'count'],
+                    'num_comentarios': 'sum'
+                }).round(2).to_dict()
+                
+                # Top posts
+                top_posts = df_scoreop.nlargest(10, 'ScoreOP')[[
+                    'plataforma', 'contenido_post', 'stance_post', 
+                    'num_comentarios', 'ScoreOP', 'topic'
+                ]].replace({np.nan: ""}).to_dict('records')
+                
+                # Bottom posts (más controversiales)
+                bottom_posts = df_scoreop.nsmallest(10, 'ScoreOP')[[
+                    'plataforma', 'contenido_post', 'stance_post', 
+                    'num_comentarios', 'ScoreOP', 'topic'
+                ]].replace({np.nan: ""}).to_dict('records')
+                
+                # Distribución de ScoreOP
+                scoreop_distribution = {
+                    'muy_positivo': len(df_scoreop[df_scoreop['ScoreOP'] > 100]),
+                    'positivo': len(df_scoreop[(df_scoreop['ScoreOP'] > 0) & (df_scoreop['ScoreOP'] <= 100)]),
+                    'neutro': len(df_scoreop[df_scoreop['ScoreOP'] == 0]),
+                    'negativo': len(df_scoreop[(df_scoreop['ScoreOP'] < 0) & (df_scoreop['ScoreOP'] >= -100)]),
+                    'muy_negativo': len(df_scoreop[df_scoreop['ScoreOP'] < -100])
                 }
-            }
+                
+                dashboard_base["scoreop"] = {
+                    "disponible": True,
+                    "total_posts": len(df_scoreop),
+                    "por_plataforma": scoreop_por_plataforma,
+                    "top_posts": top_posts,
+                    "bottom_posts": bottom_posts,
+                    "distribution": scoreop_distribution,
+                    "stats": {
+                        "media": float(df_scoreop['ScoreOP'].mean() or 0),
+                        "mediana": float(df_scoreop['ScoreOP'].median() or 0),
+                        "min": float(df_scoreop['ScoreOP'].min() or 0),
+                        "max": float(df_scoreop['ScoreOP'].max() or 0),
+                        "std": float(df_scoreop['ScoreOP'].std() or 0)
+                    }
+                }
+            else:
+                dashboard_base["scoreop"] = {"disponible": False, "error": "El archivo ScoreOP existe pero está vacío."}
         else:
             dashboard_base["scoreop"] = {"disponible": False}
             

@@ -32,12 +32,12 @@
                     class="btn btn-primary fw-bold
                         {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}"
                     id="btnApplyFilter"
-                    {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}>
+                    {% if user.role not in['admin', 'analista'] %} disabled {% endif %}>
                     APLICAR FILTRO
                 </button>
                 <button 
                     class="btn btn-outline-secondary
-                        {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}"
+                        {% if user.role not in['admin', 'analista'] %} disabled {% endif %}"
                     id="btnClearFilter"
                     {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}>
                     LIMPIAR
@@ -366,8 +366,8 @@
                     <div class="d-grid gap-3">
                         <button id="btnRunPred" 
                             class="btn btn-outline-success text-start p-3 shadow-sm position-relative
-                                {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}"
-                            {% if user.role not in ['admin', 'analista'] %} disabled {% endif %}>
+                                {% if user.role not in['admin', 'analista'] %} disabled {% endif %}"
+                            {% if user.role not in['admin', 'analista'] %} disabled {% endif %}>
                             <div class="fw-bold"><i class="bi bi-graph-up me-2"></i> Predicción</div>
                             <small class="text-muted d-block mt-1">Predicción de tendencias futuras.</small>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">Fase 3</span>

@@ -15,16 +15,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // ────────────────────────────────────────────────────────
     // VARIABLES GLOBALES
     // ────────────────────────────────────────────────────────
-    let rawDataset = [];
+    let rawDataset =[];
     let charts     = {};
     let tagifyInstance          = null;
     let aceptacionModalInstance = null;
-    let currentGeoTerms         = [];
+    let currentGeoTerms         =[];
     let currentCustomTopic      = "";
     let currentGeoTermsAceptacion = [];
 
     // Paleta de colores principal
-    const COLORS = ["#00ced1", "#e8c302", "#ab54f0", "#f34554", "#2d85e5", "#999999"];
+    const COLORS =["#00ced1", "#e8c302", "#ab54f0", "#f34554", "#2d85e5", "#999999"];
 
     // Paleta ScoreOP (5 categorías: muy pos → muy neg)
     const SCOREOP_COLORS = {
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ════════════════════════════════════════════════════════
     function extractPlatformData(porPlataforma) {
         if (!porPlataforma || typeof porPlataforma !== "object") {
-            return { platforms: [], counts: [], means: [], medians: [], comments: [] };
+            return { platforms: [], counts: [], means: [], medians: [], comments:[] };
         }
 
         // Recoger todas las plataformas existentes en cualquier sub-objeto
@@ -55,15 +55,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const allKeys   = Object.keys(porPlataforma);
         const countKey  = allKeys.find(k => k.toLowerCase().includes("count"));
         const meanKey   = allKeys.find(k => k.toLowerCase().includes("mean"));
-        const medianKey = allKeys.find(k => k.toLowerCase().includes("median") || k.toLowerCase().includes("median"));
+        const medianKey = allKeys.find(k => k.toLowerCase().includes("median"));
         const commentKey= allKeys.find(k => k.toLowerCase().includes("sum"));
 
         return {
             platforms,
-            counts  : countKey   ? platforms.map(p => porPlataforma[countKey][p]   || 0) : [],
-            means   : meanKey    ? platforms.map(p => porPlataforma[meanKey][p]     || 0) : [],
-            medians : medianKey  ? platforms.map(p => porPlataforma[medianKey][p]   || 0) : [],
-            comments: commentKey ? platforms.map(p => porPlataforma[commentKey][p]  || 0) : []
+            counts  : countKey   ? platforms.map(p => porPlataforma[countKey][p]   || 0) :[],
+            means   : meanKey    ? platforms.map(p => porPlataforma[meanKey][p]     || 0) :[],
+            medians : medianKey  ? platforms.map(p => porPlataforma[medianKey][p]   || 0) :[],
+            comments: commentKey ? platforms.map(p => porPlataforma[commentKey][p]  || 0) :[]
         };
     }
 
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ════════════════════════════════════════════════════════
     function scoreopColorClass(value) {
         if (value > 100)  return "success";
-        if (value > 0)    return "success";   // verde claro
+        if (value > 0)    return "success";   
         if (value === 0)  return "secondary";
         if (value >= -100)return "warning";
         return "danger";
@@ -185,18 +185,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 const vol = data.volumen_por_red || {};
                 renderChart("volumenRedChart", "doughnut", {
                     labels: Object.keys(vol),
-                    datasets: [{ data: Object.values(vol), backgroundColor: COLORS, borderWidth: 0 }]
+                    datasets:[{ data: Object.values(vol), backgroundColor: COLORS, borderWidth: 0 }]
                 }, { cutout: "60%" });
             }
         } catch(e) { console.error("Error Donut Plataforma:", e); }
 
-        // Línea: evolución de actividad en el tiempo (usa tendencia_global existente)
+        // Línea: evolución de actividad en el tiempo
         try {
             const trend  = data.tendencia_global || {};
             const fechas = Object.keys(trend).sort();
             renderChart("tendenciaGlobalVolChart", "line", {
                 labels: fechas,
-                datasets: [{
+                datasets:[{
                     label: "Actividad de publicaciones",
                     data: fechas.map(f => trend[f]),
                     borderColor: "#2d85e5",
@@ -221,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 renderChart("tendenciaRedVolChart", "bar", {
                     labels: platData.platforms,
-                    datasets: [
+                    datasets:[
                         {
                             label: "Publicaciones",
                             data: platData.counts,
@@ -289,14 +289,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         // ══════════════════════════════════════════════════════
-        // TAB 3 – TOPICS Y NUBES (sin cambios)
+        // TAB 3 – TOPICS Y NUBES
         // ══════════════════════════════════════════════════════
         try {
-            const topics    = data.topics || [];
+            const topics    = data.topics ||[];
             const topTopics = topics.sort((a, b) => b.volumen - a.volumen).slice(0, 10);
             renderChart("topicsPieChart", "pie", {
                 labels: topTopics.map(t => t.TOPIC),
-                datasets: [{ data: topTopics.map(t => t.volumen), backgroundColor: COLORS, borderWidth: 1 }]
+                datasets:[{ data: topTopics.map(t => t.volumen), backgroundColor: COLORS, borderWidth: 1 }]
             });
             renderTopicsDetail(topics, data.kpis.total);
         } catch(e) { console.error("Error Topics Pie:", e); }
@@ -320,7 +320,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ════════════════════════════════════════════════════════
-    // 3. RENDERIZADO SCOREOP (Tab 2 completo)
+    // 3. RENDERIZADO SCOREOP
     // ════════════════════════════════════════════════════════
     function renderScoreOP(scoreop) {
         const stats = scoreop.stats        || {};
@@ -397,8 +397,8 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
 
         // ── Donut distribución ───────────────────────────────
-        const distLabels = ["Muy positivo", "Positivo", "Neutro", "Negativo", "Muy negativo"];
-        const distValues = [
+        const distLabels =["Muy positivo", "Positivo", "Neutro", "Negativo", "Muy negativo"];
+        const distValues =[
             dist.muy_positivo || 0,
             dist.positivo     || 0,
             dist.neutro       || 0,
@@ -410,7 +410,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             renderChart("scoreopDistributionChart", "doughnut", {
                 labels: distLabels,
-                datasets: [{ data: distValues, backgroundColor: distColors, borderWidth: 0 }]
+                datasets:[{ data: distValues, backgroundColor: distColors, borderWidth: 0 }]
             }, {
                 cutout: "65%",
                 plugins: {
@@ -438,7 +438,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     renderChart("scoreopPlatformChart", "bar", {
                         labels: platData.platforms,
-                        datasets: [{
+                        datasets:[{
                             label: "ScoreOP medio",
                             data: platData.means,
                             backgroundColor: bgBars,
@@ -462,10 +462,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             // ── Listas Top / Bottom ──────────────────────────
-            renderPostsList("topPostsContainer",    scoreop.top_posts    || [], "top");
-            renderPostsList("bottomPostsContainer", scoreop.bottom_posts || [], "bottom");
+            renderPostsList("topPostsContainer",    scoreop.top_posts    ||[], "top");
+            renderPostsList("bottomPostsContainer", scoreop.bottom_posts ||[], "bottom");
 
-        }, 0); // setTimeout para asegurar que los canvas existen en el DOM
+        }, 0); 
     }
 
     // ── Mensaje cuando ScoreOP no está disponible ────────────
@@ -483,9 +483,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </p>
                     </div>
                 </div>`;
-        }
-        // Vaciar KPIs
-        ["kpiScoreopMedia","kpiScoreopMediana","kpiScoreopMax","kpiScoreopMin"].forEach(id => {
+        }["kpiScoreopMedia","kpiScoreopMediana","kpiScoreopMax","kpiScoreopMin"].forEach(id => {
             const el = document.getElementById(id);
             if (el) el.innerText = "--";
         });
@@ -574,7 +572,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ════════════════════════════════════════════════════════
-    // 6. TOPICS DETAIL (Tab 3 - sin cambios)
+    // 6. TOPICS DETAIL
     // ════════════════════════════════════════════════════════
     function renderTopicsDetail(topics, totalGlobal) {
         const container = document.getElementById("topicsDetailContainer");
@@ -613,7 +611,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ════════════════════════════════════════════════════════
-    // 7. FILTROS GEO + TOPIC (sin cambios de lógica)
+    // 7. FILTROS GEO + TOPIC
     // ════════════════════════════════════════════════════════
     function initFilters() {
         const geoInput     = document.getElementById("geoFilterInput");
@@ -635,7 +633,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             currentGeoTerms = tagifyInstance
                 ? tagifyInstance.value.map(t => t.value)
-                : geoInput ? geoInput.value.split(",").map(t => t.trim()).filter(t => t) : [];
+                : geoInput ? geoInput.value.split(",").map(t => t.trim()).filter(t => t) :[];
 
             currentCustomTopic = topicInput ? topicInput.value.trim() : "";
 
@@ -668,7 +666,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const newData = await response.json();
                 resultsPlaceholder.classList.add("d-none");
                 chartsContainer.classList.remove("d-none");
-                rawDataset = newData.raw_data || [];
+                rawDataset = newData.raw_data ||[];
                 renderDashboard(newData);
             } catch (error) {
                 console.error("❌ Error filtro:", error);
@@ -682,7 +680,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (btnClearGeo) btnClearGeo.addEventListener("click", () => {
             if (tagifyInstance) tagifyInstance.removeAllTags();
             else if (geoInput) geoInput.value = "";
-            currentGeoTerms = [];
+            currentGeoTerms =[];
             currentCustomTopic ? applyFilters() : cargarDashboard(projectSelect.value);
         });
 
@@ -719,7 +717,7 @@ document.addEventListener("DOMContentLoaded", () => {
     projectSelect.addEventListener("change", e => cargarDashboard(e.target.value));
 
     // ════════════════════════════════════════════════════════
-    // 9. INDICADOR DE ACEPTACIÓN (sin cambios de lógica)
+    // 9. INDICADOR DE ACEPTACIÓN
     // ════════════════════════════════════════════════════════
     async function aplicarFiltroAceptacion() {
         const analysisId   = projectSelect.value;
@@ -829,7 +827,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>`;
 
         let pillarsHtml = '<div class="row g-3">';
-        for (const [p, value] of Object.entries(porPilares)) {
+        for (const[p, value] of Object.entries(porPilares)) {
             const percent    = ((value + 1) / 2 * 100) || 0;
             const nombreLimpio = p.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase());
             const definicion = DEFINICIONES_PILARES[p] || "Análisis de pilar estratégico.";
