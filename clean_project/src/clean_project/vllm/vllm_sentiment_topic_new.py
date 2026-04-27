@@ -439,17 +439,23 @@ def build_prompts(tema, desc_tema, keywords_list, population_scope, languages):
 - Ubicación permitida: {population_scope}
 
 --- INSTRUCCIONES CLARAS ---
-1. ANALIZA SOLO el bloque [CONTENIDO] para sentimiento y topic
-2. Usa [TÍTULO POST], [TRANSCRIPCIÓN], etc. SOLO como contexto auxiliar
-3. El topic explica el ARGUMENTO del [CONTENIDO], NO repetir el tema general
+1. Identifica el idioma del bloque [CONTENIDO] ignorando el idioma del [TÍTULO] o [POST PADRE].
+2. Determina si el [CONTENIDO] es relevante.
+3. ANALIZA SOLO el bloque [CONTENIDO] para sentimiento y topic
+4. Usa [TÍTULO POST], [TRANSCRIPCIÓN], etc. SOLO como contexto auxiliar
+5. El topic explica el ARGUMENTO del [CONTENIDO], NO repetir el tema general
 
---- CONTENIDO A ANALIZAR ---
-CONTENIDO_ANALIZAR
+
+🚨 PASO 0: FILTRO DE EXCLUSIÓN 🚨
+Marca Sentimiento=2 y Topic="no relacionado" si:
+- El [CONTENIDO] no está en {langs}.
+- El [CONTENIDO] es spam o no tiene relación con {tema}.
+
 
 🚨 PASO 0: FILTRO DE EXCLUSIÓN 🚨
 
 Excluye (marca Sentimiento=2, Topic="no relacionado") si:
-1. IDIOMA: El texto del COMENTARIO NO está en {langs}
+1. IDIOMA: El texto del [CONTENIDO] NO está en {langs}
 {geo_instruction}
 3. SPAM/PUBLICIDAD: mensajes sin texto coherente o que promueven productos/servicios sin relación con "{tema}".
 4. AJENO: No relacionado con "{tema}"
@@ -467,10 +473,10 @@ Determina la POSTURA sobre "{tema}":
 --- PASO 2: TÓPICO (el PORQUÉ del posicionamiento) ---
 
 🚨 REGLAS CRÍTICAS:
-1. NO uses "{tema}" ni "{keywords_str}" como tópico
-2. El tópico es el ARGUMENTO o ÁNGULO específico
+1. PROHIBIDO usar las palabras de "{tema}" ni "{keywords_str}" como tópico
+2. El tópico ser el "POR QUÉ" (ARGUMENTO o ÁNGULO específico)
 3. Revisa TÓPICOS EXISTENTES abajo - si coincide, USA EL MISMO
-4. Debe ser autoexplicativo (2-4 palabras en castellano)
+4. No uses frases genéricas. Sé específico con el argumento. El Tópico debe ser autoexplicativo (2-4 palabras en castellano)
 
 Ejemplos de construcción:
 - Si el usuario apoya o se posiciona positivamente con respecto al tema (1): 
@@ -486,17 +492,21 @@ Ejemplos de construcción:
 
 __TOPICS_EXISTENTES__
 
+
+--- CONTENIDO A ANALIZAR ---
+__CONTENIDO_ANALIZAR__
+
 --- FORMATO JSON ---
 {{
   "Verificacion_Filtro": {{
-    "Idioma_Real": "<idioma detectado en el texto del CONTENIDO>",
+    "Idioma_Real": "<Indica el idioma del bloque [CONTENIDO]>",
     "Ubicacion_Real": "<lugar mencionado o 'Desconocida' hallado o inferido a partir del CONTENIDO_ANALIZAR>",
-    "Relevancia_Tematica": "Explica brevemente si el CONTENIDO está relacionado con el tema central o no, basándote en el texto y contexto. Si es irrelevante, explica por qué.",
+    "Relevancia_Tematica": "Explica brevemente si el [CONTENIDO] está relacionado con el tema central o no, basándote en el texto y contexto. Si es irrelevante, explica por qué.",
     "Pasa_el_filtro": "SÍ o NO"
   }},
   "Topics": [
     {{
-      "Topic": "<argumento_especifico_en_castellano>",
+      "Topic": "<argumento_especifico_en_castellano_SIN_usar_palabras_prohibidas>",
       "Sentimiento": "<1|-1|0|2>"
     }}
   ]

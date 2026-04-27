@@ -170,6 +170,12 @@ try:
         print("⚠️ No se pudo importar metrics:", e)
         metrics = None    
 
+    try:
+        from clean_project.analysis.scoreop_calculator import ejecutar_scoreop_desde_logica
+    except Exception as e:
+        print("⚠️ No se pudo importar ejecutar_scoreop_desde_logica:", e)
+        ejecutar_scoreop_desde_logica = None    
+
     ##### Export dataset en excel
     # try:
     #     from clean_project.analysis.export_dataset import metrics
@@ -253,75 +259,72 @@ def extraer_json(texto: str):
 
 
 def calcular_dashboard_base(df):
-    df = df.copy()
-    # Normalización de seguridad
-    df["SENTIMIENTO"] = pd.to_numeric(df["SENTIMIENTO"], errors="coerce").fillna(0).astype(int)
-    df["TOPIC"] = df["TOPIC"].fillna("Otros").astype(str).str.strip()
+    """Genera las métricas básicas para el dashboard"""
     
-    map_sent = {-1: "Negativo", 0: "Neutro", 1: "Positivo"}
-    df["sent_label"] = df["SENTIMIENTO"].map(map_sent)
-
-    df["FECHA"] = pd.to_datetime(df["FECHA"], errors="coerce")
-    df = df.dropna(subset=["FECHA"])
-    df["FECHA"] = df["FECHA"].dt.strftime("%Y-%m-%d")
-
-    # 1. KPIs Globales
-    kpis = {
-        "total": len(df),
-        "positivos": (df["SENTIMIENTO"] == 1).sum(),
-        "neutros": (df["SENTIMIENTO"] == 0).sum(),
-        "negativos": (df["SENTIMIENTO"] == -1).sum(),
-    }
-
-    # 2. TÓPICOS (La parte que te falta)
-    # Agrupamos y contamos sentimientos por cada tema
-    df_topics = df[df["TOPIC"].str.lower() != "otros"].copy()
-    topics_list = (
-        df_topics.groupby("TOPIC")
-        .agg(
-            volumen=("ID", "count"),
-            pos=("SENTIMIENTO", lambda x: (x == 1).sum()),
-            neu=("SENTIMIENTO", lambda x: (x == 0).sum()),
-            neg=("SENTIMIENTO", lambda x: (x == -1).sum()),
-            sentimiento_prom=("SENTIMIENTO", "mean")
-        )
-        .reset_index()
-        .sort_values(by="volumen", ascending=False)
-        .head(15) # Top 15 temas
-        .to_dict(orient="records")
-    )
-
-    # 3. Tendencias y Redes
-    tendencia_global = df.groupby("FECHA").size().to_dict()
-    volumen_por_red = df["FUENTE"].value_counts().to_dict()
-    tendencia_por_red = {}
-    tendencia_sentimiento = (
-        df.groupby(["FECHA", "sent_label"])
-          .size()
-          .unstack(fill_value=0)
-          .to_dict(orient="index")
-    )
-
-    for red in df["FUENTE"].unique():
-        df_red = df[df["FUENTE"] == red]
-        tendencia_por_red[red] = {
-            "total": df_red.groupby("FECHA").size().to_dict(),
-            "sentimiento": (
-                df_red.groupby(["FECHA", "sent_label"])
-                      .size()
-                      .unstack(fill_value=0)
-                      .to_dict(orient="index")
-            )
-        }
-
-    return {
-        "kpis": kpis,
-        "tendencia_global": tendencia_global,
-        "tendencia_sentimiento": tendencia_sentimiento,
-        "volumen_por_red": volumen_por_red,
-        "tendencia_por_red": tendencia_por_red,
-        "topics": topics_list 
-    }
+    # ... código existente de métricas de sentimiento ...
+    
+    # ===================================================================
+    # NUEVO: MÉTRICAS DE SCOREOP
+    # ===================================================================
+    try:
+        # Buscar archivo scoreop_consolidado.csv
+        output_folder = Path(df.attrs.get('output_folder', './'))
+        scoreop_file = output_folder / "scoreop_consolidado.csv"
+        
+        if scoreop_file.exists():
+            df_scoreop = pd.read_csv(scoreop_file, sep=';', encoding='utf-8')
+            
+            # Métricas agregadas por plataforma
+            scoreop_por_plataforma = df_scoreop.groupby('plataforma').agg({
+                'ScoreOP': ['mean', 'median', 'min', 'max', 'count'],
+                'num_comentarios': 'sum'
+            }).round(2).to_dict()
+            
+            # Top posts
+            top_posts = df_scoreop.nlargest(10, 'ScoreOP')[[
+                'plataforma', 'contenido_post', 'stance_post', 
+                'num_comentarios', 'ScoreOP', 'topic'
+            ]].to_dict('records')
+            
+            # Bottom posts (más controversiales)
+            bottom_posts = df_scoreop.nsmallest(10, 'ScoreOP')[[
+                'plataforma', 'contenido_post', 'stance_post', 
+                'num_comentarios', 'ScoreOP', 'topic'
+            ]].to_dict('records')
+            
+            # Distribución de ScoreOP
+            scoreop_distribution = {
+                'muy_positivo': len(df_scoreop[df_scoreop['ScoreOP'] > 100]),
+                'positivo': len(df_scoreop[(df_scoreop['ScoreOP'] > 0) & (df_scoreop['ScoreOP'] <= 100)]),
+                'neutro': len(df_scoreop[df_scoreop['ScoreOP'] == 0]),
+                'negativo': len(df_scoreop[(df_scoreop['ScoreOP'] < 0) & (df_scoreop['ScoreOP'] >= -100)]),
+                'muy_negativo': len(df_scoreop[df_scoreop['ScoreOP'] < -100])
+            }
+            
+            dashboard_base["scoreop"] = {
+                "disponible": True,
+                "total_posts": len(df_scoreop),
+                "por_plataforma": scoreop_por_plataforma,
+                "top_posts": top_posts,
+                "bottom_posts": bottom_posts,
+                "distribution": scoreop_distribution,
+                "stats": {
+                    "media": float(df_scoreop['ScoreOP'].mean()),
+                    "mediana": float(df_scoreop['ScoreOP'].median()),
+                    "min": float(df_scoreop['ScoreOP'].min()),
+                    "max": float(df_scoreop['ScoreOP'].max()),
+                    "std": float(df_scoreop['ScoreOP'].std())
+                }
+            }
+        else:
+            dashboard_base["scoreop"] = {"disponible": False}
+            
+    except Exception as e:
+        print(f"⚠️ Error cargando métricas ScoreOP: {e}")
+        dashboard_base["scoreop"] = {"disponible": False, "error": str(e)}
+    # ===================================================================
+    
+    return dashboard_base
 
 def generar_keywords_con_ia(tema: str, target_languages: list[str], population_scope: str):
     #Si population_scope llega como lista, conviértela a texto
@@ -1203,6 +1206,23 @@ async def backend_analisis(data,analysis_id): # 1. Asegurar que es async
         vllm_sentiment_analysis(u_conf)
     except Exception as e:
         print("❌ Error ejecutando LLM Sentiment:", e)  
+
+    # ===================================================================
+    # 3.5 CÁLCULO DE SCOREOP (NUEVO)
+    # ===================================================================
+    try:
+        print("\n📊 Calculando ScoreOP (Posición Social Ponderada)...")
+        resultados_scoreop = ejecutar_scoreop_desde_logica(u_conf)
+        
+        if resultados_scoreop and 'consolidado' in resultados_scoreop:
+            print(f"✅ ScoreOP calculado para {len(resultados_scoreop['consolidado'])} posts")
+        else:
+            print("⚠️ ScoreOP: No se encontraron datos para calcular")
+    except Exception as e:
+        print(f"❌ Error calculando ScoreOP: {e}")
+        import traceback
+        traceback.print_exc()
+    # ===================================================================
 
     # --- NOTA: HEMOS QUITADO PILARES DE AQUÍ PARA QUE NO SEA AUTOMÁTICO ---
 
